@@ -1,0 +1,142 @@
+---
+import "../../styles/global.css";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+const projects = [
+  {
+    slug: "scara",
+    title: "SCARA Robot — Built from Scratch",
+    description:
+      "A 3-DOF SCARA robot designed and constructed from scratch for an automated welding application, integrating mechanical design, control with Raspberry Pi Pico, and kinematic simulation in MATLAB.",
+    technologies: ["Raspberry Pi Pico", "Solid Edge", "Control Systems", "MATLAB"],
+    image: "/projects/scara.jpeg",
+  },
+  {
+    slug: "robot",
+    title: "Differential Drive Robot",
+    description:
+      "A differential mobile robot designed and built from scratch, integrating ROS2 simulation with real-world control using a Raspberry Pi Pico, encoders, and a dual motor driver for accurate navigation between waypoints.",
+    technologies: ["ROS2", "Control Systems", "Encoders", "Raspberry Pi Pico"],
+    image: "/projects/car.jpeg",
+  },
+{
+  slug: "hovercraft",
+  title: "Racing Hovercraft Prototype",
+  description:
+    "High-speed hovercraft engineered for autonomous racing. Features air-cushion propulsion, real-time vision processing with Raspberry Pi, and precise motor control via Arduino and ESCs.",
+  technologies: ["Raspberry Pi", "Arduino", "ESC", "6S Li-Po Battery", "3D Printing"],
+  image: "/projects/hovercraft.jpeg",
+},
+
+  {
+    slug: "iot",
+    title: "Smart Home IoT System",
+    description:
+      "A smart home automation project designed for real-time monitoring and control of home devices using ESP32, MQTT, and cloud integration. Combines backend (PHP, MySQL) and frontend (Grafana) for seamless visualization and automation.",
+    technologies: ["ESP32", "MQTT", "Node.js", "MySQL", "Grafana"],
+    image: "/projects/iot.jpeg",
+  },
+  {
+  slug: "underwater",
+  title: "S.U.S.D.E.M — Underwater Monitoring System",
+  description:
+    "An autonomous underwater vehicle designed to monitor eutrophication indicators such as pH and turbidity. Built with ESP32 microcontrollers, waterproof electronics, and a modular PLA-PVC structure for reliable underwater operation.",
+  technologies: ["ESP32", "Sensors", "I2C", "Environmental Monitoring"],
+  image: "/projects/underwater.jpeg",
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Projects — Mariana Calle</title>
+  </head>
+
+  <body>
+    <Navbar />
+    <main class="projects-bg">
+      <section class="projects-header">
+        <h1>Projects</h1>
+        <p>Engineering meets creativity — prototypes, control systems, and imagination in motion.</p>
+      </section>
+
+      <section class="projects-grid">
+        {projects.map((p) => (
+          <a class="project-card" href={`/projects/${p.slug}`}>
+            <img src={p.image} alt={p.title} />
+            <h2>{p.title}</h2>
+            <p>{p.description}</p>
+            <div class="tech">{p.technologies.join(" · ")}</div>
+          </a>
+        ))}
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+.projects-bg {
+  background-image: url("/textures/paper-texture.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.projects-header {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  backdrop-filter: blur(4px);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.project-card h2 {
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.tech {
+  font-size: 0.8rem;
+  color: var(--color-deep);
+  font-weight: 500;
+}
+</style>

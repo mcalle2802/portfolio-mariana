@@ -1,0 +1,368 @@
+---
+import "../../styles/global.css";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Racing Hovercraft — Mariana Calle</title>
+  </head>
+
+  <body>
+    <Navbar />
+
+    <main class="project-page">
+      <section class="project-hero">
+        <img src="/projects/hovercraft/hovercraft1.jpeg" alt="Racing Hovercraft" class="hero-img" />
+        <div class="overlay">
+          <h1>Racing Hovercraft</h1>
+          <p>High-speed hovercraft integrating mechanical optimization, vision control, and embedded electronics.</p>
+        </div>
+      </section>
+
+      <section class="project-content">
+        <h2>Project Overview</h2>
+        <p>
+          This project involved the design and construction of a <strong>racing hovercraft</strong> 
+          focused on achieving high speed and dynamic maneuverability. The system integrated 
+          mechanical, electronic, and control subsystems, aiming to autonomously complete a track 
+          while avoiding obstacles represented by balloons using <strong>computer vision</strong>.
+        </p>
+
+        <h2>Electronic System and Control</h2>
+        <p>
+          The hovercraft’s brain was a <strong>Raspberry Pi 2</strong>, responsible for 
+          processing image data in real-time to detect and avoid balloons along the race path. 
+          Due to the limited processing power of the Raspberry Pi 2, the system experienced some 
+          latency in decision-making, which delayed directional responses during testing.
+        </p>
+
+        <p>
+          A <strong>microcontroller Arduino</strong> received control signals from the Raspberry Pi 
+          and transmitted them to the <strong>ESCs (Electronic Speed Controllers)</strong> to 
+          regulate motor speed and thrust. The entire system was powered by a <strong>6S Li-Po battery</strong>, 
+          providing high voltage and ensuring the necessary power for the propulsion and lift systems.
+        </p>
+
+        <h2>Mechanical Design</h2>
+        <p>
+          The hovercraft’s mechanical structure was designed for speed and stability. 
+          One propeller was lowered and re-machined on a lathe for improved balance and aerodynamic performance. 
+          The lift fan, made from <strong>ABS</strong> through 3D printing, used a 
+          <strong>drone motor 2212</strong> and a smaller propeller to optimize the hovercraft’s lift.
+        </p>
+
+        <p>
+          To enhance the <strong>air cushion efficiency</strong>, a conical duct was implemented to 
+          channel airflow evenly across the skirt. Additionally, a controlled air outlet system with 
+          small vents was designed to prevent rapid air leakage, improving hover stability and lift 
+          control during turns and acceleration.
+        </p>
+
+        <h2>Power and Propulsion</h2>
+        <p>
+          The propulsion system consisted of dual motors for thrust and lift, 
+          driven by independent ESCs. Power was supplied through a <strong>6S Li-Po battery</strong>, 
+          ensuring consistent torque and high performance during the race.
+        </p>
+
+        <h2>Challenges and Solutions</h2>
+        <ul>
+          <li><strong>Slow image processing:</strong> The Raspberry Pi 2’s limited CPU caused delays in real-time response. Future versions could integrate a Raspberry Pi 4 for better frame processing.</li>
+          <li><strong>Lift stability:</strong> Improved through the implementation of a conical airflow diffuser and redesigned vents for even air distribution.</li>
+          <li><strong>Propulsion control:</strong> Optimized by calibrating ESCs and re-machining propellers for aerodynamic precision.</li>
+        </ul>
+
+        <h2>Results</h2>
+        <p>
+          The final prototype demonstrated stable lift, rapid forward motion, and the ability 
+          to adjust direction based on visual feedback. Despite some latency in obstacle detection, 
+          the hovercraft successfully completed controlled test runs, validating its aerodynamic and 
+          electronic design under race-like conditions.
+        </p>
+
+        <!-- 🔹 PROJECT GALLERY -->
+        <h2>Project Gallery</h2>
+
+        <div class="gallery-container">
+          <div class="gallery-slider">
+            <img src="/projects/hovercraft/hovercraft1.jpeg" alt="Hovercraft 1" class="active" />
+            <img src="/projects/hovercraft/hovercraft2.jpeg" alt="Hovercraft 2" />
+            <img src="/projects/hovercraft/hovercraft3.jpeg" alt="Hovercraft 3" />
+            <img src="/projects/hovercraft/hovercraft4.jpeg" alt="Hovercraft 4" />
+            <img src="/projects/hovercraft/hovercraft5.jpeg" alt="Hovercraft 5" />
+            <img src="/projects/hovercraft/hovercraft6.jpeg" alt="Hovercraft 6" />
+            <img src="/projects/hovercraft/hovercraft7.jpeg" alt="Hovercraft 7" />
+            <img src="/projects/hovercraft/hovercraft8.jpeg" alt="Hovercraft 8" />
+            <img src="/projects/hovercraft/hovercraft9.jpeg" alt="Hovercraft 9" />
+            <img src="/projects/hovercraft/hovercraft10.jpeg" alt="Hovercraft 10" />
+          </div>
+
+          <button class="gallery-btn prev">❮</button>
+          <button class="gallery-btn next">❯</button>
+        </div>
+
+        <!-- 🔹 Lightbox (Fullscreen Viewer) -->
+        <div id="lightbox" class="lightbox">
+          <button class="close">&times;</button>
+          <button class="lightbox-nav prev">❮</button>
+          <button class="lightbox-nav next">❯</button>
+          <img id="lightbox-img" class="lightbox-content" />
+        </div>
+
+        <!-- 🔹 Back to Projects Button -->
+        <section class="back-link">
+          <a href="/projects">← Back to Projects</a>
+        </section>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<!-- 🔹 Gallery Script + Styles -->
+<script>
+  const items = document.querySelectorAll(".gallery-slider img");
+  const nextBtn = document.querySelector(".gallery-btn.next");
+  const prevBtn = document.querySelector(".gallery-btn.prev");
+  let index = 0;
+
+  const showItem = (i) => {
+    items.forEach((item) => item.classList.remove("active"));
+    items[i].classList.add("active");
+  };
+
+  const nextImage = () => (index = (index + 1) % items.length, showItem(index));
+  const prevImage = () => (index = (index - 1 + items.length) % items.length, showItem(index));
+
+  nextBtn.addEventListener("click", nextImage);
+  prevBtn.addEventListener("click", prevImage);
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".close");
+  const nextLightbox = document.querySelector(".lightbox-nav.next");
+  const prevLightbox = document.querySelector(".lightbox-nav.prev");
+
+  const openLightbox = (i) => {
+    index = i;
+    lightbox.style.display = "flex";
+    lightboxImg.src = items[i].src;
+  };
+
+  const updateLightbox = (direction) => {
+    index = (index + direction + items.length) % items.length;
+    lightboxImg.src = items[index].src;
+  };
+
+  items.forEach((item, i) => item.addEventListener("click", () => openLightbox(i)));
+
+  nextLightbox.addEventListener("click", () => updateLightbox(1));
+  prevLightbox.addEventListener("click", () => updateLightbox(-1));
+  closeBtn.addEventListener("click", () => (lightbox.style.display = "none"));
+  lightbox.addEventListener("click", (e) => e.target === lightbox && (lightbox.style.display = "none"));
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display === "flex") {
+      if (e.key === "ArrowRight") updateLightbox(1);
+      if (e.key === "ArrowLeft") updateLightbox(-1);
+      if (e.key === "Escape") lightbox.style.display = "none";
+    } else {
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "ArrowLeft") prevImage();
+    }
+  });
+</script>
+
+<style>
+.project-page {
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.project-hero {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+
+.overlay {
+  position: absolute;
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.overlay h1 {
+  font-size: 2.5rem;
+  font-family: var(--font-title);
+  margin-bottom: 0.5rem;
+}
+
+.overlay p {
+  font-size: 1.1rem;
+}
+
+.project-content {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.project-content h2 {
+  color: var(--color-accent);
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.project-content ul {
+  margin-left: 1.5rem;
+  list-style-type: square;
+}
+
+/* 🔹 Back to Projects Button */
+.back-link {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.back-link a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.back-link a:hover {
+  color: var(--color-deep);
+  transform: translateX(-4px);
+}
+
+/* 🔹 Gallery */
+.gallery-container {
+  position: relative;
+  max-width: 850px;
+  margin: 3rem auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-slider {
+  position: relative;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-slider img {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.gallery-slider img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.gallery-slider img:hover {
+  transform: scale(1.02);
+  transition: transform 0.4s ease;
+}
+
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s;
+  z-index: 5;
+}
+
+.gallery-btn:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.gallery-btn.prev { left: 10px; }
+.gallery-btn.next { right: 10px; }
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 12px;
+  animation: fadeIn 0.4s ease;
+}
+
+.close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  background: none;
+  color: white;
+  font-size: 2.5rem;
+  border: none;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  color: white;
+  font-size: 3rem;
+  border: none;
+  cursor: pointer;
+  padding: 0 1rem;
+  z-index: 110;
+}
+
+.lightbox-nav.prev { left: 25px; }
+.lightbox-nav.next { right: 25px; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>

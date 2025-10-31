@@ -1,0 +1,154 @@
+---
+import "../../styles/global.css";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>S.U.S.D.E.M — Underwater Monitoring System</title>
+  </head>
+
+  <body>
+    <Navbar />
+
+    <main class="project-page">
+      <section class="project-hero">
+        <img src="/projects/underwater.jpeg" alt="S.U.S.D.E.M Project" class="hero-img" />
+        <div class="overlay">
+          <h1>S.U.S.D.E.M — Underwater Monitoring System</h1>
+          <p>Autonomous underwater platform for pH and turbidity monitoring to detect eutrophication early.</p>
+        </div>
+      </section>
+
+      <section class="project-content">
+        <h2>Project Overview</h2>
+        <p>
+          The <strong>Submersible Underwater System for Detecting Eutrophication Monitoring (S.U.S.D.E.M)</strong> 
+          was designed as a low-cost autonomous underwater vehicle for collecting and transmitting 
+          real-time water quality data. It integrates sensors for <strong>pH</strong>, 
+          <strong>turbidity</strong>, and <strong>temperature</strong>, controlled by dual 
+          <strong>ESP32 microcontrollers</strong> communicating via <strong>I2C</strong>. 
+          The structure combines <strong>PVC housing</strong> for waterproofing and 
+          <strong>PLA supports</strong> for sensor mounts.
+        </p>
+
+        <h2>System Architecture</h2>
+        <ul>
+          <li><strong>Control Unit:</strong> Two ESP32 boards — one for motor control and another for sensor data.</li>
+          <li><strong>Actuation System:</strong> Three DC motors for movement and immersion stability.</li>
+          <li><strong>Sensor Suite:</strong> pH, turbidity, and TDS sensors connected via I2C.</li>
+          <li><strong>Mechanical Design:</strong> Compact PLA–PVC body designed for durability and corrosion resistance.</li>
+          <li><strong>Communication:</strong> Real-time serial link to surface for live visualization and analysis.</li>
+        </ul>
+
+        <h2>Design Highlights</h2>
+        <ul>
+          <li>3D printed <strong>PLA supports</strong> for modular assembly and sensor alignment.</li>
+          <li><strong>Waterproof PVC housing</strong> with sealed cable glands for reliable underwater operation.</li>
+          <li><strong>Three-motor system</strong> for precise horizontal and vertical motion control.</li>
+          <li>Synchronized microcontrollers integrating <strong>sensor feedback</strong> and <strong>motor actuation</strong>.</li>
+        </ul>
+
+        <h2>Challenges & Solutions</h2>
+        <ul>
+          <li><strong>Waterproofing:</strong> Achieved with silicone seals and pressure-tested PVC enclosures.</li>
+          <li><strong>Pressure Resistance:</strong> Structure validated up to 15 m depth operation.</li>
+          <li><strong>Data Accuracy:</strong> Sensor calibration routines ensure precise readings.</li>
+          <li><strong>Communication:</strong> Reliable I2C data synchronization between ESP32 modules.</li>
+        </ul>
+
+        <h2>Impact</h2>
+        <p>
+          S.U.S.D.E.M showcases how mechatronic systems can contribute to <strong>environmental monitoring</strong>. 
+          By automating the collection of water-quality data, it enables researchers and authorities 
+          to detect early signs of eutrophication and implement preventive conservation strategies.
+        </p>
+
+        <section class="back-link">
+          <a href="/projects">← Back to Projects</a>
+        </section>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+.project-page {
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.project-hero {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(55%);
+}
+
+.overlay {
+  position: absolute;
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.overlay h1 {
+  font-size: 2.5rem;
+  font-family: var(--font-title);
+  margin-bottom: 0.5rem;
+}
+
+.overlay p {
+  font-size: 1.1rem;
+}
+
+.project-content {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.project-content h2 {
+  color: var(--color-accent);
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.project-content ul {
+  margin-left: 1.5rem;
+  list-style-type: square;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.back-link a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.back-link a:hover {
+  color: var(--color-deep);
+  transform: translateX(-4px);
+}
+</style>

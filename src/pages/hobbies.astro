@@ -1,0 +1,125 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const hobbies = [
+  {
+    title: "Sports & Movement",
+    description:
+      "Since I was little, my family has taught me that sports are essential for maintaining both mental and physical health. Over the years, I’ve explored different disciplines, but the one that truly stole my heart was handball. Although I had to leave it behind for personal reasons, I’ve continued trying new things running gives me clarity, skating makes me feel free, and calisthenics constantly challenges me to grow stronger. Recently, I discovered a new passion for motocross the perfect blend of speed, focus, and balance.",
+  },
+  {
+    title: "Art & Expression",
+    description:
+      "Art helps me slow down and see life from a calmer perspective. I value activities that take time, patience, and persistence, they remind me that progress often comes from trying again and again. Since school, I’ve played the ukulele, and more recently, I’ve started exploring wind instruments like the harmonica. (I learned flute in school, but it was never quite my thing.) I’m also a huge fan of animated movies, especially stop-motion films. I love doing things myself, you could say I’m very crafty. I find deep satisfaction in embroidery and crochet, especially when creating amigurumis.",
+  },
+  {
+    title: "Mind & Strategy",
+    description:
+      "Reading and chess represent daily challenges that stimulate my mind. Reading allows me to recharge and explore new ideas, from science essays to fantasy stories. Chess, on the other hand, teaches me strategy and focus every match feels like solving a puzzle, a mindset that deeply connects to how I approach problem-solving and engineering in general.",
+  },
+  {
+    title: "Animals & Companionship",
+    description:
+      "I’m a passionate animal lover and advocate. I’m currently the proud guardian of two cats and a dog, they are my world and bring me endless joy. They’ve taught me how to manage stress, practice patience, and reflect on situations with empathy. Thanks to them, I’ve learned to think beyond the box not just about problems themselves, but about how to prevent them and create kinder, more balanced environments.",
+  },
+];
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hobbies — Mariana Calle</title>
+  </head>
+
+  <body>
+    <Navbar />
+
+    <main>
+      <section class="hobbies-header">
+        <h1>Hobbies</h1>
+        <p>
+          Beyond engineering — the things that inspire me, move me, and keep me creative.
+        </p>
+      </section>
+
+      <section class="hobbies-grid">
+        {hobbies.map((h, i) => (
+          <div class={`hobby-card ${i % 2 === 0 ? "normal" : "reverse"}`}>
+            <div class="hobby-content">
+              <h2>{h.title}</h2>
+              <p>{h.description}</p>
+            </div>
+          </div>
+        ))}
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+.hobbies-header {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.hobbies-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 3rem 2rem 5rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.hobby-card {
+  display: flex;
+  flex-direction: row;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby-card.reverse {
+  flex-direction: row-reverse;
+}
+
+.hobby-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+.hobby-card img {
+  width: 50%;
+  object-fit: cover;
+  height: 300px;
+  filter: brightness(0.95) contrast(1.05);
+}
+
+.hobby-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hobby-content h2 {
+  color: var(--color-accent);
+  font-family: var(--font-title);
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.hobby-content p {
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+</style>

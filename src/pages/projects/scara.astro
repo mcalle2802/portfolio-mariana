@@ -1,0 +1,525 @@
+---
+import "../../styles/global.css";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SCARA Welding Robot — Mariana Calle</title>
+  </head>
+
+  <body>
+    <Navbar />
+
+    <main class="project-page">
+      <section class="project-hero">
+        <img src="/projects/scara.jpeg" alt="SCARA Robot" class="hero-img" />
+        <div class="overlay">
+          <h1>SCARA Robot — 3 DOF Welding Prototype</h1>
+          <p>Designed, simulated and controlled for trajectory-based welding applications.</p>
+        </div>
+      </section>
+
+      <section class="project-content">
+        <h2>Project Overview</h2>
+        <p>
+          This project involved the complete design and implementation of a
+          <strong>3-DOF SCARA robotic arm</strong> (two rotational and one
+          translational joints), developed as part of a mechatronics integrator
+          project. The main objective was to simulate and control a system
+          capable of executing <strong>welding trajectories</strong> with
+          precision and repeatability, integrating mechanical, electronic and
+          control subsystems.
+        </p>
+
+        <h2>Mechanical Design</h2>
+        <p>
+          The robot was modeled and assembled in <em>Solid Edge Siemens</em>,
+          ensuring that the workspace, stiffness, and reach requirements were
+          met. The structure was optimized for lightweight operation and easy
+          assembly, maintaining a stable base to reduce unwanted vibrations
+          during motion.
+        </p>
+
+        <p>
+          The SCARA arm was composed of two horizontal rotational links and a
+          vertical prismatic joint that enabled vertical displacement of the
+          tool — in this case, a simulated <strong>welding end-effector</strong>.
+          The design emphasized mechanical rigidity and workspace coverage for
+          planar welding paths.
+        </p>
+
+        <h2>Control and Simulation</h2>
+        <p>
+          The control of the robot was implemented using a <strong>Raspberry Pi Pico</strong> microcontroller.
+          Two <strong>DC motors</strong> were used to drive the rotational joints, while a
+          <strong>servo motor</strong> controlled the vertical motion along the Z-axis.
+          <strong>Limit switches</strong> were placed to define the workspace boundaries,
+          ensuring safe operation and preventing mechanical overtravel.
+        </p>
+
+        <p>
+          The <strong>transfer function</strong> of each DC motor was obtained both individually
+          and after being assembled in the robot, since the added load altered the dynamic
+          behavior of each actuator. This characterization was performed primarily through
+          the <strong>encoders</strong> attached to the motors, which provided precise feedback
+          of angular speed and position under different load conditions.
+        </p>
+
+        <p>
+          The <strong>L298N driver</strong> was used exclusively as an H-bridge interface for
+          motor control, while the <strong>Pico</strong> handled the control logic and encoder
+          signal processing. Each joint implemented a <strong>proportional (P) controller</strong>
+          to maintain the desired position with stable and accurate responses during
+          the execution of welding trajectories.
+        </p>
+
+        <div class="code-block">
+          <pre><code># MicroPython — Proportional Control Example
+from machine import Pin, PWM
+import time
+
+pwm_motor = PWM(Pin(15))
+pwm_motor.freq(1000)
+
+kp = 0.4
+target_angle = 45
+current_angle = 0
+
+while True:
+    error = target_angle - current_angle
+    control_signal = int(min(max(abs(kp * error), 0), 1023))
+    pwm_motor.duty_u16(control_signal)
+    # update simulated angle
+    current_angle += 0.1 * error
+    time.sleep(0.05)
+          </code></pre>
+        </div>
+
+        <h2>Kinematic Modeling</h2>
+        <p>
+          Both <strong>forward</strong> and <strong>inverse kinematics</strong>
+          were developed analytically and validated through MATLAB simulation.
+          The Denavit–Hartenberg (DH) convention was used to describe the robot
+          geometry, and the equations below define the relationship between the
+          end-effector position <code>(x, y, z, γ)</code> and the joint variables
+          <code>(θ₁, θ₂, d₃)</code>:
+        </p>
+
+        <div class="code-block">
+          <pre><code>
+x = r₁·cos(θ₁) + r₂·cos(θ₁ + θ₂)
+y = r₁·sin(θ₁) + r₂·sin(θ₁ + θ₂)
+z = d₃
+γ = θ₁ + θ₂
+          </code></pre>
+        </div>
+
+        <p>
+          The inverse kinematics equations were solved in MATLAB and validated
+          using the <em>Robotics Toolbox</em>, enabling the simulation of
+          continuous welding paths. The same logic was ported to the Raspberry
+          Pi Pico for real-time control.
+        </p>
+
+        <h2>Virtual Twin</h2>
+        <p>
+          A <strong>digital twin</strong> was created in MATLAB/Simulink to
+          mirror the behavior of the real SCARA robot. This allowed testing of
+          different trajectories and control gains before applying them to the
+          physical prototype. The simulation included dynamic constraints, motor
+          models, and the control loop.
+        </p>
+
+        <h2>Hardware Summary</h2>
+        <ul>
+          <li><strong>Controller:</strong> Raspberry Pi Pico</li>
+          <li><strong>Driver:</strong> L298N Dual H-Bridge</li>
+          <li><strong>Motors:</strong> DC gearmotors (12 V, 200 RPM) with encoders</li>
+          <li><strong>Actuator:</strong> Linear stage for Z-axis motion</li>
+          <li><strong>Sensors:</strong> Limit switches on each joint</li>
+          <li><strong>Software:</strong> Solid Edge Siemens, MATLAB, Simulink, MicroPython</li>
+        </ul>
+
+        <h2>Results</h2>
+        <p>
+          The robot successfully followed predefined planar welding paths and
+          adjusted its Z-axis to simulate different seam heights. The
+          proportional controllers ensured smooth motion, and the simulation
+          closely matched physical performance. Both the mechanical design and
+          control model proved suitable for small-scale welding automation.
+        </p>
+
+        <!-- 🔹 PROJECT GALLERY -->
+<h2>Project Gallery</h2>
+
+<div class="gallery-container">
+  <div class="gallery-slider">
+    <!-- 14 imágenes -->
+    <img src="/projects/scara/scara1.jpeg" alt="SCARA 1" class="active" />
+    <img src="/projects/scara/scara2.jpeg" alt="SCARA 2" />
+    <img src="/projects/scara/scara3.jpeg" alt="SCARA 3" />
+    <img src="/projects/scara/scara4.jpeg" alt="SCARA 4" />
+    <img src="/projects/scara/scara5.jpeg" alt="SCARA 5" />
+    <img src="/projects/scara/scara6.jpeg" alt="SCARA 6" />
+    <img src="/projects/scara/scara7.jpeg" alt="SCARA 7" />
+    <img src="/projects/scara/scara8.jpeg" alt="SCARA 8" />
+    <img src="/projects/scara/scara9.jpeg" alt="SCARA 9" />
+    <img src="/projects/scara/scara10.jpeg" alt="SCARA 10" />
+    <img src="/projects/scara/scara11.jpeg" alt="SCARA 11" />
+    <img src="/projects/scara/scara12.jpeg" alt="SCARA 12" />
+    <img src="/projects/scara/scara13.jpeg" alt="SCARA 13" />
+    <img src="/projects/scara/scara14.jpeg" alt="SCARA 14" />
+
+    <!-- 2 videos -->
+    <video src="/projects/scara/video1.mp4" type="video/mp4"></video>
+    <video src="/projects/scara/video2.mp4" type="video/mp4"></video>
+  </div>
+
+  <button class="gallery-btn prev">❮</button>
+  <button class="gallery-btn next">❯</button>
+</div>
+
+<!-- 🔹 Lightbox (Fullscreen Viewer) -->
+<div id="lightbox" class="lightbox">
+  <button class="close">&times;</button>
+  <button class="lightbox-nav prev">❮</button>
+  <button class="lightbox-nav next">❯</button>
+  <img id="lightbox-img" class="lightbox-content" />
+  <video id="lightbox-video" class="lightbox-content" controls></video>
+</div>
+
+<script>
+  const items = document.querySelectorAll(".gallery-slider img, .gallery-slider video");
+  const nextBtn = document.querySelector(".gallery-btn.next");
+  const prevBtn = document.querySelector(".gallery-btn.prev");
+  let index = 0;
+
+  const showItem = (i) => {
+    items.forEach((item) => {
+      item.classList.remove("active");
+      if (item.tagName === "VIDEO") item.pause();
+    });
+    const current = items[i];
+    current.classList.add("active");
+    if (current.tagName === "VIDEO") current.play();
+  };
+
+  const nextImage = () => {
+    index = (index + 1) % items.length;
+    showItem(index);
+  };
+
+  const prevImage = () => {
+    index = (index - 1 + items.length) % items.length;
+    showItem(index);
+  };
+
+  nextBtn.addEventListener("click", nextImage);
+  prevBtn.addEventListener("click", prevImage);
+
+  // 🔹 Lightbox (Zoom)
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxVideo = document.getElementById("lightbox-video");
+  const closeBtn = document.querySelector(".close");
+  const nextLightbox = document.querySelector(".lightbox-nav.next");
+  const prevLightbox = document.querySelector(".lightbox-nav.prev");
+
+  const openLightbox = (i) => {
+    index = i;
+    const current = items[index];
+    lightbox.style.display = "flex";
+    if (current.tagName === "IMG") {
+      lightboxImg.src = current.src;
+      lightboxImg.style.display = "block";
+      lightboxVideo.style.display = "none";
+    } else {
+      lightboxVideo.src = current.src;
+      lightboxVideo.style.display = "block";
+      lightboxImg.style.display = "none";
+      lightboxVideo.play();
+    }
+  };
+
+  const updateLightbox = (direction) => {
+    index = (index + direction + items.length) % items.length;
+    const current = items[index];
+    if (current.tagName === "IMG") {
+      lightboxImg.src = current.src;
+      lightboxImg.style.display = "block";
+      lightboxVideo.pause();
+      lightboxVideo.style.display = "none";
+    } else {
+      lightboxVideo.src = current.src;
+      lightboxVideo.style.display = "block";
+      lightboxImg.style.display = "none";
+      lightboxVideo.play();
+    }
+  };
+
+  items.forEach((item, i) => {
+    item.addEventListener("click", () => openLightbox(i));
+  });
+
+  nextLightbox.addEventListener("click", () => updateLightbox(1));
+  prevLightbox.addEventListener("click", () => updateLightbox(-1));
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+    lightboxVideo.pause();
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+      lightboxVideo.pause();
+    }
+  });
+
+  // 🔹 Navegación con flechas del teclado
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display === "flex") {
+      if (e.key === "ArrowRight") updateLightbox(1);
+      if (e.key === "ArrowLeft") updateLightbox(-1);
+      if (e.key === "Escape") {
+        lightbox.style.display = "none";
+        lightboxVideo.pause();
+      }
+    } else {
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "ArrowLeft") prevImage();
+    }
+  });
+</script>
+
+<style>
+/* 🔹 Gallery Base */
+.gallery-container {
+  position: relative;
+  max-width: 850px;
+  margin: 3rem auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-slider {
+  position: relative;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-slider img,
+.gallery-slider video {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.gallery-slider img.active,
+.gallery-slider video.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.gallery-slider img:hover,
+.gallery-slider video:hover {
+  transform: scale(1.02);
+  transition: transform 0.4s ease;
+}
+
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s;
+  z-index: 5;
+}
+
+.gallery-btn:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.gallery-btn.prev {
+  left: 10px;
+}
+.gallery-btn.next {
+  right: 10px;
+}
+
+/* 🔹 Lightbox (Fullscreen Zoom) */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 12px;
+  animation: fadeIn 0.4s ease;
+}
+
+.close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  background: none;
+  color: white;
+  font-size: 2.5rem;
+  border: none;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  color: white;
+  font-size: 3rem;
+  border: none;
+  cursor: pointer;
+  padding: 0 1rem;
+  z-index: 110;
+}
+
+.lightbox-nav.prev {
+  left: 25px;
+}
+.lightbox-nav.next {
+  right: 25px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+</style>
+
+
+        <section class="back-link">
+          <a href="/projects">← Back to Projects</a>
+        </section>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+.project-page {
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.project-hero {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(55%);
+}
+
+.overlay {
+  position: absolute;
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.overlay h1 {
+  font-size: 2.5rem;
+  font-family: var(--font-title);
+  margin-bottom: 0.5rem;
+}
+
+.overlay p {
+  font-size: 1.1rem;
+}
+
+.project-content {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.project-content h2 {
+  color: var(--color-accent);
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.project-content ul {
+  margin-left: 1.5rem;
+  list-style-type: square;
+}
+
+.code-block {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: monospace;
+  margin: 1rem 0;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.back-link a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.back-link a:hover {
+  color: var(--color-deep);
+  transform: translateX(-4px);
+}
+</style>

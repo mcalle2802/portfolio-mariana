@@ -1,0 +1,392 @@
+---
+import "../../styles/global.css";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Smart Home IoT System — Mariana Calle</title>
+  </head>
+
+  <body>
+    <Navbar />
+
+    <main class="project-page">
+      <section class="project-hero">
+        <img src="/projects/iot.jpeg" alt="Smart Home IoT Project" class="hero-img" />
+        <div class="overlay">
+          <h1>Smart Home IoT System</h1>
+          <p>Connected home ecosystem integrating ESP32, MQTT, Grafana, and voice assistants.</p>
+        </div>
+      </section>
+
+      <section class="project-content">
+        <h2>Project Overview</h2>
+        <p>
+          This project implements a <strong>smart home automation system</strong> centered on an 
+          <strong>ESP32 microcontroller</strong> that enables seamless communication with multiple 
+          devices — including LED lighting, a 3D printer, and motorized blackout curtains. 
+          The system uses <strong>MQTT</strong> for IoT connectivity, integrates with 
+          <strong>Alexa</strong> and <strong>Google Assistant</strong> for voice control, 
+          and features a backend and frontend for real-time data visualization.
+        </p>
+
+        <h2>Technological Stack</h2>
+        <ul>
+          <li><strong>Backend:</strong> Node.js, PHP, and MySQL (tested with MAMP).</li>
+          <li><strong>Frontend:</strong> Grafana dashboards for data visualization.</li>
+          <li><strong>Communication:</strong> MQTT protocol tested using MQTTX.</li>
+          <li><strong>Hardware:</strong> ESP32 microcontroller controlling LEDs, curtains, and switches.</li>
+        </ul>
+
+        <h2>Key Features</h2>
+        <ul>
+          <li><strong>Centralized Control:</strong> The ESP32 bridges all devices and cloud interfaces.</li>
+          <li><strong>Automation:</strong> Devices follow schedules or react to environmental sensors.</li>
+          <li><strong>Monitoring:</strong> Grafana displays live temperature, humidity, and energy data.</li>
+          <li><strong>Voice Control:</strong> Commands through Alexa and Google Assistant.</li>
+          <li><strong>Security:</strong> Secured MQTT channels and HTTPS protocols.</li>
+        </ul>
+
+        <h2>Development Process</h2>
+        <ol>
+          <li>PCB and power system design.</li>
+          <li>ESP32 firmware and MQTT topic configuration.</li>
+          <li>Backend development with Node.js, PHP, and MySQL.</li>
+          <li>Grafana dashboard setup for live monitoring.</li>
+        </ol>
+
+        <h2>Challenges & Solutions</h2>
+        <ul>
+          <li><strong>Integration:</strong> Solved with MQTT protocol for multi-device communication.</li>
+          <li><strong>Security:</strong> Implemented HTTPS and authenticated MQTT connections.</li>
+          <li><strong>Power Optimization:</strong> Configured ESP32 low-power modes for energy efficiency.</li>
+        </ul>
+
+        <h2>Results</h2>
+        <p>
+          The final system successfully automates lighting, manufacturing, and curtain control, 
+          providing remote access, voice interaction, and real-time monitoring. 
+          This implementation demonstrates the potential of <strong>IoT in smart home engineering</strong> 
+          by combining hardware control, cloud services, and user-friendly visualization tools.
+        </p>
+
+        <!-- 🔹 PROJECT GALLERY -->
+<h2>Project Gallery</h2>
+
+<div class="gallery-container">
+  <div class="gallery-slider">
+    <!-- 13 imágenes -->
+    <img src="/projects/iot/iot1.jpeg" alt="IoT 1" class="active" />
+    <img src="/projects/iot/iot2.jpeg" alt="IoT 2" />
+    <img src="/projects/iot/iot3.jpeg" alt="IoT 3" />
+    <img src="/projects/iot/iot4.jpeg" alt="IoT 4" />
+    <img src="/projects/iot/iot5.jpeg" alt="IoT 5" />
+    <img src="/projects/iot/iot6.jpeg" alt="IoT 6" />
+    <img src="/projects/iot/iot7.jpeg" alt="IoT 7" />
+    <img src="/projects/iot/iot8.jpeg" alt="IoT 8" />
+    <img src="/projects/iot/iot9.jpeg" alt="IoT 9" />
+    <img src="/projects/iot/iot10.jpeg" alt="IoT 10" />
+    <img src="/projects/iot/iot11.jpeg" alt="IoT 11" />
+    <img src="/projects/iot/iot12.jpeg" alt="IoT 12" />
+    <img src="/projects/iot/iot13.jpeg" alt="IoT 13" />
+  </div>
+
+  <button class="gallery-btn prev">❮</button>
+  <button class="gallery-btn next">❯</button>
+</div>
+
+<!-- 🔹 Lightbox (Fullscreen Viewer) -->
+<div id="lightbox" class="lightbox">
+  <button class="close">&times;</button>
+  <button class="lightbox-nav prev">❮</button>
+  <button class="lightbox-nav next">❯</button>
+  <img id="lightbox-img" class="lightbox-content" />
+</div>
+
+<script>
+  const items = document.querySelectorAll(".gallery-slider img");
+  const nextBtn = document.querySelector(".gallery-btn.next");
+  const prevBtn = document.querySelector(".gallery-btn.prev");
+  let index = 0;
+
+  const showItem = (i) => {
+    items.forEach((item) => item.classList.remove("active"));
+    const current = items[i];
+    current.classList.add("active");
+  };
+
+  const nextImage = () => {
+    index = (index + 1) % items.length;
+    showItem(index);
+  };
+
+  const prevImage = () => {
+    index = (index - 1 + items.length) % items.length;
+    showItem(index);
+  };
+
+  nextBtn.addEventListener("click", nextImage);
+  prevBtn.addEventListener("click", prevImage);
+
+  // 🔹 Lightbox (Zoom)
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".close");
+  const nextLightbox = document.querySelector(".lightbox-nav.next");
+  const prevLightbox = document.querySelector(".lightbox-nav.prev");
+
+  const openLightbox = (i) => {
+    index = i;
+    lightbox.style.display = "flex";
+    lightboxImg.src = items[i].src;
+  };
+
+  const updateLightbox = (direction) => {
+    index = (index + direction + items.length) % items.length;
+    lightboxImg.src = items[index].src;
+  };
+
+  items.forEach((item, i) => {
+    item.addEventListener("click", () => openLightbox(i));
+  });
+
+  nextLightbox.addEventListener("click", () => updateLightbox(1));
+  prevLightbox.addEventListener("click", () => updateLightbox(-1));
+
+  closeBtn.addEventListener("click", () => (lightbox.style.display = "none"));
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) lightbox.style.display = "none";
+  });
+
+  // 🔹 Navegación con flechas del teclado
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display === "flex") {
+      if (e.key === "ArrowRight") updateLightbox(1);
+      if (e.key === "ArrowLeft") updateLightbox(-1);
+      if (e.key === "Escape") lightbox.style.display = "none";
+    } else {
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "ArrowLeft") prevImage();
+    }
+  });
+</script>
+
+<style>
+/* 🔹 Gallery Base */
+.gallery-container {
+  position: relative;
+  max-width: 850px;
+  margin: 3rem auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-slider {
+  position: relative;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-slider img {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.gallery-slider img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.gallery-slider img:hover {
+  transform: scale(1.02);
+  transition: transform 0.4s ease;
+}
+
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s;
+  z-index: 5;
+}
+
+.gallery-btn:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.gallery-btn.prev {
+  left: 10px;
+}
+.gallery-btn.next {
+  right: 10px;
+}
+
+/* 🔹 Lightbox (Fullscreen Zoom) */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 12px;
+  animation: fadeIn 0.4s ease;
+}
+
+.close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  background: none;
+  color: white;
+  font-size: 2.5rem;
+  border: none;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  color: white;
+  font-size: 3rem;
+  border: none;
+  cursor: pointer;
+  padding: 0 1rem;
+  z-index: 110;
+}
+
+.lightbox-nav.prev {
+  left: 25px;
+}
+.lightbox-nav.next {
+  right: 25px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+</style>
+
+
+        <section class="back-link">
+          <a href="/projects">← Back to Projects</a>
+        </section>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+.project-page {
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.project-hero {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(55%);
+}
+
+.overlay {
+  position: absolute;
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.overlay h1 {
+  font-size: 2.5rem;
+  font-family: var(--font-title);
+  margin-bottom: 0.5rem;
+}
+
+.overlay p {
+  font-size: 1.1rem;
+}
+
+.project-content {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.project-content h2 {
+  color: var(--color-accent);
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.project-content ul, .project-content ol {
+  margin-left: 1.5rem;
+  list-style-type: square;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.back-link a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.back-link a:hover {
+  color: var(--color-deep);
+  transform: translateX(-4px);
+}
+</style>

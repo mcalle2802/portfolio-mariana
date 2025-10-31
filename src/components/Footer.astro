@@ -1,0 +1,65 @@
+<footer>
+  <p>Made with ❤️ by Mariana Calle Méndez</p>
+  <div class="bat"></div>
+</footer>
+
+<style>
+footer {
+  background-color: #C0392B;
+  color: var(--color-bg);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+footer p {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*  Animación del murciélago */
+.bat {
+  width: 32px;   /* ancho de un cuadro */
+  height: 32px;  /* alto de un cuadro */
+  background: url("/assets/bat-sprite2.png") no-repeat;
+  background-size: 160px 128px; /* 5 columnas (160px) × 4 filas (128px) */
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+  image-rendering: pixelated;
+  animation: bat-flap 3s steps(1) infinite;
+}
+
+@keyframes bat-flap {
+  /* Fila 1 */
+  0%   { background-position:   0px    0px; }
+  5%   { background-position: -32px    0px; }
+  10%  { background-position: -64px    0px; }
+  15%  { background-position: -96px    0px; }
+  20%  { background-position: -128px   0px; }
+
+  /* Fila 2 */
+  25%  { background-position:   0px  -32px; }
+  30%  { background-position: -32px  -32px; }
+  35%  { background-position: -64px  -32px; }
+  40%  { background-position: -96px  -32px; }
+  45%  { background-position: -128px -32px; }
+
+  /* Fila 3 */
+  50%  { background-position:   0px  -64px; }
+  55%  { background-position: -32px  -64px; }
+  60%  { background-position: -64px  -64px; }
+  65%  { background-position: -96px  -64px; }
+  70%  { background-position: -128px -64px; }
+
+  /* Fila 4 */
+  75%  { background-position:   0px  -96px; }
+  80%  { background-position: -32px  -96px; }
+  85%  { background-position: -64px  -96px; }
+  90%  { background-position: -96px  -96px; }
+  100% { background-position: -128px -96px; }
+}
+</style>

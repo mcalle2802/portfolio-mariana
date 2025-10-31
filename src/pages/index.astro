@@ -1,11 +1,43 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mariana Calle — Portfolio</title>
+  </head>
+
+  <body>
+    <Navbar />
+
+    <main>
+      <section class="hero">
+        <div class="overlay"></div>
+        <h1 class="hero-title">MARIANA<br />CALLE<br />MENDEZ</h1>
+        <p class="hero-subtitle">Mechatronics Engineer — Robotics, IoT & Control Systems</p>
+      </section>
+
+      <section class="intro">
+        <h2>About Me</h2>
+        <p>
+          I’m a Mechatronics Engineering student passionate about robotics, embedded systems, and
+          automation. I enjoy designing smart mechanisms that merge electronics and software into
+          efficient real-world solutions.
+        </p>
+      </section>
+
+      <section class="highlight">
+        <h2>My Vision</h2>
+        <p>
+          Combining creativity, precision, and technology to build systems that make movement,
+          communication, and sustainability work in harmony.
+        </p>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
