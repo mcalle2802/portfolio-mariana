@@ -1,0 +1,364 @@
+---
+import "../../styles/global.css";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cat Tree Gym — Mariana Calle</title>
+  </head>
+
+  <body>
+    <Navbar />
+
+    <main class="project-page">
+      <section class="project-hero">
+        <img src="/projects/cattree.jpeg" alt="Cat Tree Project" class="hero-img" />
+        <div class="overlay">
+          <h1>Cat Tree Gym</h1>
+          <p>A custom-designed multi-level play structure to help my cat stay active and healthy.</p>
+        </div>
+      </section>
+
+      <section class="project-content">
+        <h2>Project Overview</h2>
+        <p>
+          This project started from a personal motivation: one of my cats was gaining weight, 
+          and I wanted to help him improve his health not only through diet but also through 
+          physical activity. The idea was to create a <strong>cat gym</strong>, a 
+          <strong>three level tree structure</strong> where he could climb, scratch, 
+          rest, and stay entertained while burning energy.
+        </p>
+
+        <h2>Design Process</h2>
+        <p>
+          The cat tree was fully modeled in <em>Solid Edge Siemens</em> with 
+          real-scale dimensions to ensure precision in manufacturing. The main 
+          structure includes <strong>three platforms</strong> connected by 
+          <strong>PVC tubes</strong> that serve both as supports and scratching posts, 
+          wrapped with durable rope to encourage natural feline behavior. 
+          Complementary <strong>modular side structures</strong> were added to 
+          increase height and challenge, motivating my cat to stretch, climb, 
+          and jump more actively.
+        </p>
+
+        <p>
+          The design prioritized <strong>stability and safety</strong>, ensuring that each 
+          level could support dynamic movements while maintaining balance. To achieve 
+          high precision and clean finishes, every piece was designed for 
+          <strong>CNC machining</strong>, minimizing errors during assembly and 
+          guaranteeing a professional quality result.
+        </p>
+
+        <h2>Materials & Construction</h2>
+        <ul>
+          <li><strong>Main Material:</strong> Triplex wood for the platforms and base structure.</li>
+          <li><strong>Supports:</strong> PVC tubes wrapped with natural rope as scratching surfaces.</li>
+          <li><strong>Connections:</strong> Reinforced with screws and bolts for strong joints.</li>
+          <li><strong>Finishes:</strong> Sanded surfaces with soft edges to ensure cat safety.</li>
+          <li><strong>Protective Coating:</strong> A natural waterproof layer made from <em>beeswax</em> and <em>mineral oil</em> was applied to enhance durability and protect the wood against moisture.</li>
+        </ul>
+
+        <h2>Assembly & Functionality</h2>
+        <p>
+          During assembly, special care was taken to align the structural joints precisely 
+          and ensure even weight distribution across all levels. The multi-level design 
+          promotes exploration and activity, providing both physical exercise and mental 
+          stimulation. My cat quickly adapted to the new structure, using it as a 
+          <strong>resting space, playground, and exercise area</strong>.
+        </p>
+
+        <!-- 🔹 PROJECT GALLERY -->
+        <h2>Project Gallery</h2>
+
+        <div class="gallery-container">
+          <div class="gallery-slider">
+            <img src="/projects/cattree/cattree1.jpeg" alt="Cat Tree 1" class="active" />
+            <img src="/projects/cattree/cattree2.jpeg" alt="Cat Tree 2" />
+            <img src="/projects/cattree/cattree3.jpeg" alt="Cat Tree 3" />
+            <img src="/projects/cattree/cattree4.jpeg" alt="Cat Tree 4" />
+            <img src="/projects/cattree/cattree5.jpeg" alt="Cat Tree 5" />
+            <img src="/projects/cattree/cattree6.jpeg" alt="Cat Tree 6" />
+            <img src="/projects/cattree/cattree7.jpeg" alt="Cat Tree 7" />
+            <img src="/projects/cattree/cattree8.jpeg" alt="Cat Tree 8" />
+            <img src="/projects/cattree/cattree9.jpeg" alt="Cat Tree 9" />
+            <img src="/projects/cattree/cattree10.jpeg" alt="Cat Tree 10" />
+            <img src="/projects/cattree/cattree11.jpeg" alt="Cat Tree 11" />
+            <img src="/projects/cattree/cattree12.jpeg" alt="Cat Tree 12" />
+            <img src="/projects/cattree/cattree13.jpeg" alt="Cat Tree 13" />
+            <img src="/projects/cattree/cattree14.jpeg" alt="Cat Tree 14" />
+            <img src="/projects/cattree/cattree15.jpeg" alt="Cat Tree 15" />
+          </div>
+
+          <button class="gallery-btn prev">❮</button>
+          <button class="gallery-btn next">❯</button>
+        </div>
+
+        <!-- 🔹 LIGHTBOX VIEWER -->
+        <div id="lightbox" class="lightbox">
+          <button class="close">&times;</button>
+          <button class="lightbox-nav prev">❮</button>
+          <button class="lightbox-nav next">❯</button>
+          <img id="lightbox-img" class="lightbox-content" />
+        </div>
+
+        <section class="back-link">
+          <a href="/projects">← Back to Projects</a>
+        </section>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<script>
+  const images = document.querySelectorAll(".gallery-slider img");
+  const nextBtn = document.querySelector(".gallery-btn.next");
+  const prevBtn = document.querySelector(".gallery-btn.prev");
+  let index = 0;
+
+  const showImage = (i) => {
+    images.forEach((img, idx) => img.classList.remove("active"));
+    images[i].classList.add("active");
+  };
+
+  nextBtn.addEventListener("click", () => {
+    index = (index + 1) % images.length;
+    showImage(index);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    index = (index - 1 + images.length) % images.length;
+    showImage(index);
+  });
+
+  // Navegación con flechas del teclado
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") {
+      index = (index + 1) % images.length;
+      showImage(index);
+    } else if (e.key === "ArrowLeft") {
+      index = (index - 1 + images.length) % images.length;
+      showImage(index);
+    }
+  });
+
+  // Lightbox
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".close");
+  const nextLightbox = document.querySelector(".lightbox-nav.next");
+  const prevLightbox = document.querySelector(".lightbox-nav.prev");
+
+  const openLightbox = (i) => {
+    index = i;
+    lightbox.style.display = "flex";
+    lightboxImg.src = images[i].src;
+  };
+
+  images.forEach((img, i) => {
+    img.addEventListener("click", () => openLightbox(i));
+  });
+
+  const updateLightbox = (dir) => {
+    index = (index + dir + images.length) % images.length;
+    lightboxImg.src = images[index].src;
+  };
+
+  nextLightbox.addEventListener("click", () => updateLightbox(1));
+  prevLightbox.addEventListener("click", () => updateLightbox(-1));
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display === "flex") {
+      if (e.key === "ArrowRight") updateLightbox(1);
+      if (e.key === "ArrowLeft") updateLightbox(-1);
+      if (e.key === "Escape") lightbox.style.display = "none";
+    }
+  });
+</script>
+
+<style>
+.project-page {
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+/* Hero */
+.project-hero {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(55%);
+}
+
+.overlay {
+  position: absolute;
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.overlay h1 {
+  font-size: 2.5rem;
+  font-family: var(--font-title);
+  margin-bottom: 0.5rem;
+}
+
+/* Content */
+.project-content {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.project-content h2 {
+  color: var(--color-accent);
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Gallery */
+.gallery-container {
+  position: relative;
+  max-width: 850px;
+  margin: 3rem auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-slider {
+  position: relative;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-slider img {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.gallery-slider img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 5;
+  transition: background 0.3s;
+}
+
+.gallery-btn:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.gallery-btn.prev { left: 10px; }
+.gallery-btn.next { right: 10px; }
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 12px;
+  animation: fadeIn 0.4s ease;
+}
+
+.close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  background: none;
+  color: white;
+  font-size: 2.5rem;
+  border: none;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  color: white;
+  font-size: 3rem;
+  border: none;
+  cursor: pointer;
+  padding: 0 1rem;
+  z-index: 110;
+}
+
+.lightbox-nav.prev { left: 25px; }
+.lightbox-nav.next { right: 25px; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Back link */
+.back-link {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.back-link a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.back-link a:hover {
+  color: var(--color-deep);
+  transform: translateX(-4px);
+}
+</style>
