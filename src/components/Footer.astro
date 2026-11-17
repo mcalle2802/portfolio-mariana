@@ -1,5 +1,16 @@
+---
+const isSpanish =
+  Astro.url.pathname === "/es" ||
+  Astro.url.pathname.startsWith("/es/");
+---
+
 <footer>
-  <p>Made with ❤️ by Mariana Calle Méndez</p>
+  <p>
+    {isSpanish
+      ? "Hecho con ❤️ por Mariana Calle Méndez"
+      : "Made with ❤️ by Mariana Calle Méndez"}
+  </p>
+
   <div class="bat"></div>
 </footer>
 
@@ -20,20 +31,28 @@ footer p {
   vertical-align: middle;
 }
 
-/*  Animación del murciélago */
+/* Animación del murciélago */
 .bat {
-  width: 32px;   /* ancho de un cuadro */
-  height: 32px;  /* alto de un cuadro */
+  width: 32px;
+  height: 32px;
+
   background: url("/assets/bat-sprite2.png") no-repeat;
-  background-size: 160px 128px; /* 5 columnas (160px) × 4 filas (128px) */
+
+  background-size: 160px 128px;
+
   display: inline-block;
+
   margin-left: 10px;
+
   vertical-align: middle;
+
   image-rendering: pixelated;
+
   animation: bat-flap 3s steps(1) infinite;
 }
 
 @keyframes bat-flap {
+
   /* Fila 1 */
   0%   { background-position:   0px    0px; }
   5%   { background-position: -32px    0px; }

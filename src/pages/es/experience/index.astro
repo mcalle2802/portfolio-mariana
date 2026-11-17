@@ -1,0 +1,1971 @@
+---
+import "../../../styles/global.css";
+import Navbar from "../../../components/Navbar.astro";
+import Footer from "../../../components/Footer.astro";
+
+const experience = {
+  company:
+    "Empresa de Transporte Masivo del Valle de Aburrá Ltda - Metro de Medellín",
+  position: "Practicante",
+  area: "Área de Cables Aéreos — Grupo Eléctrico",
+  location: "Medellín, Colombia",
+  period: "2026",
+};
+
+const gallery = [
+  {
+    image: "/experience/metro1.jpeg",
+    alt: "Experiencia en el Metro de Medellín",
+  },
+  {
+    image: "/experience/metro2.jpeg",
+    alt: "Actividad técnica en el Metro de Medellín",
+  },
+  {
+    image: "/experience/metro3.jpeg",
+    alt: "Actividad de mantenimiento de sistemas de cables aéreos",
+  },
+  {
+    image: "/experience/metro4.jpeg",
+    alt: "Programación en el Metro de Medellín",
+  },
+  {
+    image: "/experience/metro5.jpeg",
+    alt: "Experiencia en campo durante la práctica",
+  },
+  {
+    image: "/experience/metro6.jpeg",
+    alt: "Actividad técnica en el Metro de Medellín",
+  },
+  {
+    image: "/experience/metro7.jpeg",
+    alt: "Experiencia en campo durante la práctica",
+  },
+];
+
+/*
+  ============================================================
+  CARTAS DE RECOMENDACIÓN Y CONSTANCIA LABORAL
+  Cada PDF debe estar en /public/experience/letters/
+  ============================================================
+*/
+const recommendationLetters = [
+  {
+    name: "Uriel Darío Jaramillo Castro",
+    role: "Profesional 1, Área de Cables Aéreos",
+    date: "19 de agosto de 2026",
+    file: "/experience/letters/letter-uriel-jaramillo.pdf",
+    type: "Carta de Recomendación",
+  },
+  {
+    name: "Pedro Buitrago Bustamante",
+    role: "Jefe de Cables Aéreos",
+    date: "5 de agosto de 2026",
+    file: "/experience/letters/letter-pedro-buitrago.pdf",
+    type: "Carta de Recomendación",
+  },
+  {
+    name: "Clara Inés Arenas Montoya",
+    role: "Jefe Gestión del Talento Humano (E)",
+    date: "26 de agosto de 2026",
+    file: "/experience/letters/employment-certification.pdf",
+    type: "Constancia Laboral",
+  },
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="Experiencia profesional de Mariana Calle Méndez en el Metro de Medellín."
+    />
+
+    <title>Experiencia — Mariana Calle</title>
+  </head>
+
+  <body>
+
+    <Navbar />
+
+    <main class="experience-bg">
+
+      <div class="experience-shell">
+
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
+
+        <section class="experience-header">
+
+        <p class="section-label">
+          EXPERIENCIA
+        </p>
+
+        <h1>
+          Profesional
+        </h1>
+
+        <p class="experience-intro">
+          Mi primera experiencia profesional me dio la oportunidad
+          de trabajar de cerca con sistemas de transporte complejos,
+          conociendo sus procesos de mantenimiento, equipos técnicos y datos del mundo real.
+        </p>
+
+        </section>
+
+
+        <!-- =====================================================
+             TIMELINE
+        ====================================================== -->
+
+        <section class="experience-timeline">
+
+        <div class="timeline-line"></div>
+
+        <article class="timeline-item">
+
+          <!-- YEAR -->
+
+          <div class="timeline-date">
+            <div class="timeline-marker">
+              <span></span>
+            </div>
+
+            <span>{experience.period}</span>
+          </div>
+
+          <!-- TARJETA DE EXPERIENCIA: permanece dentro del mismo elemento de timeline que el año -->
+
+          <div class="experience-card">
+
+            <!-- =================================================
+                 CARD HEADER
+            ================================================== -->
+
+            <div class="experience-card-header">
+
+              <div class="experience-heading">
+
+                <p class="experience-company">
+                  {experience.company}
+                </p>
+
+                <h2>
+                  {experience.position}
+                </h2>
+
+                <p class="experience-area">
+                  {experience.area}
+                </p>
+
+              </div>
+
+              <p class="experience-location">
+                {experience.location}
+              </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 ABOUT
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <h3>
+                Sobre la experiencia
+              </h3>
+
+              <p>
+                Durante mi práctica en el Área de Cables Aéreos
+                del Metro de Medellín, acompañe al Grupo Eléctrico
+                en la estación Acevedo de Línea K, apoyando actividades relacionadas
+                con los métodos de mantenimiento y la optimización de tiempos.
+              </p>
+
+              <p>
+                La experiencia me permitió conectar el análisis de ingeniería
+                con entornos reales de mantenimiento, trabajando junto
+                a técnicos y profesionales mientras aprendía cómo las
+                decisiones técnicas, las condiciones operativas y los
+                datos interactúan dentro de un sistema de transporte complejo.
+              </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 01
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <h3>
+                <span>01</span>
+                Comprender el sistema
+              </h3>
+
+              <p>
+                Una de las primeras etapas de mi práctica fue comprender
+                cómo funcionan los sistemas de cables aéreos y cómo
+                trabajan en conjunto sus componentes mecánicos,
+                eléctricos y electromecánicos.
+              </p>
+
+              <p>
+                Participé en capacitaciones técnicas y recorridos por
+                diferentes líneas de cables aéreos, conociendo la
+                operación y el mantenimiento de estos sistemas. También
+                aprendí sobre diferentes métodos de inspección y
+                diagnóstico, incluyendo inspección visual, ultrasonido,
+                análisis de vibraciones y ensayo de partículas magnéticas.
+              </p>
+
+              <div class="tags">
+
+                <span>
+                  Sistemas de transporte
+                </span>
+
+                <span>
+                  Sistemas electromecánicos
+                </span>
+
+                <span>
+                  Mantenimiento
+                </span>
+
+                <span>
+                  Inspección técnica
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 02
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <h3>
+                <span>02</span>
+                Trabajo en campo
+              </h3>
+
+              <p>
+                Trabajar directamente en campo fue una de las partes más
+                valiosas de la experiencia. Acompañé actividades de
+                mantenimiento y observé cómo los técnicos abordaban
+                equipos, procedimientos, herramientas y condiciones
+                inesperadas reales.
+              </p>
+
+              <p>
+                También participé en actividades de mantenimiento nocturno,
+                donde observé y registré tiempos de ejecución considerando
+                factores como acceso, coordinación, personal, herramientas,
+                restricciones operativas, tiempos de espera y actividades adicionales.
+              </p>
+
+              <p>
+                Esta experiencia me ayudó a comprender que los tiempos de
+                mantenimiento no están determinados únicamente por la tarea,
+                sino también por las condiciones que rodean su ejecución.
+              </p>
+
+              <div class="tags">
+
+                <span>
+                  Trabajo en campo
+                </span>
+
+                <span>
+                  Mantenimiento Operations
+                </span>
+
+                <span>
+                  Observación técnica
+                </span>
+
+                <span>
+                  Comprensión del proceso
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 03
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <h3>
+                <span>03</span>
+                Análisis de datos de mantenimiento
+              </h3>
+
+              <p>
+                Una parte central de mi proyecto de práctica fue analizar
+                registros históricos de mantenimiento para evaluar la
+                representatividad de los tiempos utilizados en las
+                hojas de ruta de mantenimiento.
+              </p>
+
+              <p>
+                Trabajé con aproximadamente tres años de registros históricos
+                de mantenimiento provenientes de SAP y desarrollé una
+                herramienta computacional basada en Python para automatizar
+                el procesamiento de los datos.
+              </p>
+
+              <p>
+                El proceso incluyó limpieza, validación y consolidación de
+                datos, identificación y tratamiento de valores atípicos,
+                y cálculo de indicadores estadísticos como promedio,
+                mediana, desviación estándar, valores mínimo y máximo,
+                y coeficiente de variación.
+              </p>
+
+              <div class="tags">
+
+                <span>Python</span>
+                <span>Datos de SAP</span>
+                <span>Limpieza de datos</span>
+                <span>Análisis estadístico</span>
+                <span>Optimización de procesos</span>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 STATISTICS
+            ================================================== -->
+
+            <div class="experience-stats">
+
+              <div class="stat">
+
+                <strong>
+                  ~3
+                </strong>
+
+                <span>
+                  Años de datos históricos de mantenimiento
+                </span>
+
+              </div>
+
+
+              <div class="stat">
+
+                <strong>
+                  706
+                </strong>
+
+                <span>
+                  Registros iniciales analizados
+                </span>
+
+              </div>
+
+
+              <div class="stat">
+
+                <strong>
+                  124
+                </strong>
+
+                <span>
+                  Registros restantes después de la validación y limpieza
+                </span>
+
+              </div>
+
+
+              <div class="stat">
+
+                <strong>
+                  Python
+                </strong>
+
+                <span>
+                  Herramienta computacional de análisis desarrollada
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 04
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <h3>
+                <span>04</span>
+                De los datos a la planificación del mantenimiento
+              </h3>
+
+              <p>
+                Los datos procesados se utilizaron para calcular tiempos de
+                referencia para las operaciones de mantenimiento y compararlos
+                con los tiempos establecidos en las hojas de ruta existentes.
+              </p>
+
+              <p>
+                En lugar de tratar los valores calculados como reemplazos
+                automáticos, los resultados se revisaron frente a las
+                observaciones de campo y el conocimiento técnico. Esto
+                permitió interpretar las diferencias y la variabilidad
+                dentro del contexto de las condiciones reales de mantenimiento.
+              </p>
+
+              <p>
+                El análisis mostró que factores como el estado de los equipos,
+                los hallazgos correctivos, las restricciones operativas,
+                el clima, el acceso y la disponibilidad de personal pueden
+                influir en la duración de una actividad de mantenimiento.
+              </p>
+
+
+              <!-- PROCESS -->
+
+              <div class="process-flow">
+
+                <div class="process-step">
+                  <strong>01</strong>
+                  <span>Datos históricos</span>
+                </div>
+
+                <div class="process-arrow">
+                  →
+                </div>
+
+                <div class="process-step">
+                  <strong>02</strong>
+                  <span>Limpieza y validación</span>
+                </div>
+
+                <div class="process-arrow">
+                  →
+                </div>
+
+                <div class="process-step">
+                  <strong>03</strong>
+                  <span>Análisis estadístico</span>
+                </div>
+
+                <div class="process-arrow">
+                  →
+                </div>
+
+                <div class="process-step">
+                  <strong>04</strong>
+                  <span>Validación en campo</span>
+                </div>
+
+                <div class="process-arrow">
+                  →
+                </div>
+
+                <div class="process-step">
+                  <strong>05</strong>
+                  <span>Apoyo a la planificación</span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 05
+            ================================================== -->
+
+            <div class="experience-section learning-section">
+
+              <h3>
+                <span>05</span>
+                Lo que aprendí
+              </h3>
+
+              <p>
+                Esta experiencia cambió mi manera de entender los sistemas de
+                ingeniería. Trabajar con infraestructura de transporte real
+                me mostró que la ingeniería no consiste únicamente en diseñar
+                componentes individuales, sino también en comprender cómo
+                interactúan las personas, los equipos, los procedimientos,
+                los datos y las restricciones operativas.
+              </p>
+
+              <p>
+                Aprendí a moverme entre el campo y los datos: observar un
+                sistema físico, comprender el trabajo detrás de su
+                mantenimiento, analizar la información generada por
+                ese trabajo y utilizar los resultados para apoyar
+                mejores decisiones.
+              </p>
+
+              <blockquote>
+                De los datos al campo, y del campo de vuelta a los datos.
+              </blockquote>
+
+            </div>
+
+
+            <!-- =================================================
+                 06 — CARTAS DE RECOMENDACIÓN Y CONSTANCIA
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <h3>
+                <span>06</span>
+                Referencias y Certificación
+              </h3>
+
+              <p>
+                Cartas escritas por los profesionales con quienes
+                trabajé durante mi práctica, junto con la
+                constancia oficial de mi período laboral.
+              </p>
+
+              <div class="letters-list">
+
+                {
+                  recommendationLetters.map((letter) => (
+                    <a
+                      class="letter-item"
+                      href={letter.file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span class="letter-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                          <path
+                            fill="currentColor"
+                            d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5zM8 13h8v1.5H8V13zm0 3h8v1.5H8V16zm0-6h4v1.5H8V10z"
+                          />
+                        </svg>
+                      </span>
+
+                      <span class="letter-info">
+                        <span class="letter-name">
+                          {letter.name}
+                          <span class="letter-type">
+                            {letter.type}
+                          </span>
+                        </span>
+
+                        <span class="letter-role">
+                          {letter.role} · {letter.date}
+                        </span>
+                      </span>
+
+                      <span class="letter-cta">
+                        Ver PDF ↗
+                      </span>
+                    </a>
+                  ))
+                }
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 GALLERY
+            ================================================== -->
+
+            <div class="experience-gallery-section">
+
+              <h3>
+                Galería del proyecto
+              </h3>
+
+
+              <div class="gallery-container">
+
+                <div class="gallery-slider">
+
+                  {
+                    gallery.map((item, i) => (
+                      <img
+                        src={item.image}
+                        alt={item.alt}
+                        class:list={{
+                          active: i === 0
+                        }}
+                        loading={
+                          i === 0
+                            ? "eager"
+                            : "lazy"
+                        }
+                      />
+                    ))
+                  }
+
+                </div>
+
+
+                <button
+                  class="gallery-btn prev"
+                  type="button"
+                  aria-label="Imagen anterior"
+                >
+                  ❮
+                </button>
+
+
+                <button
+                  class="gallery-btn next"
+                  type="button"
+                  aria-label="Siguiente imagen"
+                >
+                  ❯
+                </button>
+
+
+                <div class="gallery-counter">
+
+                  <span id="gallery-current">
+                    1
+                  </span>
+
+                  /
+
+                  <span>
+                    {gallery.length}
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </section>
+
+    </main>
+
+
+    <!-- =======================================================
+         LIGHTBOX
+    ======================================================== -->
+
+    <div
+      id="lightbox"
+      class="lightbox"
+      aria-hidden="true"
+    >
+
+      <button
+        class="close"
+        type="button"
+        aria-label="Cerrar visor de imágenes"
+      >
+        &times;
+      </button>
+
+
+      <button
+        class="lightbox-nav prev"
+        type="button"
+        aria-label="Imagen anterior"
+      >
+        ❮
+      </button>
+
+
+      <img
+        id="lightbox-img"
+        class="lightbox-content"
+        src=""
+        alt=""
+      />
+
+
+      <button
+        class="lightbox-nav next"
+        type="button"
+        aria-label="Siguiente imagen"
+      >
+        ❯
+      </button>
+
+
+      <div class="lightbox-counter">
+
+        <span id="lightbox-current">
+          1
+        </span>
+
+        /
+
+        <span>
+          {gallery.length}
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <Footer />
+
+
+    <!-- =======================================================
+         GALLERY SCRIPT
+    ======================================================== -->
+
+    <script>
+  const images =
+    Array.from(
+      document.querySelectorAll<HTMLImageElement>(
+        ".gallery-slider img"
+      )
+    );
+
+  const nextBtn =
+    document.querySelector<HTMLButtonElement>(
+      ".gallery-btn.next"
+    );
+
+  const prevBtn =
+    document.querySelector<HTMLButtonElement>(
+      ".gallery-btn.prev"
+    );
+
+  const lightbox =
+    document.getElementById("lightbox");
+
+  const lightboxImg =
+    document.getElementById(
+      "lightbox-img"
+    ) as HTMLImageElement | null;
+
+  const closeBtn =
+    document.querySelector<HTMLButtonElement>(
+      ".lightbox .close"
+    );
+
+  const nextLightbox =
+    document.querySelector<HTMLButtonElement>(
+      ".lightbox-nav.next"
+    );
+
+  const prevLightbox =
+    document.querySelector<HTMLButtonElement>(
+      ".lightbox-nav.prev"
+    );
+
+  const galleryCurrent =
+    document.getElementById(
+      "gallery-current"
+    );
+
+  const lightboxCurrent =
+    document.getElementById(
+      "lightbox-current"
+    );
+
+  let index = 0;
+
+
+  /* =====================================================
+     SHOW IMAGE
+  ====================================================== */
+
+  function showImage(newIndex: number) {
+
+    if (!images.length) {
+      return;
+    }
+
+    index =
+      (newIndex + images.length) %
+      images.length;
+
+    images.forEach(
+      (img, i) => {
+
+        img.classList.toggle(
+          "active",
+          i === index
+        );
+
+      }
+    );
+
+    if (galleryCurrent) {
+
+      galleryCurrent.textContent =
+        String(index + 1);
+
+    }
+
+  }
+
+
+  /* =====================================================
+     NEXT / PREVIOUS
+  ====================================================== */
+
+  function nextImage() {
+    showImage(index + 1);
+  }
+
+
+  function previousImage() {
+    showImage(index - 1);
+  }
+
+
+  nextBtn?.addEventListener(
+    "click",
+    nextImage
+  );
+
+
+  prevBtn?.addEventListener(
+    "click",
+    previousImage
+  );
+
+
+  /* =====================================================
+     OPEN LIGHTBOX
+  ====================================================== */
+
+  function openLightbox(imageIndex: number) {
+
+    if (
+      !lightbox ||
+      !lightboxImg ||
+      !images[imageIndex]
+    ) {
+      return;
+    }
+
+    index = imageIndex;
+
+    lightboxImg.src =
+      images[index].src;
+
+    lightboxImg.alt =
+      images[index].alt;
+
+    if (lightboxCurrent) {
+
+      lightboxCurrent.textContent =
+        String(index + 1);
+
+    }
+
+    lightbox.classList.add(
+      "open"
+    );
+
+    lightbox.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    document.body.style.overflow =
+      "hidden";
+
+  }
+
+
+  /* =====================================================
+     CLOSE LIGHTBOX
+  ====================================================== */
+
+  function closeLightbox() {
+
+    if (!lightbox) {
+      return;
+    }
+
+    lightbox.classList.remove(
+      "open"
+    );
+
+    lightbox.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    document.body.style.overflow =
+      "";
+
+  }
+
+
+  /* =====================================================
+     UPDATE LIGHTBOX
+  ====================================================== */
+
+  function updateLightbox(direction: number) {
+
+    showImage(
+      index + direction
+    );
+
+    if (
+      !lightboxImg ||
+      !images[index]
+    ) {
+      return;
+    }
+
+    lightboxImg.src =
+      images[index].src;
+
+    lightboxImg.alt =
+      images[index].alt;
+
+    if (lightboxCurrent) {
+
+      lightboxCurrent.textContent =
+        String(index + 1);
+
+    }
+
+  }
+
+
+  /* =====================================================
+     IMAGE CLICK
+  ====================================================== */
+
+  images.forEach(
+    (img, i) => {
+
+      img.addEventListener(
+        "click",
+        () => {
+          openLightbox(i);
+        }
+      );
+
+    }
+  );
+
+
+  /* =====================================================
+     LIGHTBOX BUTTONS
+  ====================================================== */
+
+  nextLightbox?.addEventListener(
+    "click",
+    () => {
+      updateLightbox(1);
+    }
+  );
+
+
+  prevLightbox?.addEventListener(
+    "click",
+    () => {
+      updateLightbox(-1);
+    }
+  );
+
+
+  closeBtn?.addEventListener(
+    "click",
+    closeLightbox
+  );
+
+
+  /* =====================================================
+     KEYBOARD
+  ====================================================== */
+
+  document.addEventListener(
+    "keydown",
+    (event) => {
+
+      if (
+        lightbox?.classList.contains(
+          "open"
+        )
+      ) {
+
+        if (
+          event.key ===
+          "ArrowRight"
+        ) {
+
+          event.preventDefault();
+
+          updateLightbox(1);
+
+        }
+
+
+        if (
+          event.key ===
+          "ArrowLeft"
+        ) {
+
+          event.preventDefault();
+
+          updateLightbox(-1);
+
+        }
+
+
+        if (
+          event.key ===
+          "Escape"
+        ) {
+
+          event.preventDefault();
+
+          closeLightbox();
+
+        }
+
+        return;
+
+      }
+
+
+      if (
+        event.key ===
+        "ArrowRight"
+      ) {
+
+        nextImage();
+
+      }
+
+
+      if (
+        event.key ===
+        "ArrowLeft"
+      ) {
+
+        previousImage();
+
+      }
+
+    }
+  );
+
+
+  /* =====================================================
+     CLICK OUTSIDE LIGHTBOX
+  ====================================================== */
+
+  lightbox?.addEventListener(
+    "click",
+    (event) => {
+
+      if (
+        event.target ===
+        lightbox
+      ) {
+
+        closeLightbox();
+
+      }
+
+    }
+  );
+
+
+  showImage(0);
+
+</script>
+
+  </body>
+</html>
+
+
+<style>
+/* =========================================================
+   EXPERIENCE PAGE
+   Estilo visual alineado con Projects / Hobbies
+   ========================================================= */
+
+.experience-bg {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 3rem 0 5rem;
+  background-image: url("/textures/paper-texture.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+/*
+   Large outer section: this is the single white/translucent
+   container that visually groups the header and timeline.
+   The paper texture remains visible around it.
+*/
+.experience-shell {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 1rem auto 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.experience-header {
+  width: min(900px, 100%);
+  margin: 0 auto 2rem;
+  padding: 3rem 2rem;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.section-label {
+  margin: 0 0 0.8rem;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.experience-header h1 {
+  margin: 0;
+  color: var(--color-deep);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.95;
+}
+
+.experience-intro {
+  width: min(700px, 100%);
+  margin: 1.5rem auto 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* =========================================================
+   TIMELINE OUTER SECTION
+   This is the large section that contains the complete
+   timeline and keeps the experience card inside it.
+   ========================================================= */
+
+.experience-timeline {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Vertical timeline line */
+.timeline-line {
+  position: absolute;
+  top: 4.5rem;
+  bottom: 4rem;
+  left: 3.2rem;
+  width: 2px;
+  background: var(--color-accent);
+  opacity: 0.35;
+}
+
+/* =========================================================
+   TIMELINE ITEM
+   ========================================================= */
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 2rem;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   DATE / MARKER
+   ========================================================= */
+
+.timeline-date {
+  position: relative;
+  min-width: 0;
+  padding: 0.5rem 0 0 3rem;
+}
+
+.timeline-date > span {
+  display: inline-block;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 2;
+}
+
+.timeline-marker span {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* =========================================================
+   EXPERIENCE CARD
+   ========================================================= */
+
+.experience-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 2.5rem;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(4px);
+}
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.experience-card-header {
+  min-width: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.experience-heading {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.experience-company {
+  margin: 0 0 0.4rem;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.experience-card-header h2 {
+  margin: 0;
+  color: var(--color-deep);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.experience-area {
+  margin: 0.6rem 0 0;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.experience-location {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 35%;
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   EXPERIENCE SECTIONS
+   ========================================================= */
+
+.experience-section {
+  width: 100%;
+  min-width: 0;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.experience-section h3,
+.experience-gallery-section h3 {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+
+  margin: 0 0 1.2rem;
+  color: var(--color-deep);
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.experience-section h3 span {
+  flex-shrink: 0;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.experience-section p {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  text-align: justify;
+  overflow-wrap: anywhere;
+}
+
+.experience-section p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.tags span {
+  max-width: 100%;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-deep);
+  font-size: 0.75rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.experience-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.stat {
+  min-width: 0;
+  padding: 1.4rem;
+  text-align: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.stat strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+.stat span {
+  display: block;
+  color: var(--color-text);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   PROCESS FLOW
+   ========================================================= */
+
+.process-flow {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0.7rem;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  box-sizing: border-box;
+}
+
+.process-step {
+  flex: 1 1 0;
+  min-width: 100px;
+  text-align: center;
+}
+
+.process-step strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+}
+
+.process-step span {
+  color: var(--color-deep);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.process-arrow {
+  flex-shrink: 0;
+  align-self: center;
+  color: var(--color-accent);
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+/* =========================================================
+   LEARNING / QUOTE
+   ========================================================= */
+
+.learning-section blockquote {
+  margin: 2rem 0 0;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--color-deep);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   CARTAS DE RECOMENDACIÓN
+   ========================================================= */
+
+.letters-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.letter-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.letter-item:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateX(2px);
+}
+
+.letter-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--color-accent);
+}
+
+.letter-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.letter-name {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: var(--color-deep);
+  font-size: 0.95rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.letter-type {
+  padding: 0.15rem 0.55rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--color-accent);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.letter-role {
+  color: var(--color-text);
+  font-size: 0.8rem;
+  opacity: 0.85;
+  overflow-wrap: anywhere;
+}
+
+.letter-cta {
+  flex-shrink: 0;
+  color: var(--color-deep);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 0.1rem;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   GALLERY
+   ========================================================= */
+
+.experience-gallery-section {
+  width: 100%;
+  min-width: 0;
+  padding-top: 2.5rem;
+}
+
+.gallery-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/*
+   The carousel scales with the available width.
+   It never creates horizontal overflow inside the card.
+*/
+.gallery-slider {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.gallery-slider img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.04);
+  cursor: zoom-in;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-slider img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: clamp(2.2rem, 5vw, 3rem);
+  height: clamp(2.2rem, 5vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(30, 30, 30, 0.65);
+  color: var(--color-bg);
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.gallery-btn:hover {
+  background: rgba(30, 30, 30, 0.9);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.gallery-btn.prev {
+  left: clamp(0.5rem, 2vw, 1.2rem);
+}
+
+.gallery-btn.next {
+  right: clamp(0.5rem, 2vw, 1.2rem);
+}
+
+.gallery-counter {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(0.6rem, 2vw, 1rem);
+  transform: translateX(-50%);
+  z-index: 5;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(30, 30, 30, 0.7);
+  color: white;
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  letter-spacing: 0.05em;
+}
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(15, 15, 15, 0.94);
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-content {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.lightbox .close {
+  position: absolute;
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  z-index: 10;
+  width: clamp(2.2rem, 5vw, 3rem);
+  height: clamp(2.2rem, 5vw, 3rem);
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  cursor: pointer;
+}
+
+.lightbox .close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: clamp(2.5rem, 6vw, 3.5rem);
+  height: clamp(2.5rem, 6vw, 3.5rem);
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  cursor: pointer;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-nav.prev {
+  left: clamp(0.5rem, 3vw, 2rem);
+}
+
+.lightbox-nav.next {
+  right: clamp(0.5rem, 3vw, 2rem);
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: clamp(1rem, 3vw, 2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  letter-spacing: 0.08em;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .experience-bg {
+    background-attachment: scroll;
+    padding: 2rem 0 4rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1.5rem);
+    padding: 1.5rem;
+  }
+
+  .experience-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .experience-timeline {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .timeline-item {
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .timeline-line {
+    left: 2.5rem;
+  }
+
+  .timeline-date {
+    padding-left: 2.7rem;
+  }
+
+  .experience-card {
+    padding: 1.8rem;
+  }
+
+  .experience-card-header {
+    flex-direction: column;
+  }
+
+  .experience-location {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .experience-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .experience-bg {
+    padding: 1rem 0 3rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1rem);
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .experience-header {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .experience-header h1 {
+    font-size: clamp(2.8rem, 13vw, 4rem);
+  }
+
+  .experience-timeline {
+    width: 100%;
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .timeline-line,
+  .timeline-marker {
+    display: none;
+  }
+
+  .timeline-item {
+    display: block;
+  }
+
+  .timeline-date {
+    padding: 0 0 0.8rem;
+  }
+
+  .experience-card {
+    width: 100%;
+    padding: 1.4rem;
+  }
+
+  .experience-section {
+    padding: 1.75rem 0;
+  }
+
+  .experience-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .process-flow {
+    justify-content: flex-start;
+  }
+
+  .letter-item {
+    flex-wrap: wrap;
+  }
+
+  .letter-cta {
+    margin-left: calc(2.1rem + 1rem);
+  }
+
+  .gallery-slider {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 500px) {
+  .experience-shell {
+    width: calc(100% - 0.75rem);
+    padding: 0.75rem;
+  }
+
+  .experience-header {
+    width: 100%;
+    padding: 2.25rem 1rem;
+  }
+
+  .experience-timeline {
+    width: 100%;
+    padding: 1.25rem 0.85rem 2rem;
+  }
+
+  .experience-card {
+    padding: 1.15rem;
+  }
+
+  .experience-card-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .experience-section h3,
+  .experience-gallery-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .experience-section p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .process-step {
+    min-width: 95px;
+  }
+
+  .gallery-slider {
+    aspect-ratio: 4 / 3;
+  }
+
+  .lightbox-content {
+    max-width: 94vw;
+    max-height: 78vh;
+  }
+}
+</style>

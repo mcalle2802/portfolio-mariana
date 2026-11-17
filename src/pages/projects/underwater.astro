@@ -2,153 +2,722 @@
 import "../../styles/global.css";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
+
+const systemOverview = [
+  { label: "Microcontroller", value: "ESP32" },
+  { label: "Sensors", value: "Water-quality sensors (pH, turbidity)" },
+  { label: "Communication", value: "I2C" },
+  { label: "Housing", value: "Waterproof enclosure" },
+  { label: "Structure", value: "Modular PLA-PVC" },
+];
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>S.U.S.D.E.M — Underwater Monitoring System</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="S.U.S.D.E.M — underwater monitoring system project by Mariana Calle Méndez."
+    />
+
+    <title>Underwater Monitoring System — Mariana Calle</title>
   </head>
 
   <body>
+
     <Navbar />
 
-    <main class="project-page">
-      <section class="project-hero">
-        <img src="/projects/underwater.jpeg" alt="S.U.S.D.E.M Project" class="hero-img" />
-        <div class="overlay">
-          <h1>S.U.S.D.E.M — Underwater Monitoring System</h1>
-          <p>Autonomous underwater platform for pH and turbidity monitoring to detect eutrophication early.</p>
-        </div>
-      </section>
+    <main class="experience-bg">
 
-      <section class="project-content">
-        <h2>Project Overview</h2>
-        <p>
-          The <strong>Submersible Underwater System for Detecting Eutrophication Monitoring (S.U.S.D.E.M)</strong> 
-          was designed as a low-cost autonomous underwater vehicle for collecting and transmitting 
-          real-time water quality data. It integrates sensors for <strong>pH</strong>, 
-          <strong>turbidity</strong>, and <strong>temperature</strong>, controlled by dual 
-          <strong>ESP32 microcontrollers</strong> communicating via <strong>I2C</strong>. 
-          The structure combines <strong>PVC housing</strong> for waterproofing and 
-          <strong>PLA supports</strong> for sensor mounts.
-        </p>
+      <div class="experience-shell">
 
-        <h2>System Architecture</h2>
-        <ul>
-          <li><strong>Control Unit:</strong> Two ESP32 boards — one for motor control and another for sensor data.</li>
-          <li><strong>Actuation System:</strong> Three DC motors for movement and immersion stability.</li>
-          <li><strong>Sensor Suite:</strong> pH, turbidity, and TDS sensors connected via I2C.</li>
-          <li><strong>Mechanical Design:</strong> Compact PLA–PVC body designed for durability and corrosion resistance.</li>
-          <li><strong>Communication:</strong> Real-time serial link to surface for live visualization and analysis.</li>
-        </ul>
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
 
-        <h2>Design Highlights</h2>
-        <ul>
-          <li>3D printed <strong>PLA supports</strong> for modular assembly and sensor alignment.</li>
-          <li><strong>Waterproof PVC housing</strong> with sealed cable glands for reliable underwater operation.</li>
-          <li><strong>Three-motor system</strong> for precise horizontal and vertical motion control.</li>
-          <li>Synchronized microcontrollers integrating <strong>sensor feedback</strong> and <strong>motor actuation</strong>.</li>
-        </ul>
+        <section class="experience-header">
 
-        <h2>Challenges & Solutions</h2>
-        <ul>
-          <li><strong>Waterproofing:</strong> Achieved with silicone seals and pressure-tested PVC enclosures.</li>
-          <li><strong>Pressure Resistance:</strong> Structure validated up to 15 m depth operation.</li>
-          <li><strong>Data Accuracy:</strong> Sensor calibration routines ensure precise readings.</li>
-          <li><strong>Communication:</strong> Reliable I2C data synchronization between ESP32 modules.</li>
-        </ul>
+          <h1>
+            UNDERWATER MONITORING SYSTEM
+          </h1>
 
-        <h2>Impact</h2>
-        <p>
-          S.U.S.D.E.M showcases how mechatronic systems can contribute to <strong>environmental monitoring</strong>. 
-          By automating the collection of water-quality data, it enables researchers and authorities 
-          to detect early signs of eutrophication and implement preventive conservation strategies.
-        </p>
+          <p class="experience-intro">
+            An unmanned underwater vehicle built to monitor
+            water-quality indicators like pH and turbidity, in
+            support of eutrophication research.
+          </p>
 
-        <section class="back-link">
-          <a href="/projects">← Back to Projects</a>
         </section>
-      </section>
+
+
+        <!-- HERO IMAGE -->
+
+        <section class="experience-timeline hero-section">
+
+          <div class="hero-image-wrap">
+
+            <img
+              src="/projects/underwater.jpeg"
+              alt="Underwater Monitoring System"
+            />
+
+          </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             MAIN CONTENT CARD
+        ====================================================== -->
+
+        <section class="experience-timeline">
+
+          <div class="experience-card project-card">
+
+            <!-- =================================================
+                 01 · INTRODUCTION
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                01 · INTRODUCTION
+              </p>
+
+              <h2>
+                Project Info
+              </h2>
+
+              <div class="hardware-grid">
+
+                <div class="hardware-item">
+                  <span class="hardware-label">Project date</span>
+                  <span class="hardware-value">2024</span>
+                </div>
+
+                <div class="hardware-item">
+                  <span class="hardware-label">Project type</span>
+                  <span class="hardware-value">Team project</span>
+                </div>
+
+                <div class="hardware-item">
+                  <span class="hardware-label">My role</span>
+                  <span class="hardware-value">Software Development</span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 02 · THE CHALLENGE
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                02 · THE CHALLENGE
+              </p>
+
+              <h2>
+                The Idea
+              </h2>
+
+              <p>
+                The project began with an environmental challenge
+                about <strong>eutrophication</strong>, a process that
+                can gradually deteriorate water quality and disrupt
+                aquatic ecosystems. Detecting its early signs requires
+                monitoring relevant water parameters and collecting
+                reliable information over time.
+              </p>
+
+              <p>
+                Our goal was to develop an <strong>unmanned
+                underwater vehicle</strong> capable of monitoring key
+                water-quality variables and transmitting data in real
+                time. We envisioned a compact and accessible platform
+                that could support researchers and environmental
+                organizations in studying aquatic environments,
+                particularly smaller or restricted bodies of water.
+              </p>
+
+              <p>
+                To approach this challenge, we began by researching
+                existing underwater vehicles and monitoring
+                technologies. We then identified the needs of
+                potential users, translated them into engineering
+                requirements and developed a functional architecture
+                to define the main tasks the system would need to
+                perform. This process helped us establish the
+                foundations for a submersible platform focused on
+                environmental monitoring, combining underwater
+                mobility, sensor integration and data acquisition.
+              </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 03 · MY CONTRIBUTION
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                03 · MY CONTRIBUTION
+              </p>
+
+              <h2>
+                Sensor Integration &amp; Software Support
+              </h2>
+
+              <p>
+                My contribution focused on the conceptual design,
+                sensor integration and testing of the underwater
+                monitoring system. I worked on understanding how the
+                different sensing components would fit into the
+                platform and how they could be integrated to collect
+                the water-quality data required by the project.
+              </p>
+
+              <p>
+                I was directly involved in integrating the sensors
+                and carrying out tests to check their operation. I
+                also participated in testing the <strong>watertightness</strong>
+                of the housing, helping ensure that the enclosure
+                could protect the electronic components in an
+                underwater environment.
+              </p>
+
+              <p>
+                Alongside the hardware work, I supported Juan Felipe
+                with parts of the code, contributing to the software
+                integration and helping connect the sensing
+                components with the data acquisition process. Working
+                across these different areas gave me the opportunity
+                to understand how conceptual design, electronics,
+                software and physical testing come together when
+                developing an underwater system.
+              </p>
+
+              <div class="tags">
+                <span>Sensor Integration</span>
+                <span>Watertightness Testing</span>
+                <span>Software Support</span>
+              </div>
+
+              <div class="hardware-grid">
+                {
+                  systemOverview.map((item) => (
+                    <div class="hardware-item">
+                      <span class="hardware-label">{item.label}</span>
+                      <span class="hardware-value">{item.value}</span>
+                    </div>
+                  ))
+                }
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 04 · FROM DESIGN TO REALITY
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                04 · FROM DESIGN TO REALITY
+              </p>
+
+              <h2>
+                Bringing It to Life
+              </h2>
+
+              <p>
+                After defining the system's concept and architecture,
+                we moved on to building the physical prototype. We
+                assembled the underwater platform, integrated its
+                electronic components and sensors, and worked on the
+                housing to protect the system from water ingress.
+              </p>
+
+              <p>
+                An important part of this stage was testing the
+                enclosure's watertightness. We used a tank to carry
+                out these tests and check whether the housing could
+                protect the internal components. In parallel, we
+                tested the sensors using water collected from the
+                university lake to evaluate their operation with the
+                type of water the system was designed to monitor.
+              </p>
+
+              <p>
+                We eventually completed an integrated and functional
+                prototype. However, when the time came for the final
+                demonstration, weather conditions prevented us from
+                carrying out the planned test in the university lake.
+                We adapted our testing approach, using the tank for
+                the final checks while keeping the sensor tests
+                separate. Although we could not complete the planned
+                lake demonstration, the process allowed us to
+                assemble the full system and test important parts of
+                its operation.
+              </p>
+
+              <div class="tags">
+                <span>Watertightness Testing</span>
+                <span>Sensor Calibration</span>
+                <span>Lake Water Testing</span>
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 05 · RESULTS
+            ================================================== -->
+
+            <div class="experience-section learning-section">
+
+              <p class="section-kicker">
+                05 · RESULTS
+              </p>
+
+              <h2>
+                The Outcome
+              </h2>
+
+              <p>
+                The project resulted in an integrated and functional
+                underwater monitoring prototype. We successfully
+                assembled the different subsystems, bringing together
+                the underwater structure, propulsion system,
+                electronics and water-quality sensors.
+              </p>
+
+              <p>
+                The submarine was tested in water and demonstrated
+                that it could move through the aquatic environment.
+                We also tested the sensors using water from the
+                university lake and carried out watertightness tests
+                on the housing. During sensor testing, we identified
+                the importance of maintaining a consistent <strong>pH
+                calibration</strong> to obtain meaningful and reliable
+                readings.
+              </p>
+
+              <p>
+                Although the weather prevented us from carrying out
+                the planned final demonstration in the university
+                lake, we were able to test the submarine's movement
+                and evaluate the sensors separately. For me, this
+                project was an opportunity to work on an environmental
+                application of mechatronics engineering, combining
+                conceptual design, sensor integration, software
+                support and hands-on testing. It was especially
+                rewarding to see the initial concept become a
+                physical submarine capable of moving through water.
+              </p>
+
+              <blockquote>
+                It was especially rewarding to see the initial
+                concept become a physical submarine capable of
+                moving through water.
+              </blockquote>
+
+            </div>
+
+
+            <!-- BACK LINK -->
+
+            <div class="back-link-wrap">
+              <a href="/projects" class="back-link-pill">
+                <span>←</span>
+                Back to Projects
+              </a>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
     </main>
 
     <Footer />
+
   </body>
 </html>
 
+
 <style>
-.project-page {
-  color: var(--color-text);
-  line-height: 1.7;
+/* =========================================================
+   Mismas clases base que scara.astro / robot.astro / iot.astro
+   / cattree.astro.
+   ========================================================= */
+
+.experience-bg {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 3rem 0 5rem;
+  background-image: url("/textures/paper-texture.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: transparent;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-.project-hero {
-  position: relative;
-  height: 60vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.experience-shell {
+  width: 100%;
+  max-width: 1200px;
+  margin: 1rem auto 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  box-sizing: border-box;
+}
+
+.experience-shell .experience-header {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto 2rem;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
   overflow: hidden;
 }
 
-.hero-img {
+.experience-header h1 {
+  margin: 0;
+  color: var(--color-deep);
+  font-size: clamp(2.3rem, 6.5vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+}
+
+.experience-intro {
+  width: min(700px, 100%);
+  margin: 1.5rem auto 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.experience-shell .experience-timeline {
+  width: 100%;
+  margin: 0 auto 2rem;
+  padding: 3rem 2rem 4rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.experience-shell .experience-timeline:last-child {
+  margin-bottom: 0;
+}
+
+.experience-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(4px);
+}
+
+/* HERO IMAGE */
+
+.hero-section {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.hero-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(55%);
+  display: block;
+  filter: saturate(1.05);
 }
 
-.overlay {
-  position: absolute;
-  text-align: center;
-  color: white;
-  z-index: 2;
+/* SECTIONS */
+
+.experience-section {
+  width: 100%;
+  min-width: 0;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.overlay h1 {
-  font-size: 2.5rem;
-  font-family: var(--font-title);
-  margin-bottom: 0.5rem;
+.experience-section:last-of-type {
+  border-bottom: none;
 }
 
-.overlay p {
-  font-size: 1.1rem;
-}
-
-.project-content {
-  max-width: 900px;
-  margin: 4rem auto;
-  padding: 0 2rem;
-}
-
-.project-content h2 {
+.section-kicker {
+  margin: 0 0 0.6rem;
   color: var(--color-accent);
-  margin-top: 2rem;
-  margin-bottom: 0.8rem;
-}
-
-.project-content ul {
-  margin-left: 1.5rem;
-  list-style-type: square;
-}
-
-.back-link {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-.back-link a {
-  color: var(--color-accent);
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  transition: color 0.3s ease, transform 0.3s ease;
-  text-decoration: none;
 }
 
-.back-link a:hover {
+.experience-section h2 {
+  margin: 0 0 1.2rem;
   color: var(--color-deep);
-  transform: translateX(-4px);
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.experience-section p {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  text-align: justify;
+  overflow-wrap: anywhere;
+}
+
+.experience-section p:last-of-type {
+  margin-bottom: 0;
+}
+
+.learning-section blockquote {
+  margin: 1.5rem 0 0;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--color-deep);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* TAGS */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.tags span {
+  max-width: 100%;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-deep);
+  font-size: 0.75rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* HARDWARE / SYSTEM GRID */
+
+.hardware-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.hardware-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.hardware-label {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hardware-value {
+  color: var(--color-deep);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* BACK LINK */
+
+.back-link-wrap {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.back-link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.3rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.back-link-pill:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  transform: translateX(-3px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .experience-bg {
+    background-attachment: scroll;
+    padding: 2rem 0 4rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1.5rem);
+    padding: 1.5rem;
+  }
+
+  .experience-shell .experience-timeline {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .experience-card {
+    padding: 1.8rem;
+  }
+
+  .hero-image-wrap {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 700px) {
+  .experience-bg {
+    padding: 1rem 0 3rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1rem);
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .experience-shell .experience-header {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .experience-header h1 {
+    font-size: clamp(2rem, 11vw, 3.2rem);
+  }
+
+  .experience-shell .experience-timeline {
+    width: 100%;
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .experience-card {
+    width: 100%;
+    padding: 1.4rem;
+  }
+
+  .experience-section {
+    padding: 1.75rem 0;
+  }
+
+  .hero-image-wrap {
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .experience-shell {
+    width: calc(100% - 0.75rem);
+    padding: 0.75rem;
+  }
+
+  .experience-shell .experience-header {
+    width: 100%;
+    padding: 2.25rem 1rem;
+  }
+
+  .experience-shell .experience-timeline {
+    width: 100%;
+    padding: 1.25rem 0.85rem 2rem;
+  }
+
+  .experience-card {
+    padding: 1.15rem;
+  }
+
+  .experience-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .experience-section p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
 }
 </style>

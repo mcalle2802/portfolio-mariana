@@ -1,0 +1,1353 @@
+---
+import "../../styles/global.css";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+
+
+const me = {
+  icon: "✨",
+  title: "Esa Soy Yo — Mariana",
+  keywords: "INGENIERA · CREADORA · CURIOSA · SIEMPRE CONSTRUYENDO ALGO",
+  description:
+    "Soy curiosa por naturaleza y me gusta tener muchas facetas por explorar. Disfruto hacer cosas con mis manos, retarme físicamente, perderme en una buena historia, aprender algo nuevo y pasar tiempo con los animales que amo. También soy alguien a quien le gusta salir, hacer planes un poco fuera de lo común, y decir que sí cuando se presenta la oportunidad de vivir algo nuevo supongo que me gusta estar a la altura de mi apellido. Ya sea dando una caminata larga, probando una actividad nueva, yendo a un lugar donde nunca he estado, o encontrando un reto que ponga a trabajar mi mente, prefiero vivir algo a quedarme preguntándome cómo habría sido. Puedo disfrutar tanto la aventura como los momentos tranquilos, pero lo que conecta todo es mi curiosidad y mis ganas de intentar. No creo que tenga una sola forma de ser, y me gusta que siempre haya algo nuevo por descubrir.",
+};
+
+const hobbies = [
+  {
+    position: "top",
+    icon: "🏃",
+    title: "Deporte y Movimiento",
+    keywords: "CORRER · PATINAR · BAILAR · SENDERISMO · JIU-JITSU BRASILEÑO · MUAY THAI",
+    description:
+      "El movimiento ha llegado a mi vida por distintas razones, y cada una me ha enseñado algo en el camino. Las artes marciales mixtas me enseñaron humildad desde el principio: siempre habrá alguien más fuerte o más hábil que tú, y no todos están dispuestos a encontrarse contigo en tu nivel. Aprendes a respetar a los demás, a aceptar lo que no sabes, y a seguir apareciendo con disposición para aprender. Correr empezó por una razón distinta: quería darle a mi perra un estilo de vida más saludable, y de alguna forma, esa meta terminó siendo parte de mi propia rutina también. Patinar, en cambio, ha estado conmigo desde la infancia. Solía entrenar e incluso competir en carreras, pero hoy lo disfruto de otra manera, saliendo a patinar con mis amigos del colegio y manteniendo viva una pequeña parte de esa pasión de la infancia. Y luego está el baile. Para mí, hay pocas formas mejores de estar completamente presente, de dejar de pensar demasiado y simplemente vivir el momento. Honestamente creo que todos deberían bailar, no porque tengan que ser buenos en eso, sino porque a veces lo mejor que puedes hacer es soltarte, escuchar la música, y disfrutar estar ahí.",
+  },
+  {
+    position: "right",
+    icon: "🎨",
+    title: "Arte y Expresión",
+    keywords:
+      "MÚSICA · STOP-MOTION · HECHO A MANO · EXPERIMENTACIÓN · ARTESANÍA · CREATIVIDAD",
+    description:
+      "Siempre me ha atraído crear cosas, ya sea darle vida a una melodía, construir algo desde cero, o experimentar con un material con el que nunca he trabajado. La música es una de las formas en que me expreso: disfruto tocar el ukelele y la armónica, y me encanta cómo unas pocas notas pueden cambiar el ánimo de un momento. También me fascina la animación stop-motion y la magia de hacer que algo inanimado cobre vida, cuadro a cuadro. Esa fascinación ha crecido al punto de estar diseñando mi propia armadura, explorando lo que pasa detrás de cámaras para darle vida a un personaje. Me encanta que este tipo de creatividad combine imaginación con paciencia, mecánica, y un poco de magia. Esa misma curiosidad me sigue en las cosas que hago con mis manos. He explorado desde el crochet, el bordado y coser mi propia ropa, hasta cerámica, vitrales, joyería, grabado en linóleo y móviles. Siempre me siento tentada a probar una técnica nueva, descubrir qué puede hacer un material, o encontrar la forma de convertir una idea en algo tangible. Para mí, crear no se trata de quedarme con un solo medio o dominar un solo oficio; se trata de experimentar, aprender en el camino, y disfrutar la satisfacción de hacer algo que antes no existía.",
+  },
+  {
+    position: "bottom",
+    icon: "♟️",
+    title: "Mente y Estrategia",
+    keywords: "LECTURA · CIENCIA · FANTASÍA · AJEDREZ · ROMPECABEZAS · CURIOSIDAD",
+    description:
+      "Siempre estoy buscando algo interesante que descubrir, ya sea a través de un artículo científico o una novela de fantasía. Me encanta leer porque me permite hacer dos cosas que disfruto por igual: aprender sobre el mundo que me rodea y escapar hacia mundos completamente distintos. A veces leo para estar informada, explorar una idea, o entender algo nuevo; otras veces, solo quiero perderme en una historia y desconectarme un rato. De cualquier forma, siempre hay algo que me mantiene pasando páginas. El ajedrez le da a mi curiosidad un tipo de reto distinto. Disfruto pensar varios pasos adelante, reconocer patrones, y descubrir cómo un solo movimiento puede cambiar toda la partida. Y luego están los rompecabezas, que se han convertido en un pequeño reto personal. Cuando estoy sola, he desarrollado el hábito de intentar armarlos en tiempo récord, casi convirtiéndolo en una carrera contra mí misma. Cuando lo hago con otras personas, en cambio, me tomo mi tiempo y disfruto el proceso en conjunto. Me gusta que la misma actividad pueda convertirse en un reto o en una forma de bajar el ritmo, dependiendo de cómo elija vivirla.",
+  },
+  {
+    position: "left",
+    icon: "🐾",
+    title: "Animales y Compañía",
+    keywords:
+      "FRIDA · DALI · MATISSE · PERSONALIDADES · EMPATÍA · COMPAÑÍA",
+    description:
+      "Mis mascotas son una parte enorme de mi vida, y cada una tiene su propia pequeña historia. Frida, mi perra, llegó a mi vida cuando la adopté con apenas tres meses de edad durante un viaje a Urrao, un pueblo de Antioquia. Siempre ha sido un poco como una gata: independiente, excepcionalmente bien portada, y perfectamente feliz haciendo lo suyo. Con el tiempo, sin embargo, empecé a sentir que se estaba aburriendo un poco, y eso cambió cuando Dalí y Matisse se unieron a la familia dos años después, también con tres meses de edad. Son hermanos de la misma camada, hijos de una gata de una amiga que conozco desde el colegio. Fueron los únicos dos gatitos de la camada, y no podrían ser más distintos a Frida. En muchos sentidos, son más como perros: saludan a quienes llegan a la casa y quieren ser parte de absolutamente todo lo que está pasando. Tal vez por eso los tres se llevan tan bien. Cada uno tiene su propia personalidad, pero de alguna forma han encontrado su manera de estar juntos, jugar, y hacerse compañía. Vivir con ellos me ha enseñado más de lo que esperaba. Me han ayudado a aprender a manejar el estrés, practicar la paciencia, y abordar las situaciones con más empatía. Cuidar de tres personalidades distintas me ha enseñado a mirar más allá de lo obvio, considerar distintas necesidades, y pensar en cómo prevenir los problemas en vez de simplemente reaccionar a ellos. He llegado a apreciar cómo crear un ambiente más amable y equilibrado empieza por entender a quienes te rodean. Sobre todo, me traen alegría, hacen que los días comunes se sientan especiales, y me recuerdan cuánto podemos aprender de los vínculos que construimos con otros seres vivos.",
+  },
+];
+
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="Hobbies e intereses de Mariana Calle Méndez, más allá de la ingeniería."
+    />
+
+    <title>Hobbies — Mariana Calle</title>
+  </head>
+
+  <body>
+    <Navbar />
+
+    <main class="experience-bg">
+
+      <div class="experience-shell">
+
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
+
+        <section class="experience-header">
+          <p class="section-label">
+            MÁS ALLÁ DE LA INGENIERÍA
+          </p>
+
+          <h1>HOBBIES</h1>
+
+          <p class="experience-intro">
+            Las cosas que me inspiran, me mueven y mantienen viva mi creatividad.
+          </p>
+        </section>
+
+
+        <!-- =====================================================
+             HOBBY ORBIT
+        ====================================================== -->
+
+        <section class="experience-timeline hobbies-main">
+
+          <div class="experience-card hobby-card">
+
+            <div class="hobby-orbit">
+
+              <!-- Decorative connection lines -->
+              <div class="orbit-line line-top"></div>
+              <div class="orbit-line line-right"></div>
+              <div class="orbit-line line-bottom"></div>
+              <div class="orbit-line line-left"></div>
+
+
+              <!-- =================================================
+                   TOP — SPORTS
+              ================================================== -->
+
+              {
+                hobbies.map((hobby, index) => (
+                  <button
+                    type="button"
+                    class={`orbit-chip orbit-${hobby.position}`}
+                    data-index={index}
+                    aria-pressed="false"
+                  >
+                    <span
+                      class="orbit-icon"
+                      aria-hidden="true"
+                    >
+                      {hobby.icon}
+                    </span>
+
+                    <span class="orbit-title">
+                      {hobby.title}
+                    </span>
+
+                    <span class="orbit-keywords">
+                      {hobby.keywords}
+                    </span>
+                  </button>
+                ))
+              }
+
+
+              <!-- =================================================
+                   CENTER — YOU
+              ================================================== -->
+
+              <button
+                type="button"
+                class="orbit-avatar active"
+                id="orbit-avatar"
+                aria-pressed="true"
+                aria-label="Sobre mí"
+              >
+                <img
+                  src="/hobbies/yo.png"
+                  alt="Ilustración tipo sticker de Mariana con un gorro rojo tipo bucket y gafas protectoras"
+                />
+
+                <span class="avatar-label">
+                  ESA SOY YO
+                </span>
+              </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 SELECTED HOBBY
+                 (por defecto muestra "Esa Soy Yo")
+            ================================================== -->
+
+            <div class="hobby-detail" aria-live="polite">
+
+              <div class="detail-heading">
+
+                <span
+                  class="detail-icon"
+                  id="detail-icon"
+                  aria-hidden="true"
+                >
+                  {me.icon}
+                </span>
+
+                <div>
+                  <p class="detail-label" id="detail-label">
+                    SOBRE MÍ
+                  </p>
+
+                  <h2 id="detail-title">
+                    {me.title}
+                  </h2>
+                </div>
+
+              </div>
+
+
+              <div class="detail-divider"></div>
+
+
+              <p
+                class="detail-description"
+                id="detail-description"
+              >
+                {me.description}
+              </p>
+
+
+              <div class="detail-keywords" id="detail-keywords">
+                {me.keywords}
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+
+<script>
+  const me = {
+    icon: "✨",
+    title: "Esa Soy Yo — Mariana",
+    label: "SOBRE MÍ",
+    keywords: "INGENIERA · CREADORA · CURIOSA · SIEMPRE CONSTRUYENDO ALGO",
+    description:
+      "Soy curiosa por naturaleza y me gusta tener muchas facetas por explorar. Disfruto hacer cosas con mis manos, retarme físicamente, perderme en una buena historia, aprender algo nuevo y pasar tiempo con los animales que amo. También soy alguien a quien le gusta salir, hacer planes un poco fuera de lo común, y decir que sí cuando se presenta la oportunidad de vivir algo nuevo supongo que me gusta estar a la altura de mi apellido. Ya sea dando una caminata larga, probando una actividad nueva, yendo a un lugar donde nunca he estado, o encontrando un reto que ponga a trabajar mi mente, prefiero vivir algo a quedarme preguntándome cómo habría sido. Puedo disfrutar tanto la aventura como los momentos tranquilos, pero lo que conecta todo es mi curiosidad y mis ganas de intentar. No creo que tenga una sola forma de ser, y me gusta que siempre haya algo nuevo por descubrir.",
+  };
+
+  const hobbies = [
+    {
+      icon: "🏃",
+      title: "Deporte y Movimiento",
+      label: "EXPLORANDO ACTUALMENTE",
+      keywords:
+        "CORRER · PATINAR · BAILAR · SENDERISMO · JIU-JITSU BRASILEÑO · MUAY THAI",
+      description:
+        "El movimiento ha llegado a mi vida por distintas razones, y cada una me ha enseñado algo en el camino. Las artes marciales mixtas me enseñaron humildad desde el principio: siempre habrá alguien más fuerte o más hábil que tú, y no todos están dispuestos a encontrarse contigo en tu nivel. Aprendes a respetar a los demás, a aceptar lo que no sabes, y a seguir apareciendo con disposición para aprender. Correr empezó por una razón distinta: quería darle a mi perra un estilo de vida más saludable, y de alguna forma, esa meta terminó siendo parte de mi propia rutina también. Patinar, en cambio, ha estado conmigo desde la infancia. Solía entrenar e incluso competir en carreras, pero hoy lo disfruto de otra manera, saliendo a patinar con mis amigos del colegio y manteniendo viva una pequeña parte de esa pasión de la infancia. Y luego está el baile. Para mí, hay pocas formas mejores de estar completamente presente, de dejar de pensar demasiado y simplemente vivir el momento. Honestamente creo que todos deberían bailar, no porque tengan que ser buenos en eso, sino porque a veces lo mejor que puedes hacer es soltarte, escuchar la música, y disfrutar estar ahí.",
+    },
+    {
+      icon: "🎨",
+      title: "Arte y Expresión",
+      label: "EXPLORANDO ACTUALMENTE",
+      keywords:
+        "MÚSICA · STOP-MOTION · HECHO A MANO · EXPERIMENTACIÓN · ARTESANÍA · CREATIVIDAD",
+      description:
+        "Siempre me ha atraído crear cosas, ya sea darle vida a una melodía, construir algo desde cero, o experimentar con un material con el que nunca he trabajado. La música es una de las formas en que me expreso: disfruto tocar el ukelele y la armónica, y me encanta cómo unas pocas notas pueden cambiar el ánimo de un momento. También me fascina la animación stop-motion y la magia de hacer que algo inanimado cobre vida, cuadro a cuadro. Esa fascinación ha crecido al punto de estar diseñando mi propia armadura, explorando lo que pasa detrás de cámaras para darle vida a un personaje. Me encanta que este tipo de creatividad combine imaginación con paciencia, mecánica, y un poco de magia. Esa misma curiosidad me sigue en las cosas que hago con mis manos. He explorado desde el crochet, el bordado y coser mi propia ropa, hasta cerámica, vitrales, joyería, grabado en linóleo y móviles. Siempre me siento tentada a probar una técnica nueva, descubrir qué puede hacer un material, o encontrar la forma de convertir una idea en algo tangible. Para mí, crear no se trata de quedarme con un solo medio o dominar un solo oficio; se trata de experimentar, aprender en el camino, y disfrutar la satisfacción de hacer algo que antes no existía.",
+    },
+    {
+      icon: "♟️",
+      title: "Mente y Estrategia",
+      label: "EXPLORANDO ACTUALMENTE",
+      keywords:
+        "LECTURA · CIENCIA · FANTASÍA · AJEDREZ · ROMPECABEZAS · CURIOSIDAD",
+      description:
+        "Siempre estoy buscando algo interesante que descubrir, ya sea a través de un artículo científico o una novela de fantasía. Me encanta leer porque me permite hacer dos cosas que disfruto por igual: aprender sobre el mundo que me rodea y escapar hacia mundos completamente distintos. A veces leo para estar informada, explorar una idea, o entender algo nuevo; otras veces, solo quiero perderme en una historia y desconectarme un rato. De cualquier forma, siempre hay algo que me mantiene pasando páginas. El ajedrez le da a mi curiosidad un tipo de reto distinto. Disfruto pensar varios pasos adelante, reconocer patrones, y descubrir cómo un solo movimiento puede cambiar toda la partida. Y luego están los rompecabezas, que se han convertido en un pequeño reto personal. Cuando estoy sola, he desarrollado el hábito de intentar armarlos en tiempo récord, casi convirtiéndolo en una carrera contra mí misma. Cuando lo hago con otras personas, en cambio, me tomo mi tiempo y disfruto el proceso en conjunto. Me gusta que la misma actividad pueda convertirse en un reto o en una forma de bajar el ritmo, dependiendo de cómo elija vivirla.",
+    },
+    {
+      icon: "🐾",
+      title: "Animales y Compañía",
+      label: "EXPLORANDO ACTUALMENTE",
+      keywords:
+        "FRIDA · DALI · MATISSE · PERSONALIDADES · EMPATÍA · COMPAÑÍA",
+      description:
+        "Mis mascotas son una parte enorme de mi vida, y cada una tiene su propia pequeña historia. Frida, mi perra, llegó a mi vida cuando la adopté con apenas tres meses de edad durante un viaje a Urrao, un pueblo de Antioquia. Siempre ha sido un poco como una gata: independiente, excepcionalmente bien portada, y perfectamente feliz haciendo lo suyo. Con el tiempo, sin embargo, empecé a sentir que se estaba aburriendo un poco, y eso cambió cuando Dalí y Matisse se unieron a la familia dos años después, también con tres meses de edad. Son hermanos de la misma camada, hijos de una gata de una amiga que conozco desde el colegio. Fueron los únicos dos gatitos de la camada, y no podrían ser más distintos a Frida. En muchos sentidos, son más como perros: saludan a quienes llegan a la casa y quieren ser parte de absolutamente todo lo que está pasando. Tal vez por eso los tres se llevan tan bien. Cada uno tiene su propia personalidad, pero de alguna forma han encontrado su manera de estar juntos, jugar, y hacerse compañía. Vivir con ellos me ha enseñado más de lo que esperaba. Me han ayudado a aprender a manejar el estrés, practicar la paciencia, y abordar las situaciones con más empatía. Cuidar de tres personalidades distintas me ha enseñado a mirar más allá de lo obvio, considerar distintas necesidades, y pensar en cómo prevenir los problemas en vez de simplemente reaccionar a ellos. He llegado a apreciar cómo crear un ambiente más amable y equilibrado empieza por entender a quienes te rodean. Sobre todo, me traen alegría, hacen que los días comunes se sientan especiales, y me recuerdan cuánto podemos aprender de los vínculos que construimos con otros seres vivos.",
+    },
+  ];
+
+  const chips =
+    Array.from(
+      document.querySelectorAll<HTMLButtonElement>(".orbit-chip")
+    );
+
+  const avatarButton =
+    document.getElementById(
+      "orbit-avatar"
+    ) as HTMLButtonElement | null;
+
+  const detailIcon =
+    document.getElementById("detail-icon");
+
+  const detailLabel =
+    document.getElementById("detail-label");
+
+  const detailTitle =
+    document.getElementById("detail-title");
+
+  const detailDescription =
+    document.getElementById("detail-description");
+
+  const detailKeywords =
+    document.getElementById("detail-keywords");
+
+  const detail =
+    document.querySelector(".hobby-detail");
+
+  // Por defecto arrancamos mostrando "Esa Soy Yo", no un hobby.
+  let activeIndex: number | "me" = "me";
+
+
+  function renderDetail(
+    source: {
+      icon: string;
+      title: string;
+      label: string;
+      description: string;
+      keywords: string;
+    }
+  ) {
+
+    if (detailIcon) {
+      detailIcon.textContent = source.icon;
+    }
+
+    if (detailLabel) {
+      detailLabel.textContent = source.label;
+    }
+
+    if (detailTitle) {
+      detailTitle.textContent = source.title;
+    }
+
+    if (detailDescription) {
+      detailDescription.textContent = source.description;
+    }
+
+    if (detailKeywords) {
+      detailKeywords.textContent = source.keywords;
+    }
+
+    detail?.classList.remove("changing");
+
+    requestAnimationFrame(() => {
+      detail?.classList.add("changing");
+
+      window.setTimeout(() => {
+        detail?.classList.remove("changing");
+      }, 350);
+    });
+  }
+
+
+  function setActiveChip(index: number | "me") {
+
+    activeIndex = index;
+
+    chips.forEach((chip, chipIndex) => {
+      const isActive = chipIndex === index;
+
+      chip.classList.toggle("active", isActive);
+      chip.setAttribute(
+        "aria-pressed",
+        isActive ? "true" : "false"
+      );
+    });
+
+    avatarButton?.classList.toggle(
+      "active",
+      index === "me"
+    );
+
+    avatarButton?.setAttribute(
+      "aria-pressed",
+      index === "me" ? "true" : "false"
+    );
+  }
+
+
+  function selectHobby(index: number) {
+    const hobby = hobbies[index];
+
+    if (!hobby) return;
+
+    setActiveChip(index);
+    renderDetail(hobby);
+  }
+
+
+  function selectMe() {
+    setActiveChip("me");
+    renderDetail(me);
+  }
+
+
+  chips.forEach((chip, index) => {
+    chip.addEventListener("click", () => {
+      selectHobby(index);
+    });
+  });
+
+
+  avatarButton?.addEventListener("click", () => {
+    selectMe();
+  });
+
+
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key !== "ArrowRight" &&
+      event.key !== "ArrowLeft"
+    ) {
+      return;
+    }
+
+    // Las flechas solo recorren los hobbies; el avatar se
+    // selecciona con click/Enter directamente sobre él.
+    const currentIndex =
+      typeof activeIndex === "number" ? activeIndex : 0;
+
+    const nextIndex =
+      event.key === "ArrowRight"
+        ? (currentIndex + 1) % hobbies.length
+        : (currentIndex - 1 + hobbies.length) % hobbies.length;
+
+    selectHobby(nextIndex);
+    chips[nextIndex]?.focus();
+  });
+</script>
+
+
+<style>
+
+/* =========================================================
+   PAGE STRUCTURE
+
+   Same outer dimensions and visual language as Experience.
+   ========================================================= */
+
+.experience-bg {
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 3rem 0 5rem;
+
+  background-image: url("/textures/paper-texture.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: transparent;
+
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+
+.experience-shell {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 1rem auto 0;
+  padding: 2rem;
+
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+
+  backdrop-filter: blur(4px);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+
+   Same dimensions as Experience.
+   ========================================================= */
+
+.experience-shell .experience-header {
+  width: 100%;
+  max-width: 950px;
+
+  margin: 0 auto 2rem;
+  padding: 3rem 2.5rem;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+.section-label {
+  margin: 0 0 0.8rem;
+
+  color: var(--color-accent);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+
+.experience-header h1 {
+  margin: 0;
+
+  color: var(--color-deep);
+
+  font-size: clamp(2.3rem, 6.5vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+
+  overflow-wrap: break-word;
+}
+
+
+.experience-intro {
+  width: min(700px, 100%);
+
+  margin: 1.5rem auto 0;
+
+  color: var(--color-text);
+
+  font-size: 1rem;
+  line-height: 1.6;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   MAIN HOBBY SECTION
+
+   Same outer dimensions as Experience's timeline card.
+   ========================================================= */
+
+.experience-shell .experience-timeline {
+  width: 100%;
+
+  margin: 0 auto;
+  padding: 3rem 2rem 3rem;
+
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+.experience-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+
+  box-sizing: border-box;
+  overflow: visible;
+
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+
+  padding: 2.5rem;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  backdrop-filter: blur(4px);
+}
+
+
+/* =========================================================
+   HOBBY ORBIT
+   ========================================================= */
+
+.hobby-orbit {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(150px, 1fr)
+    minmax(180px, 240px)
+    minmax(150px, 1fr);
+
+  grid-template-rows:
+    minmax(130px, auto)
+    minmax(190px, 240px)
+    minmax(130px, auto);
+
+  grid-template-areas:
+    ". top ."
+    "left avatar right"
+    ". bottom .";
+
+  align-items: center;
+  justify-items: center;
+
+  column-gap: clamp(1rem, 3vw, 2rem);
+  row-gap: 1rem;
+
+  min-height: 520px;
+}
+
+
+/* =========================================================
+   AVATAR
+   ========================================================= */
+
+.orbit-avatar {
+  grid-area: avatar;
+
+  position: relative;
+  z-index: 5;
+
+  width: clamp(150px, 18vw, 220px);
+
+  background: transparent;
+
+  border: none;
+
+  padding: 0;
+
+  appearance: none;
+  cursor: pointer;
+  font: inherit;
+
+  filter:
+    drop-shadow(0 10px 8px rgba(0, 0, 0, 0.12));
+
+  animation: avatar-float 4s ease-in-out infinite;
+
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+
+.orbit-avatar:hover {
+  transform: translateY(-3px);
+}
+
+
+.orbit-avatar.active {
+  filter:
+    drop-shadow(0 10px 8px rgba(0, 0, 0, 0.12))
+    drop-shadow(0 0 0 3px var(--color-accent));
+}
+
+
+.orbit-avatar img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  transform: rotate(-3deg);
+}
+
+
+.avatar-label {
+  position: absolute;
+
+  bottom: -1.2rem;
+  left: 50%;
+
+  transform: translateX(-50%) rotate(-2deg);
+
+  padding: 0.3rem 0.7rem;
+
+  background: var(--color-accent);
+  color: var(--color-bg);
+
+  border-radius: 4px;
+
+  font-family: var(--font-title);
+  font-size: 0.55rem;
+
+  letter-spacing: 0.12em;
+
+  white-space: nowrap;
+
+  box-shadow: 2px 3px 0 rgba(75, 46, 31, 0.18);
+
+  transition: transform 0.3s ease;
+}
+
+
+.orbit-avatar.active .avatar-label {
+  transform: translateX(-50%) rotate(-2deg) scale(1.06);
+}
+
+
+@keyframes avatar-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+/* =========================================================
+   HOBBY BUTTONS
+   ========================================================= */
+
+.orbit-chip {
+  position: relative;
+  z-index: 4;
+
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: min(100%, 210px);
+  min-height: 110px;
+
+  padding: 1rem;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  border: 1px solid rgba(75, 46, 31, 0.14);
+  border-radius: 12px;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.07);
+
+  cursor: pointer;
+
+  font-family: var(--font-body);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    opacity 0.3s ease;
+
+  appearance: none;
+}
+
+
+.orbit-chip:hover {
+  transform: translateY(-5px) rotate(-1deg);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+.orbit-chip.active {
+  background: var(--color-accent);
+
+  color: var(--color-bg);
+
+  border-color: var(--color-accent);
+
+  transform: translateY(-5px) rotate(-1deg);
+
+  box-shadow:
+    5px 7px 0 rgba(75, 46, 31, 0.16);
+}
+
+
+.orbit-icon {
+  display: block;
+
+  margin-bottom: 0.35rem;
+
+  font-size: 1.6rem;
+
+  line-height: 1;
+}
+
+
+.orbit-title {
+  color: var(--color-deep);
+
+  font-family: var(--font-title);
+
+  font-size: 0.85rem;
+
+  line-height: 1.25;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.04em;
+}
+
+
+.orbit-chip.active .orbit-title {
+  color: var(--color-bg);
+}
+
+
+.orbit-keywords {
+  display: block;
+
+  margin-top: 0.45rem;
+
+  color: var(--color-text);
+
+  font-size: 0.58rem;
+
+  font-weight: 700;
+
+  line-height: 1.45;
+
+  letter-spacing: 0.05em;
+}
+
+
+.orbit-chip.active .orbit-keywords {
+  color: var(--color-bg);
+  opacity: 0.9;
+}
+
+
+/* =========================================================
+   ORBIT POSITIONS
+   ========================================================= */
+
+.orbit-top {
+  grid-area: top;
+}
+
+
+.orbit-right {
+  grid-area: right;
+}
+
+
+.orbit-bottom {
+  grid-area: bottom;
+}
+
+
+.orbit-left {
+  grid-area: left;
+}
+
+
+/* =========================================================
+   HAND-DRAWN CONNECTION LINES
+   ========================================================= */
+
+.orbit-line {
+  position: absolute;
+
+  z-index: 1;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(75, 46, 31, 0.24) 0,
+      rgba(75, 46, 31, 0.24) 5px,
+      transparent 5px,
+      transparent 9px
+    );
+
+  opacity: 0.65;
+
+  pointer-events: none;
+}
+
+
+.line-top {
+  width: 1px;
+  height: 110px;
+
+  left: 50%;
+  top: 25%;
+
+  transform: translateX(-50%);
+}
+
+
+.line-bottom {
+  width: 1px;
+  height: 110px;
+
+  left: 50%;
+  bottom: 25%;
+
+  transform: translateX(-50%);
+}
+
+
+.line-left {
+  width: 120px;
+  height: 1px;
+
+  left: 24%;
+  top: 50%;
+
+  transform: translateY(-50%);
+}
+
+
+.line-right {
+  width: 120px;
+  height: 1px;
+
+  right: 24%;
+  top: 50%;
+
+  transform: translateY(-50%);
+}
+
+
+/* =========================================================
+   SELECTED HOBBY DETAIL
+   ========================================================= */
+
+.hobby-detail {
+  position: relative;
+  z-index: 6;
+
+  width: min(850px, 100%);
+
+  margin: 2rem auto 0;
+
+  padding: 1.75rem 2rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(245, 241, 235, 0.95),
+      rgba(255, 255, 255, 0.9)
+    );
+
+  border: 1px solid rgba(75, 46, 31, 0.13);
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.06);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.hobby-detail.changing {
+  opacity: 0;
+
+  transform: translateY(8px);
+}
+
+
+.detail-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+}
+
+
+.detail-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 48px;
+  height: 48px;
+
+  background: var(--color-accent);
+
+  border-radius: 50%;
+
+  font-size: 1.5rem;
+
+  box-shadow:
+    3px 4px 0 rgba(75, 46, 31, 0.15);
+}
+
+
+.detail-label {
+  margin: 0 0 0.25rem;
+
+  color: var(--color-accent);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+
+.hobby-detail h2 {
+  margin: 0;
+
+  color: var(--color-deep);
+
+  font-family: var(--font-title);
+
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
+
+  line-height: 1.2;
+}
+
+
+.detail-divider {
+  width: 100%;
+
+  height: 1px;
+
+  margin: 1.25rem 0;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(75, 46, 31, 0.2) 0,
+      rgba(75, 46, 31, 0.2) 6px,
+      transparent 6px,
+      transparent 10px
+    );
+}
+
+
+.detail-description {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: 0.96rem;
+
+  line-height: 1.7;
+
+  text-align: justify;
+
+  overflow-wrap: anywhere;
+}
+
+
+.detail-keywords {
+  margin-top: 1.25rem;
+
+  color: var(--color-accent);
+
+  font-size: 0.65rem;
+
+  font-weight: 700;
+
+  line-height: 1.6;
+
+  letter-spacing: 0.08em;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .experience-bg {
+    background-attachment: scroll;
+
+    padding: 2rem 0 4rem;
+  }
+
+
+  .experience-shell {
+    width: calc(100% - 1.5rem);
+
+    padding: 1.5rem;
+  }
+
+
+  .experience-shell .experience-timeline {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+
+  .experience-card {
+    padding: 1.8rem;
+  }
+
+
+  .hobby-orbit {
+    grid-template-columns:
+      minmax(130px, 1fr)
+      minmax(150px, 190px)
+      minmax(130px, 1fr);
+
+    min-height: 480px;
+  }
+
+
+  .orbit-chip {
+    width: min(100%, 180px);
+  }
+
+
+  .line-left,
+  .line-right {
+    width: 80px;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .experience-bg {
+    padding: 1rem 0 3rem;
+  }
+
+
+  .experience-shell {
+    width: calc(100% - 1rem);
+
+    padding: 1rem;
+
+    border-radius: 12px;
+  }
+
+
+  .experience-shell .experience-header {
+    width: 100%;
+
+    margin-bottom: 1rem;
+
+    padding: 2.5rem 1.25rem;
+  }
+
+
+  .experience-header h1 {
+    font-size: clamp(2rem, 11vw, 3.2rem);
+  }
+
+
+  .experience-shell .experience-timeline {
+    width: 100%;
+
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+
+  .experience-card {
+    width: 100%;
+
+    padding: 1.4rem;
+  }
+
+
+  /* ---------------------------------------------------------
+     Mobile orbit
+
+     We stop trying to form a literal cross and instead
+     create a compact personal constellation.
+  --------------------------------------------------------- */
+
+  .hobby-orbit {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-rows:
+      auto
+      auto
+      auto;
+
+    grid-template-areas:
+      "avatar avatar"
+      "top right"
+      "left bottom";
+
+    min-height: auto;
+
+    gap: 1rem;
+  }
+
+
+  .orbit-avatar {
+    width: clamp(140px, 40vw, 180px);
+
+    margin-bottom: 0.5rem;
+  }
+
+
+  .orbit-chip {
+    width: 100%;
+    min-height: 105px;
+  }
+
+
+  .orbit-line {
+    display: none;
+  }
+
+
+  .hobby-detail {
+    margin-top: 1.5rem;
+
+    padding: 1.4rem;
+  }
+
+
+  .detail-description {
+    text-align: left;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .experience-shell {
+    width: calc(100% - 0.75rem);
+
+    padding: 0.75rem;
+  }
+
+
+  .experience-shell .experience-header {
+    width: 100%;
+
+    padding: 2.25rem 1rem;
+  }
+
+
+  .experience-shell .experience-timeline {
+    width: 100%;
+
+    padding: 1.25rem 0.85rem 2rem;
+  }
+
+
+  .experience-card {
+    padding: 1.15rem;
+  }
+
+
+  .hobby-orbit {
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "avatar"
+      "top"
+      "right"
+      "left"
+      "bottom";
+
+    gap: 0.8rem;
+  }
+
+
+  .orbit-avatar {
+    width: 150px;
+
+    margin-bottom: 0.75rem;
+  }
+
+
+  .orbit-chip {
+    flex-direction: row;
+
+    justify-content: flex-start;
+
+    gap: 0.75rem;
+
+    min-height: auto;
+
+    padding: 0.85rem;
+
+    text-align: left;
+  }
+
+
+  .orbit-icon {
+    margin: 0;
+
+    font-size: 1.3rem;
+  }
+
+
+  .orbit-title {
+    font-size: 0.75rem;
+  }
+
+
+  .orbit-keywords {
+    display: none;
+  }
+
+
+  .detail-heading {
+    align-items: flex-start;
+  }
+
+
+  .detail-icon {
+    width: 42px;
+    height: 42px;
+
+    font-size: 1.3rem;
+  }
+
+
+  .hobby-detail h2 {
+    font-size: 1.15rem;
+  }
+
+
+  .detail-description {
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .orbit-avatar {
+    animation: none;
+  }
+
+  .orbit-chip,
+  .hobby-detail {
+    transition: none;
+  }
+
+}
+</style>

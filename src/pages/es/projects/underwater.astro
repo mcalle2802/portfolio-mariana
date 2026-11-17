@@ -1,0 +1,732 @@
+---
+import "../../../styles/global.css";
+import Navbar from "../../../components/Navbar.astro";
+import Footer from "../../../components/Footer.astro";
+
+const systemOverview = [
+  { label: "Microcontrolador", value: "ESP32" },
+  { label: "Sensores", value: "Sensores de calidad del agua (pH, turbidez)" },
+  { label: "Comunicación", value: "I2C" },
+  { label: "Carcasa", value: "Carcasa impermeable" },
+  { label: "Estructura", value: "Modular en PLA-PVC" },
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="S.U.S.D.E.M — proyecto de sistema de monitoreo submarino de Mariana Calle Méndez."
+    />
+
+    <title>Sistema de Monitoreo Submarino — Mariana Calle</title>
+  </head>
+
+  <body>
+
+    <Navbar />
+
+    <main class="experience-bg">
+
+      <div class="experience-shell">
+
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
+
+        <section class="experience-header">
+
+          <h1>
+            SISTEMA DE MONITOREO SUBMARINO
+          </h1>
+
+          <p class="experience-intro">
+            Un vehículo submarino no tripulado construido para
+            monitorear indicadores de calidad del agua como el pH y
+            la turbidez, en apoyo a la investigación sobre
+            eutrofización.
+          </p>
+
+        </section>
+
+
+        <!-- HERO IMAGE -->
+
+        <section class="experience-timeline hero-section">
+
+          <div class="hero-image-wrap">
+
+            <img
+              src="/projects/underwater.jpeg"
+              alt="Sistema de Monitoreo Submarino"
+            />
+
+          </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             MAIN CONTENT CARD
+        ====================================================== -->
+
+        <section class="experience-timeline">
+
+          <div class="experience-card project-card">
+
+            <!-- =================================================
+                 01 · INTRODUCTION
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                01 · INTRODUCCIÓN
+              </p>
+
+              <h2>
+                Información del Proyecto
+              </h2>
+
+              <div class="hardware-grid">
+
+                <div class="hardware-item">
+                  <span class="hardware-label">Fecha del proyecto</span>
+                  <span class="hardware-value">2024</span>
+                </div>
+
+                <div class="hardware-item">
+                  <span class="hardware-label">Tipo de proyecto</span>
+                  <span class="hardware-value">Proyecto en equipo</span>
+                </div>
+
+                <div class="hardware-item">
+                  <span class="hardware-label">Mi rol</span>
+                  <span class="hardware-value">Desarrollo de Software</span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 02 · THE CHALLENGE
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                02 · EL RETO
+              </p>
+
+              <h2>
+                La Idea
+              </h2>
+
+              <p>
+                El proyecto comenzó con un reto ambiental relacionado
+                con la <strong>eutrofización</strong>, un proceso que
+                puede deteriorar gradualmente la calidad del agua y
+                alterar los ecosistemas acuáticos. Detectar sus
+                primeros signos requiere monitorear parámetros
+                relevantes del agua y recolectar información
+                confiable a lo largo del tiempo.
+              </p>
+
+              <p>
+                Nuestro objetivo era desarrollar un <strong>vehículo
+                submarino no tripulado</strong> capaz de monitorear
+                variables clave de calidad del agua y transmitir
+                datos en tiempo real. Imaginamos una plataforma
+                compacta y accesible que pudiera apoyar a
+                investigadores y organizaciones ambientales en el
+                estudio de entornos acuáticos, particularmente
+                cuerpos de agua más pequeños o restringidos.
+              </p>
+
+              <p>
+                Para abordar este reto, empezamos investigando
+                vehículos submarinos y tecnologías de monitoreo ya
+                existentes. Luego identificamos las necesidades de
+                los posibles usuarios, las tradujimos en requisitos
+                de ingeniería y desarrollamos una arquitectura
+                funcional para definir las tareas principales que el
+                sistema debía cumplir. Este proceso nos permitió
+                establecer las bases de una plataforma sumergible
+                enfocada en el monitoreo ambiental, combinando
+                movilidad submarina, integración de sensores y
+                adquisición de datos.
+              </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 03 · MY CONTRIBUTION
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                03 · MI APORTE
+              </p>
+
+              <h2>
+                Integración de Sensores y Soporte de Software
+              </h2>
+
+              <p>
+                Mi aporte se enfocó en el diseño conceptual, la
+                integración de sensores y las pruebas del sistema de
+                monitoreo submarino. Trabajé en entender cómo
+                encajarían los distintos componentes de detección en
+                la plataforma y cómo podían integrarse para
+                recolectar los datos de calidad del agua que
+                requería el proyecto.
+              </p>
+
+              <p>
+                Participé directamente en la integración de los
+                sensores y en la realización de pruebas para
+                verificar su funcionamiento. También participé en
+                las pruebas de <strong>hermeticidad</strong> de la
+                carcasa, ayudando a asegurar que pudiera proteger los
+                componentes electrónicos en un entorno submarino.
+              </p>
+
+              <p>
+                Junto al trabajo de hardware, apoyé a Juan Felipe con
+                partes del código, contribuyendo a la integración de
+                software y ayudando a conectar los componentes de
+                detección con el proceso de adquisición de datos.
+                Trabajar en estas distintas áreas me dio la
+                oportunidad de entender cómo se integran el diseño
+                conceptual, la electrónica, el software y las
+                pruebas físicas al desarrollar un sistema submarino.
+              </p>
+
+              <div class="tags">
+                <span>Integración de Sensores</span>
+                <span>Pruebas de Hermeticidad</span>
+                <span>Soporte de Software</span>
+              </div>
+
+              <div class="hardware-grid">
+                {
+                  systemOverview.map((item) => (
+                    <div class="hardware-item">
+                      <span class="hardware-label">{item.label}</span>
+                      <span class="hardware-value">{item.value}</span>
+                    </div>
+                  ))
+                }
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 04 · FROM DESIGN TO REALITY
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                04 · DEL DISEÑO A LA REALIDAD
+              </p>
+
+              <h2>
+                Dándole Vida al Sistema
+              </h2>
+
+              <p>
+                Después de definir el concepto y la arquitectura del
+                sistema, pasamos a construir el prototipo físico.
+                Ensamblamos la plataforma submarina, integramos sus
+                componentes electrónicos y sensores, y trabajamos en
+                la carcasa para proteger el sistema del ingreso de
+                agua.
+              </p>
+
+              <p>
+                Una parte importante de esta etapa fue probar la
+                hermeticidad de la carcasa. Usamos un tanque para
+                realizar estas pruebas y verificar si la carcasa
+                podía proteger los componentes internos. En paralelo,
+                probamos los sensores usando agua recolectada del
+                lago de la universidad para evaluar su funcionamiento
+                con el tipo de agua que el sistema fue diseñado para
+                monitorear.
+              </p>
+
+              <p>
+                Finalmente completamos un prototipo integrado y
+                funcional. Sin embargo, cuando llegó el momento de la
+                demostración final, las condiciones climáticas nos
+                impidieron realizar la prueba planeada en el lago de
+                la universidad. Adaptamos nuestro enfoque de pruebas,
+                usando el tanque para las verificaciones finales y
+                manteniendo las pruebas de sensores por separado.
+                Aunque no pudimos completar la demostración planeada
+                en el lago, el proceso nos permitió ensamblar el
+                sistema completo y probar partes importantes de su
+                funcionamiento.
+              </p>
+
+              <div class="tags">
+                <span>Pruebas de Hermeticidad</span>
+                <span>Calibración de Sensores</span>
+                <span>Pruebas con Agua de Lago</span>
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 05 · RESULTS
+            ================================================== -->
+
+            <div class="experience-section learning-section">
+
+              <p class="section-kicker">
+                05 · RESULTADOS
+              </p>
+
+              <h2>
+                El Resultado
+              </h2>
+
+              <p>
+                El proyecto dio como resultado un prototipo submarino
+                de monitoreo integrado y funcional. Logramos ensamblar
+                con éxito los distintos subsistemas, reuniendo la
+                estructura submarina, el sistema de propulsión, la
+                electrónica y los sensores de calidad del agua.
+              </p>
+
+              <p>
+                El submarino fue probado en agua y demostró que podía
+                moverse a través del entorno acuático. También
+                probamos los sensores usando agua del lago de la
+                universidad y realizamos pruebas de hermeticidad en
+                la carcasa. Durante las pruebas de sensores,
+                identificamos la importancia de mantener una
+                <strong>calibración de pH</strong> consistente para
+                obtener lecturas significativas y confiables.
+              </p>
+
+              <p>
+                Aunque el clima nos impidió realizar la demostración
+                final planeada en el lago de la universidad, pudimos
+                probar el movimiento del submarino y evaluar los
+                sensores por separado. Para mí, este proyecto fue una
+                oportunidad de trabajar en una aplicación ambiental
+                de la ingeniería mecatrónica, combinando diseño
+                conceptual, integración de sensores, soporte de
+                software y pruebas prácticas. Fue especialmente
+                gratificante ver cómo el concepto inicial se
+                convertía en un submarino físico capaz de moverse en
+                el agua.
+              </p>
+
+              <blockquote>
+                Fue especialmente gratificante ver cómo el concepto
+                inicial se convertía en un submarino físico capaz de
+                moverse en el agua.
+              </blockquote>
+
+            </div>
+
+
+            <!-- BACK LINK -->
+
+            <div class="back-link-wrap">
+              <a href="/es/projects" class="back-link-pill">
+                <span>←</span>
+                Volver a Proyectos
+              </a>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+    <Footer />
+
+  </body>
+</html>
+
+
+<style>
+/* =========================================================
+   Mismas clases base que scara.astro / robot.astro / iot.astro
+   / cattree.astro.
+   ========================================================= */
+
+.experience-bg {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 3rem 0 5rem;
+  background-image: url("/textures/paper-texture.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: transparent;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.experience-shell {
+  width: 100%;
+  max-width: 1200px;
+  margin: 1rem auto 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  box-sizing: border-box;
+}
+
+.experience-shell .experience-header {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto 2rem;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.experience-header h1 {
+  margin: 0;
+  color: var(--color-deep);
+  font-size: clamp(2.3rem, 6.5vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+}
+
+.experience-intro {
+  width: min(700px, 100%);
+  margin: 1.5rem auto 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.experience-shell .experience-timeline {
+  width: 100%;
+  margin: 0 auto 2rem;
+  padding: 3rem 2rem 4rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.experience-shell .experience-timeline:last-child {
+  margin-bottom: 0;
+}
+
+.experience-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(4px);
+}
+
+/* HERO IMAGE */
+
+.hero-section {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.hero-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.05);
+}
+
+/* SECTIONS */
+
+.experience-section {
+  width: 100%;
+  min-width: 0;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.experience-section:last-of-type {
+  border-bottom: none;
+}
+
+.section-kicker {
+  margin: 0 0 0.6rem;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.experience-section h2 {
+  margin: 0 0 1.2rem;
+  color: var(--color-deep);
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.experience-section p {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  text-align: justify;
+  overflow-wrap: anywhere;
+}
+
+.experience-section p:last-of-type {
+  margin-bottom: 0;
+}
+
+.learning-section blockquote {
+  margin: 1.5rem 0 0;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--color-deep);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* TAGS */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.tags span {
+  max-width: 100%;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-deep);
+  font-size: 0.75rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* HARDWARE / SYSTEM GRID */
+
+.hardware-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.hardware-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.hardware-label {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hardware-value {
+  color: var(--color-deep);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* BACK LINK */
+
+.back-link-wrap {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.back-link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.3rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.back-link-pill:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  transform: translateX(-3px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .experience-bg {
+    background-attachment: scroll;
+    padding: 2rem 0 4rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1.5rem);
+    padding: 1.5rem;
+  }
+
+  .experience-shell .experience-timeline {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .experience-card {
+    padding: 1.8rem;
+  }
+
+  .hero-image-wrap {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 700px) {
+  .experience-bg {
+    padding: 1rem 0 3rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1rem);
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .experience-shell .experience-header {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .experience-header h1 {
+    font-size: clamp(2rem, 11vw, 3.2rem);
+  }
+
+  .experience-shell .experience-timeline {
+    width: 100%;
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .experience-card {
+    width: 100%;
+    padding: 1.4rem;
+  }
+
+  .experience-section {
+    padding: 1.75rem 0;
+  }
+
+  .hero-image-wrap {
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .experience-shell {
+    width: calc(100% - 0.75rem);
+    padding: 0.75rem;
+  }
+
+  .experience-shell .experience-header {
+    width: 100%;
+    padding: 2.25rem 1rem;
+  }
+
+  .experience-shell .experience-timeline {
+    width: 100%;
+    padding: 1.25rem 0.85rem 2rem;
+  }
+
+  .experience-card {
+    padding: 1.15rem;
+  }
+
+  .experience-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .experience-section p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+}
+</style>

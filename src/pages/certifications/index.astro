@@ -1,0 +1,435 @@
+---
+import "../../styles/global.css";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+/*
+  ============================================================
+  DATOS DE LAS CERTIFICACIONES
+  Ajusta issuer, date y description con la info real de cada
+  certificado. El campo "file" debe apuntar al PDF dentro de
+  /public/certifications/ (ver instrucciones abajo del todo).
+  ============================================================
+*/
+const certifications = [
+  {
+    title: "Aptis B2 Certificate",
+    issuer: "British Council", // TODO: confirmar emisor
+    date: "2026", // TODO: confirmar año
+    description:
+      "English proficiency certification, B2 level (upper-intermediate), assessed across reading, writing, listening and speaking.",
+    file: "/certifications/Aptis_B2_Certificate.pdf",
+    tag: "Language",
+  },
+  {
+    title: "Professional Degree Certificate",
+    issuer: "Universidad EIA", // TODO: nombre de tu universidad
+    date: "2026", // TODO
+    description:
+      "Official certificate confirming completion of the undergraduate engineering degree.",
+    file: "/certifications/Degree_Certificate.pdf",
+    tag: "Academic",
+  },
+  {
+    title: "Graduation Certificate",
+    issuer: "Universidad EIA", // TODO
+    date: "2026", // TODO
+    description:
+      "Official proof of graduation, issued upon completion of all academic requirements.",
+    file: "/certifications/Graduation_Certificate.pdf",
+    tag: "Academic",
+  },
+  {
+    title: "NVIDIA Certificate",
+    issuer: "NVIDIA Deep Learning Institute", // TODO: confirmar nombre exacto del curso
+    date: "2026", // TODO
+    description:
+      "Certification from NVIDIA's technical training program, covering applied concepts in the course curriculum.",
+    file: "/certifications/NVIDIA_Certificate.pdf",
+    tag: "Technical",
+  },
+  {
+    title: "Professional Registration — COPNIA",
+    issuer: "Consejo Profesional Nacional de Ingeniería (COPNIA)",
+    date: "2026", // TODO
+    description:
+      "Official professional license authorizing the legal practice of engineering in Colombia.",
+    file: "/certifications/Professional_Registration_COPNIA.pdf",
+    tag: "License",
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="Certifications and professional credentials of Mariana Calle Méndez."
+    />
+
+    <title>Certifications — Mariana Calle</title>
+  </head>
+
+  <body>
+
+    <Navbar />
+
+    <main class="experience-bg">
+
+      <div class="experience-shell">
+
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
+
+        <section class="experience-header">
+
+          <p class="section-label">
+            CREDENTIALS &
+          </p>
+
+          <h1>
+            CERTIFICATIONS
+          </h1>
+
+          <p class="experience-intro">
+            A collection of the academic, technical, and
+            professional credentials I have earned along the way,
+            from language proficiency to my professional
+            engineering license.
+          </p>
+
+        </section>
+
+
+        <!-- =====================================================
+             CERTIFICATIONS GRID
+        ====================================================== -->
+
+        <section class="certifications-section">
+
+          <div class="certifications-grid">
+
+            {
+              certifications.map((cert) => (
+                <article class="cert-card">
+
+                  <div class="cert-card-top">
+
+                    <span class="cert-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="22" height="22">
+                        <path
+                          fill="currentColor"
+                          d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5zM8 13h8v1.5H8V13zm0 3h8v1.5H8V16zm0-6h4v1.5H8V10z"
+                        />
+                      </svg>
+                    </span>
+
+                    <span class="cert-tag">
+                      {cert.tag}
+                    </span>
+
+                  </div>
+
+                  <h3>
+                    {cert.title}
+                  </h3>
+
+                  <p class="cert-issuer">
+                    {cert.issuer}
+                  </p>
+
+                  <p class="cert-date">
+                    {cert.date}
+                  </p>
+
+                  <p class="cert-description">
+                    {cert.description}
+                  </p>
+
+                  <a
+                    class="cert-link"
+                    href={cert.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View certificate ↗
+                  </a>
+
+                </article>
+              ))
+            }
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+    <Footer />
+
+  </body>
+</html>
+
+
+<style>
+/* =========================================================
+   BACKGROUND + SHELL
+   (idénticos a experience.astro para mantener consistencia)
+   ========================================================= */
+
+.experience-bg {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 3rem 0 5rem;
+  background-image: url("/textures/paper-texture.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+.experience-shell {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 1rem auto 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.experience-header {
+  width: min(950px, 100%);
+  margin: 0 auto 2rem;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.section-label {
+  margin: 0 0 0.8rem;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-align: center;
+}
+
+.experience-header h1 {
+  width: 100%;
+  margin: 0 auto;
+  color: var(--color-deep);
+  font-size: clamp(2.3rem, 6.5vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+.experience-intro {
+  width: min(700px, 100%);
+  margin: 1.5rem auto 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* =========================================================
+   CERTIFICATIONS SECTION
+   ========================================================= */
+
+.certifications-section {
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* =========================================================
+   CERT CARD
+   ========================================================= */
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1.8rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(4px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+}
+
+.cert-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.cert-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--color-accent);
+}
+
+.cert-tag {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-deep);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.cert-card h3 {
+  margin: 0 0 0.3rem;
+  color: var(--color-deep);
+  font-size: 1.15rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.cert-issuer {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.cert-date {
+  margin: 0.2rem 0 1rem;
+  color: var(--color-text);
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.cert-description {
+  flex: 1;
+  margin: 0 0 1.4rem;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.cert-link {
+  align-self: flex-start;
+  color: var(--color-deep);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 0.1rem;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.cert-link:hover {
+  color: var(--color-accent);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .experience-bg {
+    background-attachment: scroll;
+    padding: 2rem 0 4rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1.5rem);
+    padding: 1.5rem;
+  }
+
+  .certifications-section {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .experience-shell {
+    width: calc(100% - 1rem);
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .experience-header {
+    width: 100%;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .experience-header h1 {
+    font-size: clamp(2rem, 11vw, 3.2rem);
+  }
+
+  .certifications-section {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .experience-shell {
+    width: calc(100% - 0.75rem);
+    padding: 0.75rem;
+  }
+
+  .experience-header {
+    width: 100%;
+    padding: 2.25rem 1rem;
+  }
+}
+</style>

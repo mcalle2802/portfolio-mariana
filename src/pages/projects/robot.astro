@@ -2,456 +2,1402 @@
 import "../../styles/global.css";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
+
+const systemOverview = [
+  { label: "Controller", value: "Raspberry Pi Pico" },
+  { label: "Platform", value: "ROS2 + Gazebo" },
+  { label: "Structure", value: "Laser-cut acrylic, 3D-printed cover, brass spacers" },
+  { label: "Sensors", value: "Encoders on each wheel" },
+  { label: "Software", value: "Solid Edge, ROS2, Gazebo" },
+];
+
+/*
+  ============================================================
+  GALLERY
+  Mismo componente de carrusel + lightbox que scara.astro,
+  con soporte de imagen y video. Ajusta nombres y cantidad de
+  archivos a lo que tengas en /public/projects/robot/.
+  ============================================================
+*/
+const gallery = [
+  { type: "image", src: "/projects/carro/carro1.jpeg", alt: "Differential Drive Robot 1" },
+  { type: "image", src: "/projects/carro/carro2.jpeg", alt: "Differential Drive Robot 2" },
+  { type: "image", src: "/projects/carro/carro3.jpeg", alt: "Differential Drive Robot 3" },
+  { type: "image", src: "/projects/carro/carro4.jpeg", alt: "Differential Drive Robot 4" },
+  { type: "image", src: "/projects/carro/carro5.jpeg", alt: "Differential Drive Robot 5" },
+  { type: "image", src: "/projects/carro/carro6.jpeg", alt: "Differential Drive Robot 6" },
+  { type: "image", src: "/projects/carro/carro7.jpeg", alt: "Differential Drive Robot 7" },
+  { type: "image", src: "/projects/carro/carro8.jpeg", alt: "Differential Drive Robot 8" },
+  { type: "image", src: "/projects/carro/carro9.jpeg", alt: "Differential Drive Robot 9" },
+  { type: "image", src: "/projects/carro/carro10.jpeg", alt: "Differential Drive Robot 10" },
+  { type: "image", src: "/projects/carro/carro11.jpeg", alt: "Differential Drive Robot 11" },
+  { type: "image", src: "/projects/carro/carro12.jpeg", alt: "Differential Drive Robot 12" },
+  { type: "image", src: "/projects/carro/carro13.jpeg", alt: "Differential Drive Robot 13" },
+  { type: "image", src: "/projects/carro/carro14.jpeg", alt: "Differential Drive Robot 14" },
+  { type: "image", src: "/projects/carro/carro15.jpeg", alt: "Differential Drive Robot 15" },
+  { type: "image", src: "/projects/carro/carro16.jpeg", alt: "Differential Drive Robot 16" },
+];
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="Differential-drive mobile robot — mechanical design, manufacturing and ROS2/Gazebo navigation project by Mariana Calle Méndez."
+    />
+
     <title>Differential Drive Robot — Mariana Calle</title>
   </head>
 
   <body>
+
     <Navbar />
 
-    <main class="project-page">
-      <section class="project-hero">
-        <img src="/projects/car.jpeg" alt="Differential Drive Robot" class="hero-img" />
-        <div class="overlay">
-          <h1>Differential Drive Mobile Robot</h1>
-          <p>From CAD to ROS2 simulation — designing, assembling, and controlling a differential robot.</p>
-        </div>
-      </section>
+    <main class="experience-bg">
 
-      <section class="project-content">
-        <h2>Project Overview</h2>
-        <p>
-          This project involved the complete design and implementation of a
-          <strong>differential drive mobile robot</strong> developed for educational and
-          research applications in mobile robotics. The robot integrates mechanical,
-          electronic, and software components to achieve autonomous movement between
-          predefined waypoints.
-        </p>
+      <div class="experience-shell">
 
-        <h2>Mechanical Design</h2>
-        <p>
-          The mechanical structure was modeled in <strong>Solid Edge Siemens</strong>,
-          where a compact and robust chassis was designed to hold all the electronic components.
-          Custom supports were created for the <em>Raspberry Pi Pico</em>,
-          <em>motor drivers</em>, and <em>encoders</em> to ensure mechanical stability and
-          ease of maintenance. The design was optimized for laser-cut acrylic platforms
-          and 3D-printed parts, balancing light weight and rigidity.
-        </p>
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
 
-        <h2>Electronic and Control System</h2>
-        <p>
-          The electronic system was based on a <strong>Raspberry Pi Pico</strong>, responsible
-          for the control of two <strong>DC micro gear motors</strong> through a
-          <strong>L298N dual H-bridge driver</strong>. PWM signals controlled the speed of
-          each wheel, while digital outputs defined the direction of rotation.
-          Magnetic <strong>encoders</strong> were implemented on each motor shaft to provide
-          real-time feedback of wheel velocity and direction, enabling closed-loop motion control.
-        </p>
+        <section class="experience-header">
 
-        <p>
-          A <strong>Raspberry Pi 4B</strong> acted as the main processing unit, handling
-          communication and higher level control through <strong>ROS2 (Robot Operating System 2)</strong>.
-          The system architecture allowed the robot to receive navigation goals via Wi-Fi
-          and move from a <strong>Point A</strong> to a <strong>Point B</strong>
-          autonomously, both in simulation and in the physical prototype.
-        </p>
+          <h1>
+            DIFFERENTIAL DRIVE ROBOT
+          </h1>
 
-        <h2>Virtual Model and Simulation in ROS2</h2>
-        <p>
-          A <strong>digital twin</strong> of the robot was created in ROS2 using
-          <em>URDF</em> (Unified Robot Description Format) and <em>Gazebo</em> simulation.
-          The model replicated the robot’s physical parameters, wheel radius, track width,
-          and mass distribution, to ensure dynamic consistency with the real system.
-        </p>
+          <p class="experience-intro">
+            A compact differential-drive mobile robot, built from
+            scratch and bridging ROS2 simulation with real-world
+            waypoint navigation.
+          </p>
 
-        <p>
-          Navigation tasks were developed using ROS2 packages for odometry, TF transformations,
-          and velocity control. The robot successfully simulated differential kinematics
-          in Gazebo and executed autonomous navigation from start to goal points, validating
-          the real-world motion planning.
-        </p>
+        </section>
 
-        <div class="code-block">
-          <pre><code>
-v = (v_r + v_l) / 2
-ω = (v_r - v_l) / L
-x' = v * cos(θ)
-y' = v * sin(θ)
-θ' = ω
-          </code></pre>
-        </div>
 
-        <p>
-          These equations describe the <strong>differential kinematic model</strong> used
-          in both the ROS2 simulation and the control implemented on the Raspberry Pi Pico.
-        </p>
+        <!-- HERO IMAGE -->
 
-        <h2>Hardware Summary</h2>
-        <ul>
-          <li><strong>Microcontroller:</strong> Raspberry Pi Pico</li>
-          <li><strong>Main Processor:</strong> Raspberry Pi 4B (2GB)</li>
-          <li><strong>Driver:</strong> L298N Dual H-Bridge</li>
-          <li><strong>Motors:</strong> 2 Micro DC gear motors (2–7V, 300RPM, 1.8kg·cm)</li>
-          <li><strong>Encoders:</strong> Magnetic encoders for feedback</li>
-          <li><strong>Structure:</strong> Acrylic chassis with metal caster wheel</li>
-          <li><strong>Software:</strong> Solid Edge Siemens, ROS2, Gazebo</li>
-        </ul>
+        <section class="experience-timeline hero-section">
 
-        <h2>Assembly Process</h2>
-        <p>
-          The robot’s assembly included 3D printing the upper cover, laser cutting the chassis,
-          and machining brass spacers for mechanical reinforcement. After verifying
-          each electronic connection on a breadboard, the circuit was soldered and integrated
-          into the structure. The final result was a fully functional robot capable of
-          differential movement and autonomous navigation.
-        </p>
+          <div class="hero-image-wrap">
 
-        <h2>Highlights</h2>
-        <ul>
-          <li>Integration of mechanical and electronic design into a single robotic platform</li>
-          <li>ROS2-based digital twin for real and simulated testing</li>
-          <li>Closed-loop velocity control using encoder feedback</li>
-          <li>Precise movement from point A to point B in both simulation and reality</li>
-        </ul>
+            <img
+              src="/projects/car.jpeg"
+              alt="Differential Drive Robot"
+            />
 
-        <!-- 🔹 PROJECT GALLERY -->
-<h2>Project Gallery</h2>
+          </div>
 
-<div class="gallery-container">
-  <div class="gallery-slider">
-    <!-- 16 imágenes -->
-    <img src="/projects/carro/carro1.jpeg" alt="Robot 1" class="active" />
-    <img src="/projects/carro/carro2.jpeg" alt="Robot 2" />
-    <img src="/projects/carro/carro3.jpeg" alt="Robot 3" />
-    <img src="/projects/carro/carro4.jpeg" alt="Robot 4" />
-    <img src="/projects/carro/carro5.jpeg" alt="Robot 5" />
-    <img src="/projects/carro/carro6.jpeg" alt="Robot 6" />
-    <img src="/projects/carro/carro7.jpeg" alt="Robot 7" />
-    <img src="/projects/carro/carro8.jpeg" alt="Robot 8" />
-    <img src="/projects/carro/carro9.jpeg" alt="Robot 9" />
-    <img src="/projects/carro/carro10.jpeg" alt="Robot 10" />
-    <img src="/projects/carro/carro11.jpeg" alt="Robot 11" />
-    <img src="/projects/carro/carro12.jpeg" alt="Robot 12" />
-    <img src="/projects/carro/carro13.jpeg" alt="Robot 13" />
-    <img src="/projects/carro/carro14.jpeg" alt="Robot 14" />
-    <img src="/projects/carro/carro15.jpeg" alt="Robot 15" />
-    <img src="/projects/carro/carro16.jpeg" alt="Robot 16" />
-  </div>
+        </section>
 
-  <button class="gallery-btn prev">❮</button>
-  <button class="gallery-btn next">❯</button>
-</div>
 
-<!-- 🔹 Lightbox (Zoom / Fullscreen) -->
-<div id="lightbox" class="lightbox">
-  <button class="close">&times;</button>
-  <button class="lightbox-nav prev">❮</button>
-  <button class="lightbox-nav next">❯</button>
-  <img id="lightbox-img" class="lightbox-content" />
-</div>
+        <!-- =====================================================
+             MAIN CONTENT CARD
+        ====================================================== -->
 
-<script>
-  const items = document.querySelectorAll(".gallery-slider img");
-  const nextBtn = document.querySelector(".gallery-btn.next");
-  const prevBtn = document.querySelector(".gallery-btn.prev");
-  let index = 0;
+        <section class="experience-timeline">
 
-  const showItem = (i) => {
-    items.forEach((item) => item.classList.remove("active"));
-    items[i].classList.add("active");
-  };
+          <div class="experience-card project-card">
 
-  const nextImage = () => {
-    index = (index + 1) % items.length;
-    showItem(index);
-  };
+            <!-- =================================================
+                 01 · INTRODUCTION
+            ================================================== -->
 
-  const prevImage = () => {
-    index = (index - 1 + items.length) % items.length;
-    showItem(index);
-  };
+            <div class="experience-section">
 
-  nextBtn.addEventListener("click", nextImage);
-  prevBtn.addEventListener("click", prevImage);
+              <p class="section-kicker">
+                01 · INTRODUCTION
+              </p>
 
-  // Lightbox
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const closeBtn = document.querySelector(".close");
-  const nextLightbox = document.querySelector(".lightbox-nav.next");
-  const prevLightbox = document.querySelector(".lightbox-nav.prev");
+              <h2>
+                Project Info
+              </h2>
 
-  const openLightbox = (i) => {
-    index = i;
-    lightbox.style.display = "flex";
-    lightboxImg.src = items[index].src;
-  };
+              <div class="hardware-grid">
 
-  const updateLightbox = (direction) => {
-    index = (index + direction + items.length) % items.length;
-    lightboxImg.src = items[index].src;
-  };
+                <div class="hardware-item">
+                  <span class="hardware-label">Project date</span>
+                  <span class="hardware-value">2024</span>
+                </div>
 
-  items.forEach((item, i) => {
-    item.addEventListener("click", () => openLightbox(i));
-  });
+                <div class="hardware-item">
+                  <span class="hardware-label">Project type</span>
+                  <span class="hardware-value">Team project</span>
+                </div>
 
-  nextLightbox.addEventListener("click", () => updateLightbox(1));
-  prevLightbox.addEventListener("click", () => updateLightbox(-1));
+                <div class="hardware-item">
+                  <span class="hardware-label">My role</span>
+                  <span class="hardware-value">Mechanical Design, Manufacturing, Assembly &amp; ROS2 Integration</span>
+                </div>
 
-  closeBtn.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
+              </div>
 
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) lightbox.style.display = "none";
-  });
+            </div>
 
-  // 🔹 Navegación con teclas del teclado
-  document.addEventListener("keydown", (e) => {
-    if (lightbox.style.display === "flex") {
-      if (e.key === "ArrowRight") updateLightbox(1);
-      if (e.key === "ArrowLeft") updateLightbox(-1);
-      if (e.key === "Escape") lightbox.style.display = "none";
-    } else {
-      if (e.key === "ArrowRight") nextImage();
-      if (e.key === "ArrowLeft") prevImage();
-    }
-  });
-</script>
+
+            <!-- =================================================
+                 02 · THE CHALLENGE
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                02 · THE CHALLENGE
+              </p>
+
+              <h2>
+                The Idea
+              </h2>
+
+              <p>
+                The goal of this project was to design and build a
+                <strong>differential-drive mobile robot</strong>
+                capable of navigating autonomously between
+                predefined points. We wanted to develop a compact
+                and functional platform that could serve as a
+                foundation for exploring mobile robotics, combining
+                mechanical design, electronics and robot navigation.
+              </p>
+
+              <p>
+                Before settling on the final design, we explored
+                different mechanical approaches and discussed how to
+                combine their advantages. We wanted a structure that
+                was stable, compact and easy to assemble, while
+                providing enough space to accommodate the electronic
+                components and control systems.
+              </p>
+
+              <p>
+                Another important part of the challenge was
+                connecting the physical robot with a virtual
+                representation. By incorporating <strong>ROS2</strong>
+                and <strong>Gazebo</strong>, we aimed to configure
+                and test the robot in a simulated environment while
+                developing the navigation capabilities that would
+                later be used on the real prototype.
+              </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 03 · MY CONTRIBUTION
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                03 · MY CONTRIBUTION
+              </p>
+
+              <h2>
+                Mechanical Design &amp; Integration
+              </h2>
+
+              <p>
+                My main responsibility was the complete mechanical
+                design and assembly of the mobile robot. I developed
+                the chassis and component layout in <em>Solid
+                Edge</em>, ensuring that the structure met the
+                required dimensions while providing enough space,
+                stability and support for all the electronic
+                components.
+              </p>
+
+              <p>
+                I designed the motor and Raspberry Pi supports, as
+                well as the protective upper cover that housed the
+                control and communication electronics. I also
+                prepared the technical drawings and exploded views
+                to plan how the individual parts would fit together
+                and simplify the manufacturing and assembly process.
+              </p>
+
+              <p>
+                My work extended beyond CAD design into the physical
+                construction of the robot. I was involved in
+                manufacturing its 3D-printed cover, laser-cut acrylic
+                platforms and machined brass spacers, and assembled
+                the complete mechanical structure, integrating the
+                electronic components into the chassis. I also
+                participated directly in the software integration,
+                configuring the robot in <strong>ROS2</strong> and
+                <strong>Gazebo</strong> and working on its navigation
+                capabilities — a chance to connect the physical robot
+                with its virtual representation and understand how
+                mechanical design, electronics and robotics software
+                come together in a mobile system.
+              </p>
+
+              <div class="tags">
+                <span>Solid Edge</span>
+                <span>Chassis Design</span>
+                <span>Technical Drawings</span>
+                <span>ROS2</span>
+                <span>Gazebo</span>
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 04 · FROM DESIGN TO REALITY
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                04 · FROM DESIGN TO REALITY
+              </p>
+
+              <h2>
+                Bringing It to Life
+              </h2>
+
+              <p>
+                With the mechanical design completed, the next step
+                was turning the CAD model into a physical robot. The
+                structure was manufactured using a combination of
+                <strong>laser-cut acrylic</strong> platforms,
+                <strong>3D-printed</strong> components and
+                <strong>machined brass spacers</strong>. Each part
+                was prepared and assembled to create a compact,
+                stable platform that could accommodate all the
+                electronic components.
+              </p>
+
+              <p>
+                Once the mechanical structure was ready, we
+                integrated the electronics and brought the different
+                subsystems together. In parallel, we worked on
+                configuring the robot in ROS2 and creating its
+                virtual representation in Gazebo — setting up the
+                robot model and preparing the simulation environment
+                to test its movement and navigation.
+              </p>
+
+              <p>
+                One of the most interesting parts of this process was
+                working across both environments, making sure the
+                virtual setup and the physical robot could perform
+                the same navigation tasks.
+              </p>
+
+              <div class="tags">
+                <span>3D Printing</span>
+                <span>Laser Cutting</span>
+                <span>Machining</span>
+              </div>
+
+              <div class="hardware-grid">
+                {
+                  systemOverview.map((item) => (
+                    <div class="hardware-item">
+                      <span class="hardware-label">{item.label}</span>
+                      <span class="hardware-value">{item.value}</span>
+                    </div>
+                  ))
+                }
+              </div>
+
+            </div>
+
+
+            <!-- GALLERY -->
+
+            <div class="experience-gallery-section">
+
+              <h3>
+                Project Gallery
+              </h3>
+
+              <div class="gallery-container">
+
+                <div class="gallery-slider">
+
+                  {
+                    gallery.map((item, i) => (
+                      item.type === "video" ? (
+                        <video
+                          src={item.src}
+                          class:list={{ active: i === 0 }}
+                          muted
+                          loop
+                          playsinline
+                          preload="metadata"
+                        />
+                      ) : (
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          class:list={{ active: i === 0 }}
+                          loading={i === 0 ? "eager" : "lazy"}
+                        />
+                      )
+                    ))
+                  }
+
+                </div>
+
+
+                <button
+                  class="gallery-btn prev"
+                  type="button"
+                  aria-label="Previous item"
+                >
+                  ❮
+                </button>
+
+
+                <button
+                  class="gallery-btn next"
+                  type="button"
+                  aria-label="Next item"
+                >
+                  ❯
+                </button>
+
+
+                <div class="gallery-counter">
+
+                  <span id="gallery-current">
+                    1
+                  </span>
+
+                  /
+
+                  <span>
+                    {gallery.length}
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 05 · RESULTS
+            ================================================== -->
+
+            <div class="experience-section learning-section">
+
+              <p class="section-kicker">
+                05 · RESULTS
+              </p>
+
+              <h2>
+                The Outcome
+              </h2>
+
+              <p>
+                The final robot successfully demonstrated autonomous
+                point-to-point movement, both in the physical
+                prototype and in its Gazebo simulation. It was able
+                to navigate between predefined positions,
+                demonstrating the integration between the virtual
+                model and the real-world system.
+              </p>
+
+              <p>
+                The navigation setup allowed us to define different
+                trajectories for the robot. However, due to time
+                constraints, we chose a simpler route for the final
+                demonstration, focusing on achieving a reliable and
+                functional result.
+              </p>
+
+              <p>
+                This project brought together mechanical design,
+                manufacturing, electronics and robotics software in a
+                working mobile platform. For me, one of the most
+                rewarding aspects was seeing the complete system
+                operate in both environments and understanding how
+                virtual simulation could support the development and
+                testing of a real robot.
+              </p>
+
+              <blockquote>
+                Seeing the complete system operate in both the
+                virtual and the real world was the most rewarding
+                part of this project.
+              </blockquote>
+
+            </div>
+
+
+            <!-- BACK LINK -->
+
+            <div class="back-link-wrap">
+              <a href="/projects" class="back-link-pill">
+                <span>←</span>
+                Back to Projects
+              </a>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+
+    <!-- =======================================================
+         LIGHTBOX
+    ======================================================== -->
+
+    <div
+      id="lightbox"
+      class="lightbox"
+      aria-hidden="true"
+    >
+
+      <button
+        class="close"
+        type="button"
+        aria-label="Close viewer"
+      >
+        &times;
+      </button>
+
+
+      <button
+        class="lightbox-nav prev"
+        type="button"
+        aria-label="Previous item"
+      >
+        ❮
+      </button>
+
+
+      <img
+        id="lightbox-img"
+        class="lightbox-content"
+        src=""
+        alt=""
+      />
+
+      <video
+        id="lightbox-video"
+        class="lightbox-content"
+        controls
+        playsinline
+      />
+
+
+      <button
+        class="lightbox-nav next"
+        type="button"
+        aria-label="Next item"
+      >
+        ❯
+      </button>
+
+
+      <div class="lightbox-counter">
+
+        <span id="lightbox-current">
+          1
+        </span>
+
+        /
+
+        <span>
+          {gallery.length}
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <Footer />
+
+
+    <!-- =======================================================
+         GALLERY SCRIPT
+    ======================================================== -->
+
+    <script>
+      const items =
+        Array.from(
+          document.querySelectorAll<HTMLImageElement | HTMLVideoElement>(
+            ".gallery-slider img, .gallery-slider video"
+          )
+        );
+
+      const nextBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".gallery-btn.next"
+        );
+
+      const prevBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".gallery-btn.prev"
+        );
+
+      const lightbox =
+        document.getElementById("lightbox");
+
+      const lightboxImg =
+        document.getElementById(
+          "lightbox-img"
+        ) as HTMLImageElement | null;
+
+      const lightboxVideo =
+        document.getElementById(
+          "lightbox-video"
+        ) as HTMLVideoElement | null;
+
+      const closeBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox .close"
+        );
+
+      const nextLightbox =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox-nav.next"
+        );
+
+      const prevLightbox =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox-nav.prev"
+        );
+
+      const galleryCurrent =
+        document.getElementById(
+          "gallery-current"
+        );
+
+      const lightboxCurrent =
+        document.getElementById(
+          "lightbox-current"
+        );
+
+      let index = 0;
+
+      /* =====================================================
+         SHOW ITEM
+      ====================================================== */
+
+      function showItem(newIndex: number) {
+        if (!items.length) {
+          return;
+        }
+
+        index =
+          (newIndex + items.length) %
+          items.length;
+
+        items.forEach(
+          (item, i) => {
+            const isActive = i === index;
+
+            item.classList.toggle(
+              "active",
+              isActive
+            );
+
+            if (item.tagName === "VIDEO") {
+              const video = item as HTMLVideoElement;
+
+              if (isActive) {
+                video.play().catch(() => {});
+              } else {
+                video.pause();
+                video.currentTime = 0;
+              }
+            }
+          }
+        );
+
+        if (galleryCurrent) {
+          galleryCurrent.textContent =
+            String(index + 1);
+        }
+      }
+
+      /* =====================================================
+         NEXT / PREVIOUS
+      ====================================================== */
+
+      function nextItem() {
+        showItem(index + 1);
+      }
+
+      function previousItem() {
+        showItem(index - 1);
+      }
+
+      nextBtn?.addEventListener(
+        "click",
+        nextItem
+      );
+
+      prevBtn?.addEventListener(
+        "click",
+        previousItem
+      );
+
+      /* =====================================================
+         LIGHTBOX
+      ====================================================== */
+
+      function renderLightbox() {
+        if (
+          !lightboxImg ||
+          !lightboxVideo ||
+          !items[index]
+        ) {
+          return;
+        }
+
+        const current = items[index];
+
+        if (current.tagName === "VIDEO") {
+          lightboxVideo.src = current.getAttribute("src") ?? "";
+          lightboxVideo.style.display = "block";
+          lightboxVideo.play().catch(() => {});
+
+          lightboxImg.style.display = "none";
+        } else {
+          lightboxImg.src = (current as HTMLImageElement).src;
+          lightboxImg.alt = (current as HTMLImageElement).alt;
+          lightboxImg.style.display = "block";
+
+          lightboxVideo.pause();
+          lightboxVideo.style.display = "none";
+        }
+
+        if (lightboxCurrent) {
+          lightboxCurrent.textContent =
+            String(index + 1);
+        }
+      }
+
+      function openLightbox(itemIndex: number) {
+        if (
+          !lightbox ||
+          !items[itemIndex]
+        ) {
+          return;
+        }
+
+        index = itemIndex;
+
+        renderLightbox();
+
+        lightbox.classList.add("open");
+
+        lightbox.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+        document.body.style.overflow =
+          "hidden";
+      }
+
+      function closeLightbox() {
+        if (!lightbox) {
+          return;
+        }
+
+        lightboxVideo?.pause();
+
+        lightbox.classList.remove("open");
+
+        lightbox.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+        document.body.style.overflow =
+          "";
+      }
+
+      function updateLightbox(direction: number) {
+        lightboxVideo?.pause();
+
+        showItem(
+          index + direction
+        );
+
+        renderLightbox();
+      }
+
+      items.forEach(
+        (item, i) => {
+          item.addEventListener(
+            "click",
+            () => {
+              openLightbox(i);
+            }
+          );
+        }
+      );
+
+      nextLightbox?.addEventListener(
+        "click",
+        () => {
+          updateLightbox(1);
+        }
+      );
+
+      prevLightbox?.addEventListener(
+        "click",
+        () => {
+          updateLightbox(-1);
+        }
+      );
+
+      closeBtn?.addEventListener(
+        "click",
+        closeLightbox
+      );
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          if (
+            lightbox?.classList.contains(
+              "open"
+            )
+          ) {
+            if (
+              event.key ===
+              "ArrowRight"
+            ) {
+              event.preventDefault();
+              updateLightbox(1);
+            }
+
+            if (
+              event.key ===
+              "ArrowLeft"
+            ) {
+              event.preventDefault();
+              updateLightbox(-1);
+            }
+
+            if (
+              event.key ===
+              "Escape"
+            ) {
+              event.preventDefault();
+              closeLightbox();
+            }
+
+            return;
+          }
+
+          if (
+            event.key ===
+            "ArrowRight"
+          ) {
+            nextItem();
+          }
+
+          if (
+            event.key ===
+            "ArrowLeft"
+          ) {
+            previousItem();
+          }
+        }
+      );
+
+      lightbox?.addEventListener(
+        "click",
+        (event) => {
+          if (
+            event.target ===
+            lightbox
+          ) {
+            closeLightbox();
+          }
+        }
+      );
+
+      showItem(0);
+    </script>
+
+  </body>
+</html>
+
 
 <style>
-/* 🔹 Gallery Base */
+/* =========================================================
+   Mismas clases base que scara.astro / experience.astro.
+   ========================================================= */
+
+.experience-bg {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 3rem 0 5rem;
+  background-image: url("/textures/paper-texture.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: transparent;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.experience-shell {
+  width: 100%;
+  max-width: 1200px;
+  margin: 1rem auto 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  box-sizing: border-box;
+}
+
+.experience-shell .experience-header {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto 2rem;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.experience-header h1 {
+  margin: 0;
+  color: var(--color-deep);
+  font-size: clamp(2.3rem, 6.5vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+}
+
+.experience-intro {
+  width: min(700px, 100%);
+  margin: 1.5rem auto 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.experience-shell .experience-timeline {
+  width: 100%;
+  margin: 0 auto 2rem;
+  padding: 3rem 2rem 4rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.experience-shell .experience-timeline:last-child {
+  margin-bottom: 0;
+}
+
+.experience-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(4px);
+}
+
+/* HERO IMAGE */
+
+.hero-section {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.hero-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.05);
+}
+
+/* SECTIONS */
+
+.experience-section {
+  width: 100%;
+  min-width: 0;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.experience-section:last-of-type {
+  border-bottom: none;
+}
+
+.section-kicker {
+  margin: 0 0 0.6rem;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.experience-section h2 {
+  margin: 0 0 1.2rem;
+  color: var(--color-deep);
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.experience-section p {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  text-align: justify;
+  overflow-wrap: anywhere;
+}
+
+.experience-section p:last-of-type {
+  margin-bottom: 0;
+}
+
+.learning-section blockquote {
+  margin: 1.5rem 0 0;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--color-deep);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* TAGS */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.tags span {
+  max-width: 100%;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-deep);
+  font-size: 0.75rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* HARDWARE / SYSTEM GRID */
+
+.hardware-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.hardware-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.hardware-label {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hardware-value {
+  color: var(--color-deep);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* BACK LINK */
+
+.back-link-wrap {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.back-link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.3rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.back-link-pill:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  transform: translateX(-3px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .experience-bg {
+    background-attachment: scroll;
+    padding: 2rem 0 4rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1.5rem);
+    padding: 1.5rem;
+  }
+
+  .experience-shell .experience-timeline {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .experience-card {
+    padding: 1.8rem;
+  }
+
+  .hero-image-wrap {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 700px) {
+  .experience-bg {
+    padding: 1rem 0 3rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1rem);
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .experience-shell .experience-header {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .experience-header h1 {
+    font-size: clamp(2rem, 11vw, 3.2rem);
+  }
+
+  .experience-shell .experience-timeline {
+    width: 100%;
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .experience-card {
+    width: 100%;
+    padding: 1.4rem;
+  }
+
+  .experience-section {
+    padding: 1.75rem 0;
+  }
+
+  .hero-image-wrap {
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .experience-shell {
+    width: calc(100% - 0.75rem);
+    padding: 0.75rem;
+  }
+
+  .experience-shell .experience-header {
+    width: 100%;
+    padding: 2.25rem 1rem;
+  }
+
+  .experience-shell .experience-timeline {
+    width: 100%;
+    padding: 1.25rem 0.85rem 2rem;
+  }
+
+  .experience-card {
+    padding: 1.15rem;
+  }
+
+  .experience-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .experience-section p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .lightbox-content {
+    max-width: 94vw;
+    max-height: 78vh;
+  }
+
+  .gallery-slider {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* =========================================================
+   GALLERY (igual que scara.astro)
+   ========================================================= */
+
+.experience-gallery-section {
+  width: 100%;
+  min-width: 0;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.experience-gallery-section h3 {
+  margin: 0 0 1.2rem;
+  color: var(--color-deep);
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
 .gallery-container {
   position: relative;
-  max-width: 850px;
-  margin: 3rem auto;
+  width: 100%;
+  max-width: 900px;
+  margin: 1.5rem auto 0;
   overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .gallery-slider {
   position: relative;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.gallery-slider img {
+.gallery-slider img,
+.gallery-slider video {
   position: absolute;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 14px;
-  cursor: pointer;
+  display: block;
+  object-fit: contain;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.04);
+  cursor: zoom-in;
+  transition: opacity 0.4s ease;
 }
 
-.gallery-slider img.active {
+.gallery-slider img.active,
+.gallery-slider video.active {
   opacity: 1;
   z-index: 1;
-}
-
-.gallery-slider img:hover {
-  transform: scale(1.02);
-  transition: transform 0.4s ease;
 }
 
 .gallery-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.45);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background 0.3s;
   z-index: 5;
+  width: clamp(2.2rem, 5vw, 3rem);
+  height: clamp(2.2rem, 5vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(30, 30, 30, 0.65);
+  color: var(--color-bg);
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .gallery-btn:hover {
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(30, 30, 30, 0.9);
+  transform: translateY(-50%) scale(1.08);
 }
 
 .gallery-btn.prev {
-  left: 10px;
-}
-.gallery-btn.next {
-  right: 10px;
+  left: clamp(0.5rem, 2vw, 1.2rem);
 }
 
-/* 🔹 Lightbox (Fullscreen Zoom) */
+.gallery-btn.next {
+  right: clamp(0.5rem, 2vw, 1.2rem);
+}
+
+.gallery-counter {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(0.6rem, 2vw, 1rem);
+  transform: translateX(-50%);
+  z-index: 5;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(30, 30, 30, 0.7);
+  color: white;
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  letter-spacing: 0.05em;
+}
+
+/* LIGHTBOX */
+
 .lightbox {
-  display: none;
   position: fixed;
-  z-index: 100;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
-  justify-content: center;
+  z-index: 9999;
+  display: none;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(15, 15, 15, 0.94);
+}
+
+.lightbox.open {
+  display: flex;
 }
 
 .lightbox-content {
-  max-width: 90%;
-  max-height: 85%;
-  border-radius: 12px;
-  animation: fadeIn 0.4s ease;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
 }
 
-.close {
+video.lightbox-content {
+  display: none;
+  background: #000;
+}
+
+.lightbox .close {
   position: absolute;
-  top: 25px;
-  right: 35px;
-  background: none;
-  color: white;
-  font-size: 2.5rem;
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  z-index: 10;
+  width: clamp(2.2rem, 5vw, 3rem);
+  height: clamp(2.2rem, 5vw, 3rem);
   border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   cursor: pointer;
-  z-index: 110;
+}
+
+.lightbox .close:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .lightbox-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
-  color: white;
-  font-size: 3rem;
+  z-index: 10;
+  width: clamp(2.5rem, 6vw, 3.5rem);
+  height: clamp(2.5rem, 6vw, 3.5rem);
   border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   cursor: pointer;
-  padding: 0 1rem;
-  z-index: 110;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .lightbox-nav.prev {
-  left: 25px;
+  left: clamp(0.5rem, 3vw, 2rem);
 }
+
 .lightbox-nav.next {
-  right: 25px;
+  right: clamp(0.5rem, 3vw, 2rem);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-</style>
-
-
-        <section class="back-link">
-          <a href="/projects">← Back to Projects</a>
-        </section>
-      </section>
-    </main>
-
-    <Footer />
-  </body>
-</html>
-
-<style>
-.project-page {
-  color: var(--color-text);
-  line-height: 1.7;
-}
-
-.project-hero {
-  position: relative;
-  height: 60vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(50%);
-}
-
-.overlay {
+.lightbox-counter {
   position: absolute;
-  text-align: center;
+  bottom: clamp(1rem, 3vw, 2rem);
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
-  z-index: 2;
-}
-
-.overlay h1 {
-  font-size: 2.5rem;
-  font-family: var(--font-title);
-  margin-bottom: 0.5rem;
-}
-
-.overlay p {
-  font-size: 1.1rem;
-}
-
-.project-content {
-  max-width: 900px;
-  margin: 4rem auto;
-  padding: 0 2rem;
-}
-
-.project-content h2 {
-  color: var(--color-accent);
-  margin-top: 2rem;
-  margin-bottom: 0.8rem;
-}
-
-.project-content ul {
-  margin-left: 1.5rem;
-  list-style-type: square;
-}
-
-.code-block {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
-  padding: 1rem;
-  overflow-x: auto;
-  font-family: monospace;
-  margin: 1rem 0;
-}
-
-.inline-img {
-  width: 100%;
-  border-radius: 10px;
-  margin: 1.5rem 0;
-}
-
-.back-link {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-.back-link a {
-  color: var(--color-accent);
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  transition: color 0.3s ease, transform 0.3s ease;
-  text-decoration: none;
-}
-
-.back-link a:hover {
-  color: var(--color-deep);
-  transform: translateX(-4px);
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  letter-spacing: 0.08em;
 }
 </style>

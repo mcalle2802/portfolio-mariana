@@ -2,391 +2,1392 @@
 import "../../styles/global.css";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
+
+const systemOverview = [
+  { label: "Microcontroller", value: "ESP32" },
+  { label: "Protocol", value: "MQTT" },
+  { label: "Backend", value: "Node.js, PHP, MySQL (via MAMP)" },
+  { label: "Database Admin", value: "phpMyAdmin" },
+  { label: "Visualization", value: "Grafana" },
+  { label: "PCB Design", value: "KiCad" },
+];
+
+/*
+  ============================================================
+  GALLERY
+  13 fotos, mismo componente de carrusel + lightbox que
+  scara.astro / robot.astro.
+  ============================================================
+*/
+const gallery = [
+  { type: "image", src: "/projects/iot/iot1.jpeg", alt: "Smart Home IoT System 1" },
+  { type: "image", src: "/projects/iot/iot2.jpeg", alt: "Smart Home IoT System 2" },
+  { type: "image", src: "/projects/iot/iot3.jpeg", alt: "Smart Home IoT System 3" },
+  { type: "image", src: "/projects/iot/iot4.jpeg", alt: "Smart Home IoT System 4" },
+  { type: "image", src: "/projects/iot/iot5.jpeg", alt: "Smart Home IoT System 5" },
+  { type: "image", src: "/projects/iot/iot6.jpeg", alt: "Smart Home IoT System 6" },
+  { type: "image", src: "/projects/iot/iot7.jpeg", alt: "Smart Home IoT System 7" },
+  { type: "image", src: "/projects/iot/iot8.jpeg", alt: "Smart Home IoT System 8" },
+  { type: "image", src: "/projects/iot/iot9.jpeg", alt: "Smart Home IoT System 9" },
+  { type: "image", src: "/projects/iot/iot10.jpeg", alt: "Smart Home IoT System 10" },
+  { type: "image", src: "/projects/iot/iot11.jpeg", alt: "Smart Home IoT System 11" },
+  { type: "image", src: "/projects/iot/iot12.jpeg", alt: "Smart Home IoT System 12" },
+  { type: "image", src: "/projects/iot/iot13.jpeg", alt: "Smart Home IoT System 13" },
+];
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="Smart Home IoT System — backend, MQTT integration and data visualization project by Mariana Calle Méndez."
+    />
+
     <title>Smart Home IoT System — Mariana Calle</title>
   </head>
 
   <body>
+
     <Navbar />
 
-    <main class="project-page">
-      <section class="project-hero">
-        <img src="/projects/iot.jpeg" alt="Smart Home IoT Project" class="hero-img" />
-        <div class="overlay">
-          <h1>Smart Home IoT System</h1>
-          <p>Connected home ecosystem integrating ESP32, MQTT, Grafana, and voice assistants.</p>
-        </div>
-      </section>
+    <main class="experience-bg">
 
-      <section class="project-content">
-        <h2>Project Overview</h2>
-        <p>
-          This project implements a <strong>smart home automation system</strong> centered on an 
-          <strong>ESP32 microcontroller</strong> that enables seamless communication with multiple 
-          devices, including LED lighting, a 3D printer, and motorized blackout curtains. 
-          The system uses <strong>MQTT</strong> for IoT connectivity, integrates with 
-          <strong>Alexa</strong> and <strong>Google Assistant</strong> for voice control, 
-          and features a backend and frontend for real-time data visualization.
-        </p>
+      <div class="experience-shell">
 
-        <h2>Technological Stack</h2>
-        <ul>
-          <li><strong>Backend:</strong> Node.js, PHP, and MySQL (tested with MAMP).</li>
-          <li><strong>Frontend:</strong> Grafana dashboards for data visualization.</li>
-          <li><strong>Communication:</strong> MQTT protocol tested using MQTTX.</li>
-          <li><strong>Hardware:</strong> ESP32 microcontroller controlling LEDs, curtains, and switches.</li>
-        </ul>
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
 
-        <h2>Key Features</h2>
-        <ul>
-          <li><strong>Centralized Control:</strong> The ESP32 bridges all devices and cloud interfaces.</li>
-          <li><strong>Automation:</strong> Devices follow schedules or react to environmental sensors.</li>
-          <li><strong>Monitoring:</strong> Grafana displays live temperature, humidity, and energy data.</li>
-          <li><strong>Voice Control:</strong> Commands through Alexa and Google Assistant.</li>
-          <li><strong>Security:</strong> Secured MQTT channels and HTTPS protocols.</li>
-        </ul>
+        <section class="experience-header">
 
-        <h2>Development Process</h2>
-        <ol>
-          <li>PCB and power system design.</li>
-          <li>ESP32 firmware and MQTT topic configuration.</li>
-          <li>Backend development with Node.js, PHP, and MySQL.</li>
-          <li>Grafana dashboard setup for live monitoring.</li>
-        </ol>
+          <h1>
+            SMART HOME IOT SYSTEM
+          </h1>
 
-        <h2>Challenges & Solutions</h2>
-        <ul>
-          <li><strong>Integration:</strong> Solved with MQTT protocol for multi-device communication.</li>
-          <li><strong>Security:</strong> Implemented HTTPS and authenticated MQTT connections.</li>
-          <li><strong>Power Optimization:</strong> Configured ESP32 low-power modes for energy efficiency.</li>
-        </ul>
+          <p class="experience-intro">
+            A connected home ecosystem bringing lighting, curtains
+            and a 3D printer together through MQTT, a Node.js/PHP
+            backend, and real-time Grafana dashboards.
+          </p>
 
-        <h2>Results</h2>
-        <p>
-          The final system successfully automates lighting, manufacturing, and curtain control, 
-          providing remote access, voice interaction, and real time monitoring. 
-          This implementation demonstrates the potential of <strong>IoT in smart home engineering</strong> 
-          by combining hardware control, cloud services, and user-friendly visualization tools.
-        </p>
+        </section>
 
-        <!-- 🔹 PROJECT GALLERY -->
-<h2>Project Gallery</h2>
 
-<div class="gallery-container">
-  <div class="gallery-slider">
-    <!-- 13 imágenes -->
-    <img src="/projects/iot/iot1.jpeg" alt="IoT 1" class="active" />
-    <img src="/projects/iot/iot2.jpeg" alt="IoT 2" />
-    <img src="/projects/iot/iot3.jpeg" alt="IoT 3" />
-    <img src="/projects/iot/iot4.jpeg" alt="IoT 4" />
-    <img src="/projects/iot/iot5.jpeg" alt="IoT 5" />
-    <img src="/projects/iot/iot6.jpeg" alt="IoT 6" />
-    <img src="/projects/iot/iot7.jpeg" alt="IoT 7" />
-    <img src="/projects/iot/iot8.jpeg" alt="IoT 8" />
-    <img src="/projects/iot/iot9.jpeg" alt="IoT 9" />
-    <img src="/projects/iot/iot10.jpeg" alt="IoT 10" />
-    <img src="/projects/iot/iot11.jpeg" alt="IoT 11" />
-    <img src="/projects/iot/iot12.jpeg" alt="IoT 12" />
-    <img src="/projects/iot/iot13.jpeg" alt="IoT 13" />
-  </div>
+        <!-- HERO IMAGE -->
 
-  <button class="gallery-btn prev">❮</button>
-  <button class="gallery-btn next">❯</button>
-</div>
+        <section class="experience-timeline hero-section">
 
-<!-- 🔹 Lightbox (Fullscreen Viewer) -->
-<div id="lightbox" class="lightbox">
-  <button class="close">&times;</button>
-  <button class="lightbox-nav prev">❮</button>
-  <button class="lightbox-nav next">❯</button>
-  <img id="lightbox-img" class="lightbox-content" />
-</div>
+          <div class="hero-image-wrap">
 
-<script>
-  const items = document.querySelectorAll(".gallery-slider img");
-  const nextBtn = document.querySelector(".gallery-btn.next");
-  const prevBtn = document.querySelector(".gallery-btn.prev");
-  let index = 0;
+            <img
+              src="/projects/iot.jpeg"
+              alt="Smart Home IoT System"
+            />
 
-  const showItem = (i) => {
-    items.forEach((item) => item.classList.remove("active"));
-    const current = items[i];
-    current.classList.add("active");
-  };
+          </div>
 
-  const nextImage = () => {
-    index = (index + 1) % items.length;
-    showItem(index);
-  };
+        </section>
 
-  const prevImage = () => {
-    index = (index - 1 + items.length) % items.length;
-    showItem(index);
-  };
 
-  nextBtn.addEventListener("click", nextImage);
-  prevBtn.addEventListener("click", prevImage);
+        <!-- =====================================================
+             MAIN CONTENT CARD
+        ====================================================== -->
 
-  // 🔹 Lightbox (Zoom)
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const closeBtn = document.querySelector(".close");
-  const nextLightbox = document.querySelector(".lightbox-nav.next");
-  const prevLightbox = document.querySelector(".lightbox-nav.prev");
+        <section class="experience-timeline">
 
-  const openLightbox = (i) => {
-    index = i;
-    lightbox.style.display = "flex";
-    lightboxImg.src = items[i].src;
-  };
+          <div class="experience-card project-card">
 
-  const updateLightbox = (direction) => {
-    index = (index + direction + items.length) % items.length;
-    lightboxImg.src = items[index].src;
-  };
+            <!-- =================================================
+                 01 · INTRODUCTION
+            ================================================== -->
 
-  items.forEach((item, i) => {
-    item.addEventListener("click", () => openLightbox(i));
-  });
+            <div class="experience-section">
 
-  nextLightbox.addEventListener("click", () => updateLightbox(1));
-  prevLightbox.addEventListener("click", () => updateLightbox(-1));
+              <p class="section-kicker">
+                01 · INTRODUCTION
+              </p>
 
-  closeBtn.addEventListener("click", () => (lightbox.style.display = "none"));
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) lightbox.style.display = "none";
-  });
+              <h2>
+                Project Info
+              </h2>
 
-  // 🔹 Navegación con flechas del teclado
-  document.addEventListener("keydown", (e) => {
-    if (lightbox.style.display === "flex") {
-      if (e.key === "ArrowRight") updateLightbox(1);
-      if (e.key === "ArrowLeft") updateLightbox(-1);
-      if (e.key === "Escape") lightbox.style.display = "none";
-    } else {
-      if (e.key === "ArrowRight") nextImage();
-      if (e.key === "ArrowLeft") prevImage();
-    }
-  });
-</script>
+              <div class="hardware-grid">
+
+                <div class="hardware-item">
+                  <span class="hardware-label">Project date</span>
+                  <span class="hardware-value">2025</span>
+                </div>
+
+                <div class="hardware-item">
+                  <span class="hardware-label">Project type</span>
+                  <span class="hardware-value">Team project</span>
+                </div>
+
+                <div class="hardware-item">
+                  <span class="hardware-label">My role</span>
+                  <span class="hardware-value">Backend Development, MQTT Integration &amp; Data Visualization</span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 02 · THE CHALLENGE
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                02 · THE CHALLENGE
+              </p>
+
+              <h2>
+                The Idea
+              </h2>
+
+              <p>
+                The goal of this project was to develop a
+                <strong>connected home ecosystem</strong> that could
+                bring different household devices together through a
+                centralized IoT platform. The idea was to make
+                everyday interactions more convenient by enabling
+                users to control devices remotely, automate certain
+                tasks and monitor environmental data in real time.
+              </p>
+
+              <p>
+                The system was designed around an <strong>ESP32</strong>
+                microcontroller, using <strong>MQTT</strong> as the
+                communication protocol to connect the hardware with
+                the software platform. We explored the integration
+                of different devices, including LED lighting,
+                motorized blackout curtains and a 3D printer, while
+                also considering voice assistants as an additional
+                way to interact with the system.
+              </p>
+
+              <p>
+                Beyond controlling individual devices, we wanted to
+                create a platform that could collect and display
+                information from the home, connecting hardware,
+                backend services and data visualization into one
+                integrated ecosystem.
+              </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 03 · MY CONTRIBUTION
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                03 · MY CONTRIBUTION
+              </p>
+
+              <h2>
+                Backend &amp; Data Visualization
+              </h2>
+
+              <p>
+                My main responsibility was the development and
+                testing of the software components that connected
+                the different parts of the smart home system. I
+                worked primarily on the backend, implementing
+                communication between <strong>Node.js</strong>,
+                <strong>PHP</strong> and <strong>MySQL</strong>, and
+                managing the database through <em>phpMyAdmin</em>.
+              </p>
+
+              <p>
+                I also configured <strong>MQTT</strong> communication
+                from the backend, enabling data exchange between the
+                software platform and the connected devices. To test
+                these integrations, I worked with a local <em>MAMP</em>
+                server, checking the communication and ensuring that
+                the different services could work together.
+              </p>
+
+              <p>
+                On the visualization side, I configured and designed
+                <strong>Grafana</strong> dashboards to display the
+                collected information in real time. This provided a
+                clear way to monitor the system's data and made the
+                information generated by the connected devices
+                easier to understand.
+              </p>
+
+              <p>
+                I also collaborated with the team during the initial
+                PCB design process in <strong>KiCad</strong>. Although
+                my main focus was software development, this gave me
+                the opportunity to participate in the broader system
+                design and understand how the hardware and software
+                components needed to work together.
+              </p>
+
+              <div class="tags">
+                <span>Node.js</span>
+                <span>PHP</span>
+                <span>MySQL</span>
+                <span>MQTT</span>
+                <span>Grafana</span>
+                <span>KiCad</span>
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 04 · FROM DESIGN TO REALITY
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                04 · FROM DESIGN TO REALITY
+              </p>
+
+              <h2>
+                Bringing It to Life
+              </h2>
+
+              <p>
+                The development process began with the collaborative
+                design of the electronic board in <strong>KiCad</strong>,
+                which established the hardware foundation for the
+                project. While the team worked on the electronic
+                design, I focused on developing the software
+                infrastructure responsible for handling and
+                displaying the system's data.
+              </p>
+
+              <p>
+                I implemented the communication between Node.js, PHP
+                and MySQL, using a local MAMP server to develop and
+                test the backend services. I also configured MQTT
+                communication from the backend, establishing the
+                messaging structure needed for exchanging information
+                within the IoT platform.
+              </p>
+
+              <p>
+                Once the backend components were in place, I focused
+                on data visualization. I configured Grafana and
+                designed dashboards to display incoming information
+                in real time, making it easier to monitor the data
+                collected by the system. Throughout the process, I
+                carried out tests to verify communication between the
+                different services and ensure that the data could be
+                properly stored, retrieved and visualized.
+              </p>
+
+              <div class="hardware-grid">
+                {
+                  systemOverview.map((item) => (
+                    <div class="hardware-item">
+                      <span class="hardware-label">{item.label}</span>
+                      <span class="hardware-value">{item.value}</span>
+                    </div>
+                  ))
+                }
+              </div>
+
+            </div>
+
+
+            <!-- GALLERY -->
+
+            <div class="experience-gallery-section">
+
+              <h3>
+                Project Gallery
+              </h3>
+
+              <div class="gallery-container">
+
+                <div class="gallery-slider">
+
+                  {
+                    gallery.map((item, i) => (
+                      item.type === "video" ? (
+                        <video
+                          src={item.src}
+                          class:list={{ active: i === 0 }}
+                          muted
+                          loop
+                          playsinline
+                          preload="metadata"
+                        />
+                      ) : (
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          class:list={{ active: i === 0 }}
+                          loading={i === 0 ? "eager" : "lazy"}
+                        />
+                      )
+                    ))
+                  }
+
+                </div>
+
+
+                <button
+                  class="gallery-btn prev"
+                  type="button"
+                  aria-label="Previous item"
+                >
+                  ❮
+                </button>
+
+
+                <button
+                  class="gallery-btn next"
+                  type="button"
+                  aria-label="Next item"
+                >
+                  ❯
+                </button>
+
+
+                <div class="gallery-counter">
+
+                  <span id="gallery-current">
+                    1
+                  </span>
+
+                  /
+
+                  <span>
+                    {gallery.length}
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 05 · RESULTS
+            ================================================== -->
+
+            <div class="experience-section learning-section">
+
+              <p class="section-kicker">
+                05 · RESULTS
+              </p>
+
+              <h2>
+                The Outcome
+              </h2>
+
+              <p>
+                The project resulted in a working software
+                infrastructure for a smart home IoT platform. The
+                backend connected Node.js, PHP and MySQL, while MQTT
+                provided the communication layer for exchanging
+                information. Grafana dashboards made it possible to
+                visualize system data in real time.
+              </p>
+
+              <p>
+                Through the development and testing process, we
+                established the foundations for connecting hardware
+                devices with backend services and monitoring their
+                information through a centralized platform.
+              </p>
+
+              <p>
+                For me, this project was an opportunity to explore a
+                different side of mechatronics engineering, working
+                with server infrastructure, communication protocols,
+                databases and data visualization to understand how
+                software can connect and support physical systems.
+              </p>
+
+              <blockquote>
+                A chance to explore a different side of mechatronics
+                engineering — where software becomes the layer that
+                connects and supports physical systems.
+              </blockquote>
+
+            </div>
+
+
+            <!-- BACK LINK -->
+
+            <div class="back-link-wrap">
+              <a href="/projects" class="back-link-pill">
+                <span>←</span>
+                Back to Projects
+              </a>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+
+    <!-- =======================================================
+         LIGHTBOX
+    ======================================================== -->
+
+    <div
+      id="lightbox"
+      class="lightbox"
+      aria-hidden="true"
+    >
+
+      <button
+        class="close"
+        type="button"
+        aria-label="Close viewer"
+      >
+        &times;
+      </button>
+
+
+      <button
+        class="lightbox-nav prev"
+        type="button"
+        aria-label="Previous item"
+      >
+        ❮
+      </button>
+
+
+      <img
+        id="lightbox-img"
+        class="lightbox-content"
+        src=""
+        alt=""
+      />
+
+      <video
+        id="lightbox-video"
+        class="lightbox-content"
+        controls
+        playsinline
+      />
+
+
+      <button
+        class="lightbox-nav next"
+        type="button"
+        aria-label="Next item"
+      >
+        ❯
+      </button>
+
+
+      <div class="lightbox-counter">
+
+        <span id="lightbox-current">
+          1
+        </span>
+
+        /
+
+        <span>
+          {gallery.length}
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <Footer />
+
+
+    <!-- =======================================================
+         GALLERY SCRIPT
+    ======================================================== -->
+
+    <script>
+      const items =
+        Array.from(
+          document.querySelectorAll<HTMLImageElement | HTMLVideoElement>(
+            ".gallery-slider img, .gallery-slider video"
+          )
+        );
+
+      const nextBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".gallery-btn.next"
+        );
+
+      const prevBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".gallery-btn.prev"
+        );
+
+      const lightbox =
+        document.getElementById("lightbox");
+
+      const lightboxImg =
+        document.getElementById(
+          "lightbox-img"
+        ) as HTMLImageElement | null;
+
+      const lightboxVideo =
+        document.getElementById(
+          "lightbox-video"
+        ) as HTMLVideoElement | null;
+
+      const closeBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox .close"
+        );
+
+      const nextLightbox =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox-nav.next"
+        );
+
+      const prevLightbox =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox-nav.prev"
+        );
+
+      const galleryCurrent =
+        document.getElementById(
+          "gallery-current"
+        );
+
+      const lightboxCurrent =
+        document.getElementById(
+          "lightbox-current"
+        );
+
+      let index = 0;
+
+      /* =====================================================
+         SHOW ITEM
+      ====================================================== */
+
+      function showItem(newIndex: number) {
+        if (!items.length) {
+          return;
+        }
+
+        index =
+          (newIndex + items.length) %
+          items.length;
+
+        items.forEach(
+          (item, i) => {
+            const isActive = i === index;
+
+            item.classList.toggle(
+              "active",
+              isActive
+            );
+
+            if (item.tagName === "VIDEO") {
+              const video = item as HTMLVideoElement;
+
+              if (isActive) {
+                video.play().catch(() => {});
+              } else {
+                video.pause();
+                video.currentTime = 0;
+              }
+            }
+          }
+        );
+
+        if (galleryCurrent) {
+          galleryCurrent.textContent =
+            String(index + 1);
+        }
+      }
+
+      /* =====================================================
+         NEXT / PREVIOUS
+      ====================================================== */
+
+      function nextItem() {
+        showItem(index + 1);
+      }
+
+      function previousItem() {
+        showItem(index - 1);
+      }
+
+      nextBtn?.addEventListener(
+        "click",
+        nextItem
+      );
+
+      prevBtn?.addEventListener(
+        "click",
+        previousItem
+      );
+
+      /* =====================================================
+         LIGHTBOX
+      ====================================================== */
+
+      function renderLightbox() {
+        if (
+          !lightboxImg ||
+          !lightboxVideo ||
+          !items[index]
+        ) {
+          return;
+        }
+
+        const current = items[index];
+
+        if (current.tagName === "VIDEO") {
+          lightboxVideo.src = current.getAttribute("src") ?? "";
+          lightboxVideo.style.display = "block";
+          lightboxVideo.play().catch(() => {});
+
+          lightboxImg.style.display = "none";
+        } else {
+          lightboxImg.src = (current as HTMLImageElement).src;
+          lightboxImg.alt = (current as HTMLImageElement).alt;
+          lightboxImg.style.display = "block";
+
+          lightboxVideo.pause();
+          lightboxVideo.style.display = "none";
+        }
+
+        if (lightboxCurrent) {
+          lightboxCurrent.textContent =
+            String(index + 1);
+        }
+      }
+
+      function openLightbox(itemIndex: number) {
+        if (
+          !lightbox ||
+          !items[itemIndex]
+        ) {
+          return;
+        }
+
+        index = itemIndex;
+
+        renderLightbox();
+
+        lightbox.classList.add("open");
+
+        lightbox.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+        document.body.style.overflow =
+          "hidden";
+      }
+
+      function closeLightbox() {
+        if (!lightbox) {
+          return;
+        }
+
+        lightboxVideo?.pause();
+
+        lightbox.classList.remove("open");
+
+        lightbox.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+        document.body.style.overflow =
+          "";
+      }
+
+      function updateLightbox(direction: number) {
+        lightboxVideo?.pause();
+
+        showItem(
+          index + direction
+        );
+
+        renderLightbox();
+      }
+
+      items.forEach(
+        (item, i) => {
+          item.addEventListener(
+            "click",
+            () => {
+              openLightbox(i);
+            }
+          );
+        }
+      );
+
+      nextLightbox?.addEventListener(
+        "click",
+        () => {
+          updateLightbox(1);
+        }
+      );
+
+      prevLightbox?.addEventListener(
+        "click",
+        () => {
+          updateLightbox(-1);
+        }
+      );
+
+      closeBtn?.addEventListener(
+        "click",
+        closeLightbox
+      );
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          if (
+            lightbox?.classList.contains(
+              "open"
+            )
+          ) {
+            if (
+              event.key ===
+              "ArrowRight"
+            ) {
+              event.preventDefault();
+              updateLightbox(1);
+            }
+
+            if (
+              event.key ===
+              "ArrowLeft"
+            ) {
+              event.preventDefault();
+              updateLightbox(-1);
+            }
+
+            if (
+              event.key ===
+              "Escape"
+            ) {
+              event.preventDefault();
+              closeLightbox();
+            }
+
+            return;
+          }
+
+          if (
+            event.key ===
+            "ArrowRight"
+          ) {
+            nextItem();
+          }
+
+          if (
+            event.key ===
+            "ArrowLeft"
+          ) {
+            previousItem();
+          }
+        }
+      );
+
+      lightbox?.addEventListener(
+        "click",
+        (event) => {
+          if (
+            event.target ===
+            lightbox
+          ) {
+            closeLightbox();
+          }
+        }
+      );
+
+      showItem(0);
+    </script>
+
+  </body>
+</html>
+
 
 <style>
-/* 🔹 Gallery Base */
+/* =========================================================
+   Mismas clases base que scara.astro / robot.astro.
+   ========================================================= */
+
+.experience-bg {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 3rem 0 5rem;
+  background-image: url("/textures/paper-texture.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: transparent;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.experience-shell {
+  width: 100%;
+  max-width: 1200px;
+  margin: 1rem auto 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  box-sizing: border-box;
+}
+
+.experience-shell .experience-header {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto 2rem;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.experience-header h1 {
+  margin: 0;
+  color: var(--color-deep);
+  font-size: clamp(2.3rem, 6.5vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+}
+
+.experience-intro {
+  width: min(700px, 100%);
+  margin: 1.5rem auto 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.experience-shell .experience-timeline {
+  width: 100%;
+  margin: 0 auto 2rem;
+  padding: 3rem 2rem 4rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.experience-shell .experience-timeline:last-child {
+  margin-bottom: 0;
+}
+
+.experience-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(4px);
+}
+
+/* HERO IMAGE */
+
+.hero-section {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.hero-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.05);
+}
+
+/* SECTIONS */
+
+.experience-section {
+  width: 100%;
+  min-width: 0;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.experience-section:last-of-type {
+  border-bottom: none;
+}
+
+.section-kicker {
+  margin: 0 0 0.6rem;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.experience-section h2 {
+  margin: 0 0 1.2rem;
+  color: var(--color-deep);
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.experience-section p {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  text-align: justify;
+  overflow-wrap: anywhere;
+}
+
+.experience-section p:last-of-type {
+  margin-bottom: 0;
+}
+
+.learning-section blockquote {
+  margin: 1.5rem 0 0;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--color-deep);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* TAGS */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.tags span {
+  max-width: 100%;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-deep);
+  font-size: 0.75rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* HARDWARE / SYSTEM GRID */
+
+.hardware-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.hardware-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.hardware-label {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hardware-value {
+  color: var(--color-deep);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* BACK LINK */
+
+.back-link-wrap {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.back-link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.3rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.back-link-pill:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  transform: translateX(-3px);
+}
+
+/* GALLERY */
+
+.experience-gallery-section {
+  width: 100%;
+  min-width: 0;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.experience-gallery-section h3 {
+  margin: 0 0 1.2rem;
+  color: var(--color-deep);
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
 .gallery-container {
   position: relative;
-  max-width: 850px;
-  margin: 3rem auto;
+  width: 100%;
+  max-width: 900px;
+  margin: 1.5rem auto 0;
   overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .gallery-slider {
   position: relative;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.gallery-slider img {
+.gallery-slider img,
+.gallery-slider video {
   position: absolute;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 14px;
-  cursor: pointer;
+  display: block;
+  object-fit: contain;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.04);
+  cursor: zoom-in;
+  transition: opacity 0.4s ease;
 }
 
-.gallery-slider img.active {
+.gallery-slider img.active,
+.gallery-slider video.active {
   opacity: 1;
   z-index: 1;
-}
-
-.gallery-slider img:hover {
-  transform: scale(1.02);
-  transition: transform 0.4s ease;
 }
 
 .gallery-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.45);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background 0.3s;
   z-index: 5;
+  width: clamp(2.2rem, 5vw, 3rem);
+  height: clamp(2.2rem, 5vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(30, 30, 30, 0.65);
+  color: var(--color-bg);
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .gallery-btn:hover {
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(30, 30, 30, 0.9);
+  transform: translateY(-50%) scale(1.08);
 }
 
 .gallery-btn.prev {
-  left: 10px;
-}
-.gallery-btn.next {
-  right: 10px;
+  left: clamp(0.5rem, 2vw, 1.2rem);
 }
 
-/* 🔹 Lightbox (Fullscreen Zoom) */
+.gallery-btn.next {
+  right: clamp(0.5rem, 2vw, 1.2rem);
+}
+
+.gallery-counter {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(0.6rem, 2vw, 1rem);
+  transform: translateX(-50%);
+  z-index: 5;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(30, 30, 30, 0.7);
+  color: white;
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  letter-spacing: 0.05em;
+}
+
+/* LIGHTBOX */
+
 .lightbox {
-  display: none;
   position: fixed;
-  z-index: 100;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
-  justify-content: center;
+  z-index: 9999;
+  display: none;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(15, 15, 15, 0.94);
+}
+
+.lightbox.open {
+  display: flex;
 }
 
 .lightbox-content {
-  max-width: 90%;
-  max-height: 85%;
-  border-radius: 12px;
-  animation: fadeIn 0.4s ease;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
 }
 
-.close {
+video.lightbox-content {
+  display: none;
+  background: #000;
+}
+
+.lightbox .close {
   position: absolute;
-  top: 25px;
-  right: 35px;
-  background: none;
-  color: white;
-  font-size: 2.5rem;
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  z-index: 10;
+  width: clamp(2.2rem, 5vw, 3rem);
+  height: clamp(2.2rem, 5vw, 3rem);
   border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   cursor: pointer;
-  z-index: 110;
+}
+
+.lightbox .close:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .lightbox-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
-  color: white;
-  font-size: 3rem;
+  z-index: 10;
+  width: clamp(2.5rem, 6vw, 3.5rem);
+  height: clamp(2.5rem, 6vw, 3.5rem);
   border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   cursor: pointer;
-  padding: 0 1rem;
-  z-index: 110;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .lightbox-nav.prev {
-  left: 25px;
+  left: clamp(0.5rem, 3vw, 2rem);
 }
+
 .lightbox-nav.next {
-  right: 25px;
+  right: clamp(0.5rem, 3vw, 2rem);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-</style>
-
-
-        <section class="back-link">
-          <a href="/projects">← Back to Projects</a>
-        </section>
-      </section>
-    </main>
-
-    <Footer />
-  </body>
-</html>
-
-<style>
-.project-page {
-  color: var(--color-text);
-  line-height: 1.7;
-}
-
-.project-hero {
-  position: relative;
-  height: 60vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(55%);
-}
-
-.overlay {
+.lightbox-counter {
   position: absolute;
-  text-align: center;
+  bottom: clamp(1rem, 3vw, 2rem);
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
-  z-index: 2;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  letter-spacing: 0.08em;
 }
 
-.overlay h1 {
-  font-size: 2.5rem;
-  font-family: var(--font-title);
-  margin-bottom: 0.5rem;
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .experience-bg {
+    background-attachment: scroll;
+    padding: 2rem 0 4rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1.5rem);
+    padding: 1.5rem;
+  }
+
+  .experience-shell .experience-timeline {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .experience-card {
+    padding: 1.8rem;
+  }
+
+  .hero-image-wrap {
+    aspect-ratio: 16 / 9;
+  }
 }
 
-.overlay p {
-  font-size: 1.1rem;
+@media (max-width: 700px) {
+  .experience-bg {
+    padding: 1rem 0 3rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1rem);
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .experience-shell .experience-header {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .experience-header h1 {
+    font-size: clamp(2rem, 11vw, 3.2rem);
+  }
+
+  .experience-shell .experience-timeline {
+    width: 100%;
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .experience-card {
+    width: 100%;
+    padding: 1.4rem;
+  }
+
+  .experience-section {
+    padding: 1.75rem 0;
+  }
+
+  .hero-image-wrap {
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+  }
+
+  .gallery-slider {
+    aspect-ratio: 4 / 3;
+  }
 }
 
-.project-content {
-  max-width: 900px;
-  margin: 4rem auto;
-  padding: 0 2rem;
-}
+@media (max-width: 500px) {
+  .experience-shell {
+    width: calc(100% - 0.75rem);
+    padding: 0.75rem;
+  }
 
-.project-content h2 {
-  color: var(--color-accent);
-  margin-top: 2rem;
-  margin-bottom: 0.8rem;
-}
+  .experience-shell .experience-header {
+    width: 100%;
+    padding: 2.25rem 1rem;
+  }
 
-.project-content ul, .project-content ol {
-  margin-left: 1.5rem;
-  list-style-type: square;
-}
+  .experience-shell .experience-timeline {
+    width: 100%;
+    padding: 1.25rem 0.85rem 2rem;
+  }
 
-.back-link {
-  text-align: center;
-  margin-top: 3rem;
-}
+  .experience-card {
+    padding: 1.15rem;
+  }
 
-.back-link a {
-  color: var(--color-accent);
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  transition: color 0.3s ease, transform 0.3s ease;
-  text-decoration: none;
-}
+  .experience-section h2 {
+    font-size: 1.3rem;
+  }
 
-.back-link a:hover {
-  color: var(--color-deep);
-  transform: translateX(-4px);
+  .experience-section p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .lightbox-content {
+    max-width: 94vw;
+    max-height: 78vh;
+  }
 }
 </style>

@@ -1,0 +1,1404 @@
+---
+import "../../../styles/global.css";
+import Navbar from "../../../components/Navbar.astro";
+import Footer from "../../../components/Footer.astro";
+
+const systemOverview = [
+  { label: "Visión y Procesamiento", value: "Raspberry Pi 2" },
+  { label: "Control de Vuelo", value: "Arduino + ESCs" },
+  { label: "Ventilador de Sustentación", value: "Ventilador en ABS impreso en 3D, motor de dron 2212" },
+  { label: "Flujo de Aire", value: "Ducto cónico + salidas de aire en la falda" },
+  { label: "Propulsión", value: "Hélice remecanizada (torno)" },
+];
+
+/*
+  ============================================================
+  GALLERY
+  Mismo componente de carrusel + lightbox que scara.astro.
+  ============================================================
+*/
+const gallery = [
+  { type: "image", src: "/projects/hovercraft/hovercraft1.jpeg", alt: "Racing Hovercraft 1" },
+  { type: "image", src: "/projects/hovercraft/hovercraft2.jpeg", alt: "Racing Hovercraft 2" },
+  { type: "image", src: "/projects/hovercraft/hovercraft3.jpeg", alt: "Racing Hovercraft 3" },
+  { type: "image", src: "/projects/hovercraft/hovercraft4.jpeg", alt: "Racing Hovercraft 4" },
+  { type: "image", src: "/projects/hovercraft/hovercraft5.jpeg", alt: "Racing Hovercraft 5" },
+  { type: "image", src: "/projects/hovercraft/hovercraft6.jpeg", alt: "Racing Hovercraft 6" },
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="Hovercraft de carreras — proyecto de diseño mecánico, propulsión y visión por computador de Mariana Calle Méndez."
+    />
+
+    <title>Hovercraft de Carreras — Mariana Calle</title>
+  </head>
+
+  <body>
+
+    <Navbar />
+
+    <main class="experience-bg">
+
+      <div class="experience-shell">
+
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
+
+        <section class="experience-header">
+
+          <h1>
+            HOVERCRAFT DE CARRERAS
+          </h1>
+
+          <p class="experience-intro">
+            Un hovercraft de carreras de alta velocidad, que combina
+            propulsión por colchón de aire, electrónica embebida y
+            visión por computador para recorrer una pista y evadir
+            obstáculos.
+          </p>
+
+        </section>
+
+
+        <!-- HERO IMAGE -->
+
+        <section class="experience-timeline hero-section">
+
+          <div class="hero-image-wrap">
+
+            <img
+              src="/projects/hovercraft.jpeg"
+              alt="Hovercraft de Carreras"
+            />
+
+          </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             MAIN CONTENT CARD
+        ====================================================== -->
+
+        <section class="experience-timeline">
+
+          <div class="experience-card project-card">
+
+            <!-- =================================================
+                 01 · INTRODUCTION
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                01 · INTRODUCCIÓN
+              </p>
+
+              <h2>
+                Información del Proyecto
+              </h2>
+
+              <div class="hardware-grid">
+
+                <div class="hardware-item">
+                  <span class="hardware-label">Fecha del proyecto</span>
+                  <span class="hardware-value">2022</span>
+                </div>
+
+                <div class="hardware-item">
+                  <span class="hardware-label">Tipo de proyecto</span>
+                  <span class="hardware-value">Proyecto en equipo</span>
+                </div>
+
+                <div class="hardware-item">
+                  <span class="hardware-label">Mi rol</span>
+                  <span class="hardware-value">Diseño Mecánico, Fabricación, Integración Electrónica y Pruebas</span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 02 · THE CHALLENGE
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                02 · EL RETO
+              </p>
+
+              <h2>
+                La Idea
+              </h2>
+
+              <p>
+                El objetivo de este proyecto era diseñar y construir
+                un <strong>hovercraft de carreras</strong> capaz de
+                moverse a alta velocidad manteniendo estabilidad y
+                maniobrabilidad. Más allá de simplemente lograr
+                sustentación y movimiento hacia adelante, queríamos
+                que el vehículo recorriera una pista de carreras y
+                evadiera obstáculos usando <strong>visión por
+                computador</strong>.
+              </p>
+
+              <p>
+                Esto requería reunir varias disciplinas de la
+                ingeniería. El hovercraft necesitaba un sistema de
+                colchón de aire eficiente para elevar su estructura,
+                un sistema de propulsión capaz de generar suficiente
+                empuje, y una arquitectura de control electrónico que
+                pudiera coordinar sus movimientos.
+              </p>
+
+              <p>
+                El reto era lograr que todos estos sistemas
+                funcionaran juntos en un vehículo compacto,
+                equilibrando velocidad, estabilidad y control.
+              </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 03 · MY CONTRIBUTION
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                03 · MI APORTE
+              </p>
+
+              <h2>
+                Integración Mecánica y Electrónica
+              </h2>
+
+              <p>
+                Como parte de un equipo de tres personas, trabajé
+                junto a otra compañera en los aspectos mecánicos,
+                electrónicos y de control del hovercraft, mientras
+                nuestro tercer compañero se enfocaba principalmente
+                en visión por computador.
+              </p>
+
+              <p>
+                Mi aporte cubrió varias etapas del proyecto,
+                incluyendo diseño mecánico, modificaciones de
+                componentes, fabricación e integración electrónica.
+                Participé en el desarrollo de la estructura y el
+                sistema de flujo de aire del hovercraft, así como en
+                la adaptación de componentes para mejorar su
+                sustentación, estabilidad y propulsión.
+              </p>
+
+              <p>
+                También participé en el ensamble y cableado de los
+                componentes electrónicos, en particular el
+                <strong>Arduino</strong>, la <strong>Raspberry
+                Pi</strong> y los <strong>controladores electrónicos
+                de velocidad (ESCs)</strong>. Apoyé su integración y
+                pruebas, ayudando a asegurar que los distintos
+                componentes trabajaran juntos para controlar los
+                motores de sustentación y propulsión. Este proyecto
+                me dio la oportunidad de trabajar en varias
+                disciplinas de la ingeniería y entender cómo se
+                integran el diseño mecánico, la electrónica y el
+                control en un vehículo funcional.
+              </p>
+
+              <div class="tags">
+                <span>Diseño Mecánico</span>
+                <span>Arduino</span>
+                <span>Raspberry Pi</span>
+                <span>ESCs</span>
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 04 · FROM DESIGN TO REALITY
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                04 · DEL DISEÑO A LA REALIDAD
+              </p>
+
+              <h2>
+                Dándole Vida al Hovercraft
+              </h2>
+
+              <p>
+                Comenzamos desarrollando la estructura mecánica y la
+                disposición de propulsión del hovercraft. Durante la
+                construcción, experimentamos con distintas
+                configuraciones para mejorar la forma en que el aire
+                se distribuía debajo del vehículo.
+              </p>
+
+              <p>
+                Una de las modificaciones clave fue agregar un
+                <strong>ducto cónico</strong> para distribuir el
+                flujo de aire de manera más uniforme a lo largo de la
+                falda. También diseñamos pequeñas salidas de aire
+                para controlar qué tan rápido escapaba el aire del
+                colchón, ayudando a mejorar la estabilidad durante el
+                movimiento y los giros.
+              </p>
+
+              <p>
+                También trabajamos en adaptar los componentes de
+                propulsión. Una de las hélices fue rebajada y
+                remecanizada usando un torno, mientras que el sistema
+                de sustentación incorporó un <strong>ventilador en
+                ABS impreso en 3D</strong> impulsado por un
+                <strong>motor de dron 2212</strong>.
+              </p>
+
+              <p>
+                En paralelo, integramos los componentes electrónicos.
+                La Raspberry Pi 2 se encargaba del procesamiento de
+                imágenes, mientras que un Arduino recibía las señales
+                de control y se comunicaba con los ESCs para regular
+                la velocidad de los motores. Unir estos elementos
+                requirió probar y ajustar los distintos subsistemas
+                hasta que el hovercraft pudiera operar como un
+                vehículo completo.
+              </p>
+
+              <div class="tags">
+                <span>Mecanizado en Torno</span>
+                <span>Impresión 3D</span>
+                <span>Diseño de Flujo de Aire</span>
+              </div>
+
+              <div class="hardware-grid">
+                {
+                  systemOverview.map((item) => (
+                    <div class="hardware-item">
+                      <span class="hardware-label">{item.label}</span>
+                      <span class="hardware-value">{item.value}</span>
+                    </div>
+                  ))
+                }
+              </div>
+
+            </div>
+
+
+            <!-- GALLERY -->
+
+            <div class="experience-gallery-section">
+
+              <h3>
+                Galería del Proyecto
+              </h3>
+
+              <div class="gallery-container">
+
+                <div class="gallery-slider">
+
+                  {
+                    gallery.map((item, i) => (
+                      item.type === "video" ? (
+                        <video
+                          src={item.src}
+                          class:list={{ active: i === 0 }}
+                          muted
+                          loop
+                          playsinline
+                          preload="metadata"
+                        />
+                      ) : (
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          class:list={{ active: i === 0 }}
+                          loading={i === 0 ? "eager" : "lazy"}
+                        />
+                      )
+                    ))
+                  }
+
+                </div>
+
+
+                <button
+                  class="gallery-btn prev"
+                  type="button"
+                  aria-label="Elemento anterior"
+                >
+                  ❮
+                </button>
+
+
+                <button
+                  class="gallery-btn next"
+                  type="button"
+                  aria-label="Siguiente elemento"
+                >
+                  ❯
+                </button>
+
+
+                <div class="gallery-counter">
+
+                  <span id="gallery-current">
+                    1
+                  </span>
+
+                  /
+
+                  <span>
+                    {gallery.length}
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 05 · RESULTS
+            ================================================== -->
+
+            <div class="experience-section learning-section">
+
+              <p class="section-kicker">
+                05 · RESULTADOS
+              </p>
+
+              <h2>
+                El Resultado
+              </h2>
+
+              <p>
+                El prototipo final generó con éxito el colchón de
+                aire necesario para levantar el vehículo y demostró
+                un movimiento rápido hacia adelante con control
+                direccional.
+              </p>
+
+              <p>
+                Durante las pruebas, el hovercraft pudo responder a
+                la retroalimentación visual y completar recorridos
+                controlados. Sin embargo, la capacidad de
+                procesamiento limitada de la Raspberry Pi 2 introdujo
+                retrasos en la detección de obstáculos y la toma de
+                decisiones, afectando qué tan rápido podía reaccionar
+                el vehículo. A pesar de esta limitación, el proyecto
+                demostró la integración de diseño mecánico,
+                propulsión, electrónica embebida y visión por
+                computador en un hovercraft de carreras.
+              </p>
+
+              <p>
+                El proyecto fue particularmente exitoso, y la
+                universidad adquirió el prototipo final para
+                conservarlo como referencia para estudiantes en
+                futuros semestres. Este fue un reconocimiento
+                significativo al trabajo de nuestro equipo y a las
+                soluciones de ingeniería desarrolladas a lo largo del
+                proyecto. Para mí, fue una oportunidad valiosa de
+                trabajar en varias disciplinas de la ingeniería y
+                experimentar los retos de llevar un sistema
+                mecatrónico complejo desde el concepto hasta un
+                prototipo funcional.
+              </p>
+
+              <blockquote>
+                La universidad adquirió el prototipo final para
+                conservarlo como referencia para futuros
+                estudiantes — un reconocimiento significativo a las
+                soluciones de ingeniería detrás de él.
+              </blockquote>
+
+            </div>
+
+
+            <!-- BACK LINK -->
+
+            <div class="back-link-wrap">
+              <a href="/es/projects" class="back-link-pill">
+                <span>←</span>
+                Volver a Proyectos
+              </a>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+
+    <!-- =======================================================
+         LIGHTBOX
+    ======================================================== -->
+
+    <div
+      id="lightbox"
+      class="lightbox"
+      aria-hidden="true"
+    >
+
+      <button
+        class="close"
+        type="button"
+        aria-label="Cerrar visor"
+      >
+        &times;
+      </button>
+
+
+      <button
+        class="lightbox-nav prev"
+        type="button"
+        aria-label="Elemento anterior"
+      >
+        ❮
+      </button>
+
+
+      <img
+        id="lightbox-img"
+        class="lightbox-content"
+        src=""
+        alt=""
+      />
+
+      <video
+        id="lightbox-video"
+        class="lightbox-content"
+        controls
+        playsinline
+      />
+
+
+      <button
+        class="lightbox-nav next"
+        type="button"
+        aria-label="Siguiente elemento"
+      >
+        ❯
+      </button>
+
+
+      <div class="lightbox-counter">
+
+        <span id="lightbox-current">
+          1
+        </span>
+
+        /
+
+        <span>
+          {gallery.length}
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <Footer />
+
+
+    <!-- =======================================================
+         GALLERY SCRIPT
+    ======================================================== -->
+
+    <script>
+      const items =
+        Array.from(
+          document.querySelectorAll<HTMLImageElement | HTMLVideoElement>(
+            ".gallery-slider img, .gallery-slider video"
+          )
+        );
+
+      const nextBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".gallery-btn.next"
+        );
+
+      const prevBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".gallery-btn.prev"
+        );
+
+      const lightbox =
+        document.getElementById("lightbox");
+
+      const lightboxImg =
+        document.getElementById(
+          "lightbox-img"
+        ) as HTMLImageElement | null;
+
+      const lightboxVideo =
+        document.getElementById(
+          "lightbox-video"
+        ) as HTMLVideoElement | null;
+
+      const closeBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox .close"
+        );
+
+      const nextLightbox =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox-nav.next"
+        );
+
+      const prevLightbox =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox-nav.prev"
+        );
+
+      const galleryCurrent =
+        document.getElementById(
+          "gallery-current"
+        );
+
+      const lightboxCurrent =
+        document.getElementById(
+          "lightbox-current"
+        );
+
+      let index = 0;
+
+      /* =====================================================
+         SHOW ITEM
+      ====================================================== */
+
+      function showItem(newIndex: number) {
+        if (!items.length) {
+          return;
+        }
+
+        index =
+          (newIndex + items.length) %
+          items.length;
+
+        items.forEach(
+          (item, i) => {
+            const isActive = i === index;
+
+            item.classList.toggle(
+              "active",
+              isActive
+            );
+
+            if (item.tagName === "VIDEO") {
+              const video = item as HTMLVideoElement;
+
+              if (isActive) {
+                video.play().catch(() => {});
+              } else {
+                video.pause();
+                video.currentTime = 0;
+              }
+            }
+          }
+        );
+
+        if (galleryCurrent) {
+          galleryCurrent.textContent =
+            String(index + 1);
+        }
+      }
+
+      /* =====================================================
+         NEXT / PREVIOUS
+      ====================================================== */
+
+      function nextItem() {
+        showItem(index + 1);
+      }
+
+      function previousItem() {
+        showItem(index - 1);
+      }
+
+      nextBtn?.addEventListener(
+        "click",
+        nextItem
+      );
+
+      prevBtn?.addEventListener(
+        "click",
+        previousItem
+      );
+
+      /* =====================================================
+         LIGHTBOX
+      ====================================================== */
+
+      function renderLightbox() {
+        if (
+          !lightboxImg ||
+          !lightboxVideo ||
+          !items[index]
+        ) {
+          return;
+        }
+
+        const current = items[index];
+
+        if (current.tagName === "VIDEO") {
+          lightboxVideo.src = current.getAttribute("src") ?? "";
+          lightboxVideo.style.display = "block";
+          lightboxVideo.play().catch(() => {});
+
+          lightboxImg.style.display = "none";
+        } else {
+          lightboxImg.src = (current as HTMLImageElement).src;
+          lightboxImg.alt = (current as HTMLImageElement).alt;
+          lightboxImg.style.display = "block";
+
+          lightboxVideo.pause();
+          lightboxVideo.style.display = "none";
+        }
+
+        if (lightboxCurrent) {
+          lightboxCurrent.textContent =
+            String(index + 1);
+        }
+      }
+
+      function openLightbox(itemIndex: number) {
+        if (
+          !lightbox ||
+          !items[itemIndex]
+        ) {
+          return;
+        }
+
+        index = itemIndex;
+
+        renderLightbox();
+
+        lightbox.classList.add("open");
+
+        lightbox.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+        document.body.style.overflow =
+          "hidden";
+      }
+
+      function closeLightbox() {
+        if (!lightbox) {
+          return;
+        }
+
+        lightboxVideo?.pause();
+
+        lightbox.classList.remove("open");
+
+        lightbox.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+        document.body.style.overflow =
+          "";
+      }
+
+      function updateLightbox(direction: number) {
+        lightboxVideo?.pause();
+
+        showItem(
+          index + direction
+        );
+
+        renderLightbox();
+      }
+
+      items.forEach(
+        (item, i) => {
+          item.addEventListener(
+            "click",
+            () => {
+              openLightbox(i);
+            }
+          );
+        }
+      );
+
+      nextLightbox?.addEventListener(
+        "click",
+        () => {
+          updateLightbox(1);
+        }
+      );
+
+      prevLightbox?.addEventListener(
+        "click",
+        () => {
+          updateLightbox(-1);
+        }
+      );
+
+      closeBtn?.addEventListener(
+        "click",
+        closeLightbox
+      );
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          if (
+            lightbox?.classList.contains(
+              "open"
+            )
+          ) {
+            if (
+              event.key ===
+              "ArrowRight"
+            ) {
+              event.preventDefault();
+              updateLightbox(1);
+            }
+
+            if (
+              event.key ===
+              "ArrowLeft"
+            ) {
+              event.preventDefault();
+              updateLightbox(-1);
+            }
+
+            if (
+              event.key ===
+              "Escape"
+            ) {
+              event.preventDefault();
+              closeLightbox();
+            }
+
+            return;
+          }
+
+          if (
+            event.key ===
+            "ArrowRight"
+          ) {
+            nextItem();
+          }
+
+          if (
+            event.key ===
+            "ArrowLeft"
+          ) {
+            previousItem();
+          }
+        }
+      );
+
+      lightbox?.addEventListener(
+        "click",
+        (event) => {
+          if (
+            event.target ===
+            lightbox
+          ) {
+            closeLightbox();
+          }
+        }
+      );
+
+      showItem(0);
+    </script>
+
+  </body>
+</html>
+
+
+<style>
+/* =========================================================
+   Mismas clases base que scara.astro / robot.astro / iot.astro
+   / cattree.astro / underwater.astro.
+   ========================================================= */
+
+.experience-bg {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 3rem 0 5rem;
+  background-image: url("/textures/paper-texture.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: transparent;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.experience-shell {
+  width: 100%;
+  max-width: 1200px;
+  margin: 1rem auto 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  box-sizing: border-box;
+}
+
+.experience-shell .experience-header {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto 2rem;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.experience-header h1 {
+  margin: 0;
+  color: var(--color-deep);
+  font-size: clamp(2.3rem, 6.5vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+}
+
+.experience-intro {
+  width: min(700px, 100%);
+  margin: 1.5rem auto 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.experience-shell .experience-timeline {
+  width: 100%;
+  margin: 0 auto 2rem;
+  padding: 3rem 2rem 4rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.experience-shell .experience-timeline:last-child {
+  margin-bottom: 0;
+}
+
+.experience-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(4px);
+}
+
+/* HERO IMAGE */
+
+.hero-section {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.hero-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.05);
+}
+
+/* SECTIONS */
+
+.experience-section {
+  width: 100%;
+  min-width: 0;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.experience-section:last-of-type {
+  border-bottom: none;
+}
+
+.section-kicker {
+  margin: 0 0 0.6rem;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.experience-section h2 {
+  margin: 0 0 1.2rem;
+  color: var(--color-deep);
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.experience-section p {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  text-align: justify;
+  overflow-wrap: anywhere;
+}
+
+.experience-section p:last-of-type {
+  margin-bottom: 0;
+}
+
+.learning-section blockquote {
+  margin: 1.5rem 0 0;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--color-deep);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* TAGS */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.tags span {
+  max-width: 100%;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-deep);
+  font-size: 0.75rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* HARDWARE / SYSTEM GRID */
+
+.hardware-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.hardware-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.hardware-label {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hardware-value {
+  color: var(--color-deep);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* BACK LINK */
+
+.back-link-wrap {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.back-link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.3rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.back-link-pill:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  transform: translateX(-3px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .experience-bg {
+    background-attachment: scroll;
+    padding: 2rem 0 4rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1.5rem);
+    padding: 1.5rem;
+  }
+
+  .experience-shell .experience-timeline {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .experience-card {
+    padding: 1.8rem;
+  }
+
+  .hero-image-wrap {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 700px) {
+  .experience-bg {
+    padding: 1rem 0 3rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1rem);
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .experience-shell .experience-header {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .experience-header h1 {
+    font-size: clamp(2rem, 11vw, 3.2rem);
+  }
+
+  .experience-shell .experience-timeline {
+    width: 100%;
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .experience-card {
+    width: 100%;
+    padding: 1.4rem;
+  }
+
+  .experience-section {
+    padding: 1.75rem 0;
+  }
+
+  .hero-image-wrap {
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .experience-shell {
+    width: calc(100% - 0.75rem);
+    padding: 0.75rem;
+  }
+
+  .experience-shell .experience-header {
+    width: 100%;
+    padding: 2.25rem 1rem;
+  }
+
+  .experience-shell .experience-timeline {
+    width: 100%;
+    padding: 1.25rem 0.85rem 2rem;
+  }
+
+  .experience-card {
+    padding: 1.15rem;
+  }
+
+  .experience-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .experience-section p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .lightbox-content {
+    max-width: 94vw;
+    max-height: 78vh;
+  }
+
+  .gallery-slider {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* =========================================================
+   GALLERY (igual que scara.astro)
+   ========================================================= */
+
+.experience-gallery-section {
+  width: 100%;
+  min-width: 0;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.experience-gallery-section h3 {
+  margin: 0 0 1.2rem;
+  color: var(--color-deep);
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.gallery-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 1.5rem auto 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.gallery-slider {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.gallery-slider img,
+.gallery-slider video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.04);
+  cursor: zoom-in;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-slider img.active,
+.gallery-slider video.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: clamp(2.2rem, 5vw, 3rem);
+  height: clamp(2.2rem, 5vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(30, 30, 30, 0.65);
+  color: var(--color-bg);
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.gallery-btn:hover {
+  background: rgba(30, 30, 30, 0.9);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.gallery-btn.prev {
+  left: clamp(0.5rem, 2vw, 1.2rem);
+}
+
+.gallery-btn.next {
+  right: clamp(0.5rem, 2vw, 1.2rem);
+}
+
+.gallery-counter {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(0.6rem, 2vw, 1rem);
+  transform: translateX(-50%);
+  z-index: 5;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(30, 30, 30, 0.7);
+  color: white;
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  letter-spacing: 0.05em;
+}
+
+/* LIGHTBOX */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(15, 15, 15, 0.94);
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-content {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+video.lightbox-content {
+  display: none;
+  background: #000;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  z-index: 10;
+  width: clamp(2.2rem, 5vw, 3rem);
+  height: clamp(2.2rem, 5vw, 3rem);
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  cursor: pointer;
+}
+
+.lightbox .close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: clamp(2.5rem, 6vw, 3.5rem);
+  height: clamp(2.5rem, 6vw, 3.5rem);
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  cursor: pointer;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-nav.prev {
+  left: clamp(0.5rem, 3vw, 2rem);
+}
+
+.lightbox-nav.next {
+  right: clamp(0.5rem, 3vw, 2rem);
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: clamp(1rem, 3vw, 2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  letter-spacing: 0.08em;
+}
+</style>

@@ -2,82 +2,396 @@
 import "../../styles/global.css";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
+
+const hardware = [
+  { label: "Controller", value: "Raspberry Pi Pico" },
+  { label: "Driver", value: "L298N Dual H-Bridge" },
+  { label: "Motors", value: "DC gearmotors (12 V, 200 RPM) with encoders" },
+  { label: "Actuator", value: "Linear stage for Z-axis motion" },
+  { label: "Sensors", value: "Limit switches on each joint" },
+  { label: "Software", value: "Solid Edge Siemens, MATLAB, Simulink, MicroPython" },
+];
+
+/*
+  ============================================================
+  GALLERY
+  14 fotos + 2 videos. Mismo componente de carrusel + lightbox
+  que experience.astro, extendido para soportar video.
+  ============================================================
+*/
+const gallery = [
+  { type: "image", src: "/projects/scara/scara1.jpeg", alt: "SCARA 1" },
+  { type: "image", src: "/projects/scara/scara2.jpeg", alt: "SCARA 2" },
+  { type: "image", src: "/projects/scara/scara3.jpeg", alt: "SCARA 3" },
+  { type: "image", src: "/projects/scara/scara4.jpeg", alt: "SCARA 4" },
+  { type: "image", src: "/projects/scara/scara5.jpeg", alt: "SCARA 5" },
+  { type: "image", src: "/projects/scara/scara6.jpeg", alt: "SCARA 6" },
+  { type: "image", src: "/projects/scara/scara7.jpeg", alt: "SCARA 7" },
+  { type: "image", src: "/projects/scara/scara8.jpeg", alt: "SCARA 8" },
+  { type: "image", src: "/projects/scara/scara9.jpeg", alt: "SCARA 9" },
+  { type: "image", src: "/projects/scara/scara10.jpeg", alt: "SCARA 10" },
+  { type: "image", src: "/projects/scara/scara11.jpeg", alt: "SCARA 11" },
+  { type: "image", src: "/projects/scara/scara12.jpeg", alt: "SCARA 12" },
+  { type: "image", src: "/projects/scara/scara13.jpeg", alt: "SCARA 13" },
+  { type: "image", src: "/projects/scara/scara14.jpeg", alt: "SCARA 14" },
+  { type: "video", src: "/projects/scara/video1.mp4", alt: "SCARA video 1" },
+  { type: "video", src: "/projects/scara/video2.mp4", alt: "SCARA video 2" },
+];
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="SCARA welding robot — mechanical design, control and kinematics project by Mariana Calle Méndez."
+    />
+
     <title>SCARA Welding Robot — Mariana Calle</title>
   </head>
 
   <body>
+
     <Navbar />
 
-    <main class="project-page">
-      <section class="project-hero">
-        <img src="/projects/scara.jpeg" alt="SCARA Robot" class="hero-img" />
-        <div class="overlay">
-          <h1>SCARA Robot — 3 DOF Welding Prototype</h1>
-          <p>Designed, simulated and controlled for trajectory-based welding applications.</p>
-        </div>
-      </section>
+    <main class="experience-bg">
 
-      <section class="project-content">
-        <h2>Project Overview</h2>
-        <p>
-          This project involved the complete design and implementation of a
-          <strong>3-DOF SCARA robotic arm</strong> (two rotational and one
-          translational joints), developed as part of a mechatronics integrator
-          project. The main objective was to simulate and control a system
-          capable of executing <strong>welding trajectories</strong> with
-          precision and repeatability, integrating mechanical, electronic and
-          control subsystems.
-        </p>
+      <div class="experience-shell">
 
-        <h2>Mechanical Design</h2>
-        <p>
-          The robot was modeled and assembled in <em>Solid Edge Siemens</em>,
-          ensuring that the workspace, stiffness, and reach requirements were
-          met. The structure was optimized for lightweight operation and easy
-          assembly, maintaining a stable base to reduce unwanted vibrations
-          during motion.
-        </p>
+        <!-- =====================================================
+             01 · INTRODUCTION
+        ====================================================== -->
 
-        <p>
-          The SCARA arm was composed of two horizontal rotational links and a
-          vertical prismatic joint that enabled vertical displacement of the
-          tool, in this case, a simulated <strong>welding end effector</strong>.
-          The design emphasized mechanical rigidity and workspace coverage for
-          planar welding paths.
-        </p>
+        <section class="experience-header">
 
-        <h2>Control and Simulation</h2>
-        <p>
-          The control of the robot was implemented using a <strong>Raspberry Pi Pico</strong> microcontroller.
-          Two <strong>DC motors</strong> were used to drive the rotational joints, while a
-          <strong>servo motor</strong> controlled the vertical motion along the Z-axis.
-          <strong>Limit switches</strong> were placed to define the workspace boundaries,
-          ensuring safe operation and preventing mechanical overtravel.
-        </p>
+          <h1>
+            SCARA ROBOT
+          </h1>
 
-        <p>
-          The <strong>transfer function</strong> of each DC motor was obtained both individually
-          and after being assembled in the robot, since the added load altered the dynamic
-          behavior of each actuator. This characterization was performed primarily through
-          the <strong>encoders</strong> attached to the motors, which provided precise feedback
-          of angular speed and position under different load conditions.
-        </p>
+          <p class="experience-intro">
+            A 3-DOF robotic arm designed and built for a simulated
+            MIG welding application.
+          </p>
 
-        <p>
-          The <strong>L298N driver</strong> was used exclusively as an H-bridge interface for
-          motor control, while the <strong>Pico</strong> handled the control logic and encoder
-          signal processing. Each joint implemented a <strong>proportional (P) controller</strong>
-          to maintain the desired position with stable and accurate responses during
-          the execution of welding trajectories.
-        </p>
+        </section>
 
-        <div class="code-block">
-          <pre><code># MicroPython — Proportional Control Example
+
+        <!-- HERO IMAGE -->
+
+        <section class="experience-timeline hero-section">
+
+          <div class="hero-image-wrap">
+
+            <img
+              src="/projects/scara.jpeg"
+              alt="SCARA Robot"
+            />
+
+          </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             MAIN CONTENT CARD
+        ====================================================== -->
+
+        <section class="experience-timeline">
+
+          <div class="experience-card project-card">
+
+            <!-- =================================================
+                 01 · INTRODUCTION
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                01 · INTRODUCTION
+              </p>
+
+              <h2>
+                Project Info
+              </h2>
+
+              <div class="hardware-grid">
+
+                <div class="hardware-item">
+                  <span class="hardware-label">Project date</span>
+                  <span class="hardware-value">2024</span>
+                </div>
+
+                <div class="hardware-item">
+                  <span class="hardware-label">Project type</span>
+                  <span class="hardware-value">Team project</span>
+                </div>
+
+                <div class="hardware-item">
+                  <span class="hardware-label">My role</span>
+                  <span class="hardware-value">Mechanical Design, Assembly &amp; Integration</span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 02 · THE CHALLENGE
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                02 · THE CHALLENGE
+              </p>
+
+              <h2>
+                The Idea
+              </h2>
+
+              <p>
+                The challenge was to design and build a SCARA
+                robotic arm for a simulated <strong>MIG welding
+                application</strong>. The robot had to meet specific
+                height and reach requirements while incorporating
+                <strong>three degrees of freedom</strong> — two
+                rotational joints and one translational joint.
+              </p>
+
+              <p>
+                Before starting the design, I wanted to understand
+                what had worked well in previous projects and what
+                challenges I should anticipate. I reached out to
+                students from earlier semesters for their advice,
+                and also consulted Julián, one of the university's
+                laboratory technicians, to discuss possible design
+                approaches. Together, we prioritized <strong>structural
+                rigidity</strong> from the very beginning and
+                developed a preliminary sketch that became the
+                starting point for the whole design — including his
+                suggestion to adapt an electric car door-lock
+                mechanism for the welding end effector, an idea we
+                eventually built into the prototype.
+              </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 03 · MY CONTRIBUTION
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                03 · MY CONTRIBUTION
+              </p>
+
+              <h2>
+                Mechanical Design
+              </h2>
+
+              <p>
+                My main responsibility was the complete mechanical
+                design and assembly of the SCARA robot, which I
+                developed from the ground up in <em>Solid Edge
+                Siemens</em>. I defined its dimensions, geometry and
+                workspace, and designed the links, joints, motor
+                supports, connections and assembly mechanisms,
+                always prioritizing structural stability, rigidity
+                and proper integration between parts.
+              </p>
+
+              <p>
+                An important part of this process was understanding
+                how the robot's geometry would affect its movement:
+                I worked on the <strong>forward kinematics</strong>
+                calculations and used them to guide the mechanical
+                design, ensuring the arm could reach the positions
+                required for its intended task.
+              </p>
+
+              <div class="tags">
+                <span>Solid Edge</span>
+                <span>Mechanical Design</span>
+                <span>Forward Kinematics</span>
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 04 · FROM DESIGN TO REALITY
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                04 · FROM DESIGN TO REALITY
+              </p>
+
+              <h2>
+                Manufacturing &amp; Assembly
+              </h2>
+
+              <p>
+                I was directly involved in manufacturing and
+                assembling the mechanical structure. I used
+                <strong>CNC machining</strong> to manufacture the
+                links and motor supports, a <strong>lathe</strong>
+                to produce the joint components, and <strong>3D
+                printing</strong> to create the limit-switch
+                supports that defined the robot's workspace.
+              </p>
+
+              <p>
+                The electric car door-lock mechanism we had sketched
+                out earlier was adapted and incorporated into the
+                welding end effector, turning an existing part into
+                a practical solution for the project. Having
+                carefully planned the structure and prepared each
+                component beforehand made the final assembly much
+                more straightforward, and the resulting prototype
+                worked very well.
+              </p>
+
+              <div class="tags">
+                <span>CNC Machining</span>
+                <span>Lathe</span>
+                <span>3D Printing</span>
+              </div>
+
+            </div>
+
+
+            <!-- GALLERY — fotos del proceso -->
+
+            <div class="experience-gallery-section">
+
+              <h3>
+                Project Gallery
+              </h3>
+
+              <div class="gallery-container">
+
+                <div class="gallery-slider">
+
+                  {
+                    gallery.map((item, i) => (
+                      item.type === "video" ? (
+                        <video
+                          src={item.src}
+                          class:list={{ active: i === 0 }}
+                          muted
+                          loop
+                          playsinline
+                          preload="metadata"
+                        />
+                      ) : (
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          class:list={{ active: i === 0 }}
+                          loading={i === 0 ? "eager" : "lazy"}
+                        />
+                      )
+                    ))
+                  }
+
+                </div>
+
+
+                <button
+                  class="gallery-btn prev"
+                  type="button"
+                  aria-label="Previous item"
+                >
+                  ❮
+                </button>
+
+
+                <button
+                  class="gallery-btn next"
+                  type="button"
+                  aria-label="Next item"
+                >
+                  ❯
+                </button>
+
+
+                <div class="gallery-counter">
+
+                  <span id="gallery-current">
+                    1
+                  </span>
+
+                  /
+
+                  <span>
+                    {gallery.length}
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 05 · SYSTEM INTEGRATION
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                05 · SYSTEM INTEGRATION
+              </p>
+
+              <h2>
+                Control &amp; Virtual Twin
+              </h2>
+
+              <p>
+                The control of the robot was implemented using a
+                <strong>Raspberry Pi Pico</strong> microcontroller.
+                Two <strong>DC motors</strong> drove the rotational
+                joints, while a <strong>servo motor</strong>
+                controlled vertical motion along the Z-axis, and
+                <strong>limit switches</strong> defined the
+                workspace boundaries to keep the system safe. Each
+                joint used a <strong>proportional (P) controller</strong>,
+                tuned from the transfer function of its motor, to
+                track the programmed welding trajectories smoothly
+                and accurately.
+              </p>
+
+              <p>
+                Alongside the physical prototype, forward and
+                inverse kinematics were developed analytically using
+                the Denavit–Hartenberg convention and validated in
+                MATLAB, and a <strong>digital twin</strong> was built
+                in MATLAB/Simulink to mirror the robot's behavior.
+                This let us test trajectories and control gains
+                virtually before running them on the physical arm,
+                keeping the simulated and physical motion closely
+                coordinated throughout development.
+              </p>
+
+              <div class="code-card">
+
+                <div class="code-card-label">
+                  MicroPython
+                </div>
+
+                <pre><code># Proportional Control Example
 from machine import Pin, PWM
 import time
 
@@ -95,235 +409,827 @@ while True:
     # update simulated angle
     current_angle += 0.1 * error
     time.sleep(0.05)
-          </code></pre>
-        </div>
+</code></pre>
 
-        <h2>Kinematic Modeling</h2>
-        <p>
-          Both <strong>forward</strong> and <strong>inverse kinematics</strong>
-          were developed analytically and validated through MATLAB simulation.
-          The Denavit–Hartenberg (DH) convention was used to describe the robot
-          geometry, and the equations below define the relationship between the
-          end-effector position <code>(x, y, z, γ)</code> and the joint variables
-          <code>(θ₁, θ₂, d₃)</code>:
-        </p>
+              </div>
 
-        <div class="code-block">
-          <pre><code>
-x = r₁·cos(θ₁) + r₂·cos(θ₁ + θ₂)
-y = r₁·sin(θ₁) + r₂·sin(θ₁ + θ₂)
-z = d₃
-γ = θ₁ + θ₂
-          </code></pre>
-        </div>
+              <div class="hardware-grid">
+                {
+                  hardware.map((item) => (
+                    <div class="hardware-item">
+                      <span class="hardware-label">{item.label}</span>
+                      <span class="hardware-value">{item.value}</span>
+                    </div>
+                  ))
+                }
+              </div>
 
-        <p>
-          The inverse kinematics equations were solved in MATLAB and validated
-          using the <em>Robotics Toolbox</em>, enabling the simulation of
-          continuous welding paths. The same logic was ported to the Raspberry
-          Pi Pico for real-time control.
-        </p>
+            </div>
 
-        <h2>Virtual Twin</h2>
-        <p>
-          A <strong>digital twin</strong> was created in MATLAB/Simulink to
-          mirror the behavior of the real SCARA robot. This allowed testing of
-          different trajectories and control gains before applying them to the
-          physical prototype. The simulation included dynamic constraints, motor
-          models, and the control loop.
-        </p>
 
-        <h2>Hardware Summary</h2>
-        <ul>
-          <li><strong>Controller:</strong> Raspberry Pi Pico</li>
-          <li><strong>Driver:</strong> L298N Dual H-Bridge</li>
-          <li><strong>Motors:</strong> DC gearmotors (12 V, 200 RPM) with encoders</li>
-          <li><strong>Actuator:</strong> Linear stage for Z-axis motion</li>
-          <li><strong>Sensors:</strong> Limit switches on each joint</li>
-          <li><strong>Software:</strong> Solid Edge Siemens, MATLAB, Simulink, MicroPython</li>
-        </ul>
+            <!-- =================================================
+                 06 · RESULTS
+            ================================================== -->
 
-        <h2>Results</h2>
-        <p>
-          The robot successfully followed predefined planar welding paths and
-          adjusted its Z-axis to simulate different seam heights. The
-          proportional controllers ensured smooth motion, and the simulation
-          closely matched physical performance. Both the mechanical design and
-          control model proved suitable for small scale welding automation.
-        </p>
+            <div class="experience-section learning-section">
 
-        <!-- 🔹 PROJECT GALLERY -->
-<h2>Project Gallery</h2>
+              <p class="section-kicker">
+                06 · RESULTS
+              </p>
 
-<div class="gallery-container">
-  <div class="gallery-slider">
-    <!-- 14 imágenes -->
-    <img src="/projects/scara/scara1.jpeg" alt="SCARA 1" class="active" />
-    <img src="/projects/scara/scara2.jpeg" alt="SCARA 2" />
-    <img src="/projects/scara/scara3.jpeg" alt="SCARA 3" />
-    <img src="/projects/scara/scara4.jpeg" alt="SCARA 4" />
-    <img src="/projects/scara/scara5.jpeg" alt="SCARA 5" />
-    <img src="/projects/scara/scara6.jpeg" alt="SCARA 6" />
-    <img src="/projects/scara/scara7.jpeg" alt="SCARA 7" />
-    <img src="/projects/scara/scara8.jpeg" alt="SCARA 8" />
-    <img src="/projects/scara/scara9.jpeg" alt="SCARA 9" />
-    <img src="/projects/scara/scara10.jpeg" alt="SCARA 10" />
-    <img src="/projects/scara/scara11.jpeg" alt="SCARA 11" />
-    <img src="/projects/scara/scara12.jpeg" alt="SCARA 12" />
-    <img src="/projects/scara/scara13.jpeg" alt="SCARA 13" />
-    <img src="/projects/scara/scara14.jpeg" alt="SCARA 14" />
+              <h2>
+                The Outcome
+              </h2>
 
-    <!-- 2 videos -->
-    <video src="/projects/scara/video1.mp4" type="video/mp4"></video>
-    <video src="/projects/scara/video2.mp4" type="video/mp4"></video>
-  </div>
+              <p>
+                The robot successfully reached the predefined
+                positions and physically followed the programmed
+                trajectories required to simulate the MIG welding
+                process, adjusting its Z-axis to reproduce different
+                seam heights. The proportional controllers kept its
+                motion smooth, and the physical performance closely
+                matched the behavior predicted by the virtual twin.
+              </p>
 
-  <button class="gallery-btn prev">❮</button>
-  <button class="gallery-btn next">❯</button>
-</div>
+              <blockquote>
+                An idea that started as a preliminary sketch became
+                a fully assembled robot capable of performing its
+                intended task.
+              </blockquote>
 
-<!-- 🔹 Lightbox (Fullscreen Viewer) -->
-<div id="lightbox" class="lightbox">
-  <button class="close">&times;</button>
-  <button class="lightbox-nav prev">❮</button>
-  <button class="lightbox-nav next">❯</button>
-  <img id="lightbox-img" class="lightbox-content" />
-  <video id="lightbox-video" class="lightbox-content" controls></video>
-</div>
+            </div>
 
-<script>
-  const items = document.querySelectorAll(".gallery-slider img, .gallery-slider video");
-  const nextBtn = document.querySelector(".gallery-btn.next");
-  const prevBtn = document.querySelector(".gallery-btn.prev");
-  let index = 0;
 
-  const showItem = (i) => {
-    items.forEach((item) => {
-      item.classList.remove("active");
-      if (item.tagName === "VIDEO") item.pause();
-    });
-    const current = items[i];
-    current.classList.add("active");
-    if (current.tagName === "VIDEO") current.play();
-  };
+            <!-- BACK LINK -->
 
-  const nextImage = () => {
-    index = (index + 1) % items.length;
-    showItem(index);
-  };
+            <div class="back-link-wrap">
+              <a href="/projects" class="back-link-pill">
+                <span>←</span>
+                Back to Projects
+              </a>
+            </div>
 
-  const prevImage = () => {
-    index = (index - 1 + items.length) % items.length;
-    showItem(index);
-  };
+          </div>
 
-  nextBtn.addEventListener("click", nextImage);
-  prevBtn.addEventListener("click", prevImage);
+        </section>
 
-  // 🔹 Lightbox (Zoom)
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const lightboxVideo = document.getElementById("lightbox-video");
-  const closeBtn = document.querySelector(".close");
-  const nextLightbox = document.querySelector(".lightbox-nav.next");
-  const prevLightbox = document.querySelector(".lightbox-nav.prev");
+      </div>
 
-  const openLightbox = (i) => {
-    index = i;
-    const current = items[index];
-    lightbox.style.display = "flex";
-    if (current.tagName === "IMG") {
-      lightboxImg.src = current.src;
-      lightboxImg.style.display = "block";
-      lightboxVideo.style.display = "none";
-    } else {
-      lightboxVideo.src = current.src;
-      lightboxVideo.style.display = "block";
-      lightboxImg.style.display = "none";
-      lightboxVideo.play();
-    }
-  };
+    </main>
 
-  const updateLightbox = (direction) => {
-    index = (index + direction + items.length) % items.length;
-    const current = items[index];
-    if (current.tagName === "IMG") {
-      lightboxImg.src = current.src;
-      lightboxImg.style.display = "block";
-      lightboxVideo.pause();
-      lightboxVideo.style.display = "none";
-    } else {
-      lightboxVideo.src = current.src;
-      lightboxVideo.style.display = "block";
-      lightboxImg.style.display = "none";
-      lightboxVideo.play();
-    }
-  };
 
-  items.forEach((item, i) => {
-    item.addEventListener("click", () => openLightbox(i));
-  });
+    <!-- =======================================================
+         LIGHTBOX
+    ======================================================== -->
 
-  nextLightbox.addEventListener("click", () => updateLightbox(1));
-  prevLightbox.addEventListener("click", () => updateLightbox(-1));
+    <div
+      id="lightbox"
+      class="lightbox"
+      aria-hidden="true"
+    >
 
-  closeBtn.addEventListener("click", () => {
-    lightbox.style.display = "none";
-    lightboxVideo.pause();
-  });
+      <button
+        class="close"
+        type="button"
+        aria-label="Close viewer"
+      >
+        &times;
+      </button>
 
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      lightbox.style.display = "none";
-      lightboxVideo.pause();
-    }
-  });
 
-  // 🔹 Navegación con flechas del teclado
-  document.addEventListener("keydown", (e) => {
-    if (lightbox.style.display === "flex") {
-      if (e.key === "ArrowRight") updateLightbox(1);
-      if (e.key === "ArrowLeft") updateLightbox(-1);
-      if (e.key === "Escape") {
-        lightbox.style.display = "none";
-        lightboxVideo.pause();
+      <button
+        class="lightbox-nav prev"
+        type="button"
+        aria-label="Previous item"
+      >
+        ❮
+      </button>
+
+
+      <img
+        id="lightbox-img"
+        class="lightbox-content"
+        src=""
+        alt=""
+      />
+
+      <video
+        id="lightbox-video"
+        class="lightbox-content"
+        controls
+        playsinline
+      />
+
+
+      <button
+        class="lightbox-nav next"
+        type="button"
+        aria-label="Next item"
+      >
+        ❯
+      </button>
+
+
+      <div class="lightbox-counter">
+
+        <span id="lightbox-current">
+          1
+        </span>
+
+        /
+
+        <span>
+          {gallery.length}
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <Footer />
+
+
+    <!-- =======================================================
+         GALLERY SCRIPT
+    ======================================================== -->
+
+    <script>
+      const items =
+        Array.from(
+          document.querySelectorAll<HTMLImageElement | HTMLVideoElement>(
+            ".gallery-slider img, .gallery-slider video"
+          )
+        );
+
+      const nextBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".gallery-btn.next"
+        );
+
+      const prevBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".gallery-btn.prev"
+        );
+
+      const lightbox =
+        document.getElementById("lightbox");
+
+      const lightboxImg =
+        document.getElementById(
+          "lightbox-img"
+        ) as HTMLImageElement | null;
+
+      const lightboxVideo =
+        document.getElementById(
+          "lightbox-video"
+        ) as HTMLVideoElement | null;
+
+      const closeBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox .close"
+        );
+
+      const nextLightbox =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox-nav.next"
+        );
+
+      const prevLightbox =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox-nav.prev"
+        );
+
+      const galleryCurrent =
+        document.getElementById(
+          "gallery-current"
+        );
+
+      const lightboxCurrent =
+        document.getElementById(
+          "lightbox-current"
+        );
+
+      let index = 0;
+
+      /* =====================================================
+         SHOW ITEM
+      ====================================================== */
+
+      function showItem(newIndex: number) {
+        if (!items.length) {
+          return;
+        }
+
+        index =
+          (newIndex + items.length) %
+          items.length;
+
+        items.forEach(
+          (item, i) => {
+            const isActive = i === index;
+
+            item.classList.toggle(
+              "active",
+              isActive
+            );
+
+            if (item.tagName === "VIDEO") {
+              const video = item as HTMLVideoElement;
+
+              if (isActive) {
+                video.play().catch(() => {});
+              } else {
+                video.pause();
+                video.currentTime = 0;
+              }
+            }
+          }
+        );
+
+        if (galleryCurrent) {
+          galleryCurrent.textContent =
+            String(index + 1);
+        }
       }
-    } else {
-      if (e.key === "ArrowRight") nextImage();
-      if (e.key === "ArrowLeft") prevImage();
-    }
-  });
-</script>
+
+      /* =====================================================
+         NEXT / PREVIOUS
+      ====================================================== */
+
+      function nextItem() {
+        showItem(index + 1);
+      }
+
+      function previousItem() {
+        showItem(index - 1);
+      }
+
+      nextBtn?.addEventListener(
+        "click",
+        nextItem
+      );
+
+      prevBtn?.addEventListener(
+        "click",
+        previousItem
+      );
+
+      /* =====================================================
+         LIGHTBOX
+      ====================================================== */
+
+      function renderLightbox() {
+        if (
+          !lightboxImg ||
+          !lightboxVideo ||
+          !items[index]
+        ) {
+          return;
+        }
+
+        const current = items[index];
+
+        if (current.tagName === "VIDEO") {
+          lightboxVideo.src = current.getAttribute("src") ?? "";
+          lightboxVideo.style.display = "block";
+          lightboxVideo.play().catch(() => {});
+
+          lightboxImg.style.display = "none";
+        } else {
+          lightboxImg.src = (current as HTMLImageElement).src;
+          lightboxImg.alt = (current as HTMLImageElement).alt;
+          lightboxImg.style.display = "block";
+
+          lightboxVideo.pause();
+          lightboxVideo.style.display = "none";
+        }
+
+        if (lightboxCurrent) {
+          lightboxCurrent.textContent =
+            String(index + 1);
+        }
+      }
+
+      function openLightbox(itemIndex: number) {
+        if (
+          !lightbox ||
+          !items[itemIndex]
+        ) {
+          return;
+        }
+
+        index = itemIndex;
+
+        renderLightbox();
+
+        lightbox.classList.add("open");
+
+        lightbox.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+        document.body.style.overflow =
+          "hidden";
+      }
+
+      function closeLightbox() {
+        if (!lightbox) {
+          return;
+        }
+
+        lightboxVideo?.pause();
+
+        lightbox.classList.remove("open");
+
+        lightbox.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+        document.body.style.overflow =
+          "";
+      }
+
+      function updateLightbox(direction: number) {
+        lightboxVideo?.pause();
+
+        showItem(
+          index + direction
+        );
+
+        renderLightbox();
+      }
+
+      items.forEach(
+        (item, i) => {
+          item.addEventListener(
+            "click",
+            () => {
+              openLightbox(i);
+            }
+          );
+        }
+      );
+
+      nextLightbox?.addEventListener(
+        "click",
+        () => {
+          updateLightbox(1);
+        }
+      );
+
+      prevLightbox?.addEventListener(
+        "click",
+        () => {
+          updateLightbox(-1);
+        }
+      );
+
+      closeBtn?.addEventListener(
+        "click",
+        closeLightbox
+      );
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          if (
+            lightbox?.classList.contains(
+              "open"
+            )
+          ) {
+            if (
+              event.key ===
+              "ArrowRight"
+            ) {
+              event.preventDefault();
+              updateLightbox(1);
+            }
+
+            if (
+              event.key ===
+              "ArrowLeft"
+            ) {
+              event.preventDefault();
+              updateLightbox(-1);
+            }
+
+            if (
+              event.key ===
+              "Escape"
+            ) {
+              event.preventDefault();
+              closeLightbox();
+            }
+
+            return;
+          }
+
+          if (
+            event.key ===
+            "ArrowRight"
+          ) {
+            nextItem();
+          }
+
+          if (
+            event.key ===
+            "ArrowLeft"
+          ) {
+            previousItem();
+          }
+        }
+      );
+
+      lightbox?.addEventListener(
+        "click",
+        (event) => {
+          if (
+            event.target ===
+            lightbox
+          ) {
+            closeLightbox();
+          }
+        }
+      );
+
+      showItem(0);
+    </script>
+
+  </body>
+</html>
+
 
 <style>
-/* 🔹 Gallery Base */
+/* =========================================================
+   Mismas clases base que experience.astro.
+   ========================================================= */
+
+.experience-bg {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 3rem 0 5rem;
+  background-image: url("/textures/paper-texture.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: transparent;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.experience-shell {
+  width: 100%;
+  max-width: 1200px;
+  margin: 1rem auto 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  box-sizing: border-box;
+}
+
+/* HEADER */
+
+.experience-shell .experience-header {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto 2rem;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.section-label {
+  margin: 0 0 0.8rem;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.experience-header h1 {
+  margin: 0;
+  color: var(--color-deep);
+  font-size: clamp(2.3rem, 6.5vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+}
+
+.experience-intro {
+  width: min(700px, 100%);
+  margin: 1.5rem auto 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* TIMELINE WRAPPER */
+
+.experience-shell .experience-timeline {
+  width: 100%;
+  margin: 0 auto 2rem;
+  padding: 3rem 2rem 4rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.experience-shell .experience-timeline:last-child {
+  margin-bottom: 0;
+}
+
+.experience-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(4px);
+}
+
+/* HERO IMAGE */
+
+.hero-section {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.hero-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.05);
+}
+
+/* =========================================================
+   SECTIONS — kicker "NN · LABEL" + título grande
+   ========================================================= */
+
+.experience-section {
+  width: 100%;
+  min-width: 0;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.experience-section:last-of-type {
+  border-bottom: none;
+}
+
+.section-kicker {
+  margin: 0 0 0.6rem;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.experience-section h2 {
+  margin: 0 0 1.2rem;
+  color: var(--color-deep);
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.experience-gallery-section h3 {
+  margin: 0 0 1.2rem;
+  color: var(--color-deep);
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.experience-section p {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  text-align: justify;
+  overflow-wrap: anywhere;
+}
+
+.experience-section p:last-of-type {
+  margin-bottom: 0;
+}
+
+.experience-section code {
+  padding: 0.1rem 0.4rem;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.learning-section blockquote {
+  margin: 1.5rem 0 0;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--color-deep);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* TAGS */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.tags span {
+  max-width: 100%;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-deep);
+  font-size: 0.75rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* CODE CARD */
+
+.code-card {
+  position: relative;
+  margin: 1.25rem 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--color-deep);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.code-card-label {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.code-card pre {
+  margin: 0;
+  padding: 1.1rem 1.25rem;
+  overflow-x: auto;
+}
+
+.code-card code {
+  color: #f1e9dd;
+  font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  white-space: pre;
+}
+
+/* HARDWARE GRID */
+
+.hardware-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.hardware-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.hardware-label {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hardware-value {
+  color: var(--color-deep);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* BACK LINK */
+
+.back-link-wrap {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.back-link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.3rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.back-link-pill:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  transform: translateX(-3px);
+}
+
+/* GALLERY (igual que experience.astro) */
+
+.experience-gallery-section {
+  width: 100%;
+  min-width: 0;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
 .gallery-container {
   position: relative;
-  max-width: 850px;
-  margin: 3rem auto;
+  width: 100%;
+  max-width: 900px;
+  margin: 1.5rem auto 0;
   overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .gallery-slider {
   position: relative;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .gallery-slider img,
 .gallery-slider video {
   position: absolute;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 14px;
-  cursor: pointer;
+  display: block;
+  object-fit: contain;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.04);
+  cursor: zoom-in;
+  transition: opacity 0.4s ease;
 }
 
 .gallery-slider img.active,
@@ -332,194 +1238,249 @@ z = d₃
   z-index: 1;
 }
 
-.gallery-slider img:hover,
-.gallery-slider video:hover {
-  transform: scale(1.02);
-  transition: transform 0.4s ease;
-}
-
 .gallery-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.45);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background 0.3s;
   z-index: 5;
+  width: clamp(2.2rem, 5vw, 3rem);
+  height: clamp(2.2rem, 5vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(30, 30, 30, 0.65);
+  color: var(--color-bg);
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .gallery-btn:hover {
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(30, 30, 30, 0.9);
+  transform: translateY(-50%) scale(1.08);
 }
 
 .gallery-btn.prev {
-  left: 10px;
-}
-.gallery-btn.next {
-  right: 10px;
+  left: clamp(0.5rem, 2vw, 1.2rem);
 }
 
-/* 🔹 Lightbox (Fullscreen Zoom) */
+.gallery-btn.next {
+  right: clamp(0.5rem, 2vw, 1.2rem);
+}
+
+.gallery-counter {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(0.6rem, 2vw, 1rem);
+  transform: translateX(-50%);
+  z-index: 5;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(30, 30, 30, 0.7);
+  color: white;
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  letter-spacing: 0.05em;
+}
+
+/* LIGHTBOX */
+
 .lightbox {
-  display: none;
   position: fixed;
-  z-index: 100;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
-  justify-content: center;
+  z-index: 9999;
+  display: none;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(15, 15, 15, 0.94);
+}
+
+.lightbox.open {
+  display: flex;
 }
 
 .lightbox-content {
-  max-width: 90%;
-  max-height: 85%;
-  border-radius: 12px;
-  animation: fadeIn 0.4s ease;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
 }
 
-.close {
+video.lightbox-content {
+  display: none;
+  background: #000;
+}
+
+.lightbox .close {
   position: absolute;
-  top: 25px;
-  right: 35px;
-  background: none;
-  color: white;
-  font-size: 2.5rem;
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  z-index: 10;
+  width: clamp(2.2rem, 5vw, 3rem);
+  height: clamp(2.2rem, 5vw, 3rem);
   border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   cursor: pointer;
-  z-index: 110;
+}
+
+.lightbox .close:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .lightbox-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
-  color: white;
-  font-size: 3rem;
+  z-index: 10;
+  width: clamp(2.5rem, 6vw, 3.5rem);
+  height: clamp(2.5rem, 6vw, 3.5rem);
   border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   cursor: pointer;
-  padding: 0 1rem;
-  z-index: 110;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .lightbox-nav.prev {
-  left: 25px;
+  left: clamp(0.5rem, 3vw, 2rem);
 }
+
 .lightbox-nav.next {
-  right: 25px;
+  right: clamp(0.5rem, 3vw, 2rem);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-</style>
-
-
-        <section class="back-link">
-          <a href="/projects">← Back to Projects</a>
-        </section>
-      </section>
-    </main>
-
-    <Footer />
-  </body>
-</html>
-
-<style>
-.project-page {
-  color: var(--color-text);
-  line-height: 1.7;
-}
-
-.project-hero {
-  position: relative;
-  height: 60vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(55%);
-}
-
-.overlay {
+.lightbox-counter {
   position: absolute;
-  text-align: center;
+  bottom: clamp(1rem, 3vw, 2rem);
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
-  z-index: 2;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  letter-spacing: 0.08em;
 }
 
-.overlay h1 {
-  font-size: 2.5rem;
-  font-family: var(--font-title);
-  margin-bottom: 0.5rem;
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .experience-bg {
+    background-attachment: scroll;
+    padding: 2rem 0 4rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1.5rem);
+    padding: 1.5rem;
+  }
+
+  .experience-shell .experience-timeline {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .experience-card {
+    padding: 1.8rem;
+  }
+
+  .hero-image-wrap {
+    aspect-ratio: 16 / 9;
+  }
 }
 
-.overlay p {
-  font-size: 1.1rem;
+@media (max-width: 700px) {
+  .experience-bg {
+    padding: 1rem 0 3rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1rem);
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .experience-shell .experience-header {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .experience-header h1 {
+    font-size: clamp(2rem, 11vw, 3.2rem);
+  }
+
+  .experience-shell .experience-timeline {
+    width: 100%;
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .experience-card {
+    width: 100%;
+    padding: 1.4rem;
+  }
+
+  .experience-section,
+  .experience-gallery-section {
+    padding: 1.75rem 0;
+  }
+
+  .hero-image-wrap {
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+  }
+
+  .gallery-slider {
+    aspect-ratio: 4 / 3;
+  }
 }
 
-.project-content {
-  max-width: 900px;
-  margin: 4rem auto;
-  padding: 0 2rem;
-}
+@media (max-width: 500px) {
+  .experience-shell {
+    width: calc(100% - 0.75rem);
+    padding: 0.75rem;
+  }
 
-.project-content h2 {
-  color: var(--color-accent);
-  margin-top: 2rem;
-  margin-bottom: 0.8rem;
-}
+  .experience-shell .experience-header {
+    width: 100%;
+    padding: 2.25rem 1rem;
+  }
 
-.project-content ul {
-  margin-left: 1.5rem;
-  list-style-type: square;
-}
+  .experience-shell .experience-timeline {
+    width: 100%;
+    padding: 1.25rem 0.85rem 2rem;
+  }
 
-.code-block {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
-  padding: 1rem;
-  overflow-x: auto;
-  font-family: monospace;
-  margin: 1rem 0;
-}
+  .experience-card {
+    padding: 1.15rem;
+  }
 
-.back-link {
-  text-align: center;
-  margin-top: 3rem;
-}
+  .experience-section h2 {
+    font-size: 1.3rem;
+  }
 
-.back-link a {
-  color: var(--color-accent);
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  transition: color 0.3s ease, transform 0.3s ease;
-  text-decoration: none;
-}
+  .experience-gallery-section h3 {
+    font-size: 1.1rem;
+  }
 
-.back-link a:hover {
-  color: var(--color-deep);
-  transform: translateX(-4px);
+  .experience-section p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .lightbox-content {
+    max-width: 94vw;
+    max-height: 78vh;
+  }
 }
 </style>

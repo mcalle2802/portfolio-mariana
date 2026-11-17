@@ -2,267 +2,1125 @@
 import "../../styles/global.css";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
+
+/*
+  ============================================================
+  GALLERY
+  TODO: confirma la cantidad y los nombres reales de los
+  archivos en /public/projects/cattree/ — estos son un
+  placeholder siguiendo el mismo patrón que carro/ e iot/.
+  ============================================================
+*/
+const gallery = [
+  { type: "image", src: "/projects/cattree/cattree1.jpeg", alt: "Cat Tree Gym 1" },
+  { type: "image", src: "/projects/cattree/cattree2.jpeg", alt: "Cat Tree Gym 2" },
+  { type: "image", src: "/projects/cattree/cattree3.jpeg", alt: "Cat Tree Gym 3" },
+  { type: "image", src: "/projects/cattree/cattree4.jpeg", alt: "Cat Tree Gym 4" },
+  { type: "image", src: "/projects/cattree/cattree5.jpeg", alt: "Cat Tree Gym 5" },
+  { type: "image", src: "/projects/cattree/cattree6.jpeg", alt: "Cat Tree Gym 6" },
+  { type: "image", src: "/projects/cattree/cattree7.jpeg", alt: "Cat Tree Gym 7" },
+  { type: "image", src: "/projects/cattree/cattree8.jpeg", alt: "Cat Tree Gym 8" },
+  { type: "image", src: "/projects/cattree/cattree9.jpeg", alt: "Cat Tree Gym 9" },
+  { type: "image", src: "/projects/cattree/cattree10.jpeg", alt: "Cat Tree Gym 10" },
+  { type: "image", src: "/projects/cattree/cattree11.jpeg", alt: "Cat Tree Gym 11" },
+  { type: "image", src: "/projects/cattree/cattree12.jpeg", alt: "Cat Tree Gym 12" },
+  { type: "image", src: "/projects/cattree/cattree13.jpeg", alt: "Cat Tree Gym 13" },
+  { type: "image", src: "/projects/cattree/cattree14.jpeg", alt: "Cat Tree Gym 14" },
+  { type: "image", src: "/projects/cattree/cattree15.jpeg", alt: "Cat Tree Gym 15" },
+];
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="Cat Tree Gym — concept development, mechanical design and manufacturing project by Mariana Calle Méndez."
+    />
+
     <title>Cat Tree Gym — Mariana Calle</title>
   </head>
 
   <body>
+
     <Navbar />
 
-    <main class="project-page">
-      <section class="project-hero">
-        <img src="/projects/cattree.jpeg" alt="Cat Tree Project" class="hero-img" />
-        <div class="overlay">
-          <h1>Cat Tree Gym</h1>
-          <p>A custom-designed multi-level play structure to help my cat stay active and healthy.</p>
-        </div>
-      </section>
+    <main class="experience-bg">
 
-      <section class="project-content">
-        <h2>Project Overview</h2>
-        <p>
-          This project started from a personal motivation: one of my cats was gaining weight, 
-          and I wanted to help him improve his health not only through diet but also through 
-          physical activity. The idea was to create a <strong>cat gym</strong>, a 
-          <strong>three level tree structure</strong> where he could climb, scratch, 
-          rest, and stay entertained while burning energy.
-        </p>
+      <div class="experience-shell">
 
-        <h2>Design Process</h2>
-        <p>
-          The cat tree was fully modeled in <em>Solid Edge Siemens</em> with 
-          real-scale dimensions to ensure precision in manufacturing. The main 
-          structure includes <strong>three platforms</strong> connected by 
-          <strong>PVC tubes</strong> that serve both as supports and scratching posts, 
-          wrapped with durable rope to encourage natural feline behavior. 
-          Complementary <strong>modular side structures</strong> were added to 
-          increase height and challenge, motivating my cat to stretch, climb, 
-          and jump more actively.
-        </p>
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
 
-        <p>
-          The design prioritized <strong>stability and safety</strong>, ensuring that each 
-          level could support dynamic movements while maintaining balance. To achieve 
-          high precision and clean finishes, every piece was designed for 
-          <strong>CNC machining</strong>, minimizing errors during assembly and 
-          guaranteeing a professional quality result.
-        </p>
+        <section class="experience-header">
 
-        <h2>Materials & Construction</h2>
-        <ul>
-          <li><strong>Main Material:</strong> Triplex wood for the platforms and base structure.</li>
-          <li><strong>Supports:</strong> PVC tubes wrapped with natural rope as scratching surfaces.</li>
-          <li><strong>Connections:</strong> Reinforced with screws and bolts for strong joints.</li>
-          <li><strong>Finishes:</strong> Sanded surfaces with soft edges to ensure cat safety.</li>
-          <li><strong>Protective Coating:</strong> A natural waterproof layer made from <em>beeswax</em> and <em>mineral oil</em> was applied to enhance durability and protect the wood against moisture.</li>
-        </ul>
+          <h1>
+            CAT TREE GYM
+          </h1>
 
-        <h2>Assembly & Functionality</h2>
-        <p>
-          During assembly, special care was taken to align the structural joints precisely 
-          and ensure even weight distribution across all levels. The multi-level design 
-          promotes exploration and activity, providing both physical exercise and mental 
-          stimulation. My cat quickly adapted to the new structure, using it as a 
-          <strong>resting space, playground, and exercise area</strong>.
-        </p>
+          <p class="experience-intro">
+            A custom three-level cat tree, designed and built from
+            scratch to turn a personal concern into a small gym for
+            a very specific user — my cat.
+          </p>
 
-        <!-- 🔹 PROJECT GALLERY -->
-        <h2>Project Gallery</h2>
+        </section>
 
-        <div class="gallery-container">
-          <div class="gallery-slider">
-            <img src="/projects/cattree/cattree1.jpeg" alt="Cat Tree 1" class="active" />
-            <img src="/projects/cattree/cattree2.jpeg" alt="Cat Tree 2" />
-            <img src="/projects/cattree/cattree3.jpeg" alt="Cat Tree 3" />
-            <img src="/projects/cattree/cattree4.jpeg" alt="Cat Tree 4" />
-            <img src="/projects/cattree/cattree5.jpeg" alt="Cat Tree 5" />
-            <img src="/projects/cattree/cattree6.jpeg" alt="Cat Tree 6" />
-            <img src="/projects/cattree/cattree7.jpeg" alt="Cat Tree 7" />
-            <img src="/projects/cattree/cattree8.jpeg" alt="Cat Tree 8" />
-            <img src="/projects/cattree/cattree9.jpeg" alt="Cat Tree 9" />
-            <img src="/projects/cattree/cattree10.jpeg" alt="Cat Tree 10" />
-            <img src="/projects/cattree/cattree11.jpeg" alt="Cat Tree 11" />
-            <img src="/projects/cattree/cattree12.jpeg" alt="Cat Tree 12" />
-            <img src="/projects/cattree/cattree13.jpeg" alt="Cat Tree 13" />
-            <img src="/projects/cattree/cattree14.jpeg" alt="Cat Tree 14" />
-            <img src="/projects/cattree/cattree15.jpeg" alt="Cat Tree 15" />
+
+        <!-- HERO IMAGE -->
+
+        <section class="experience-timeline hero-section">
+
+          <div class="hero-image-wrap">
+
+            <img
+              src="/projects/cattree.jpeg"
+              alt="Cat Tree Gym"
+            />
+
           </div>
 
-          <button class="gallery-btn prev">❮</button>
-          <button class="gallery-btn next">❯</button>
-        </div>
-
-        <!-- 🔹 LIGHTBOX VIEWER -->
-        <div id="lightbox" class="lightbox">
-          <button class="close">&times;</button>
-          <button class="lightbox-nav prev">❮</button>
-          <button class="lightbox-nav next">❯</button>
-          <img id="lightbox-img" class="lightbox-content" />
-        </div>
-
-        <section class="back-link">
-          <a href="/projects">← Back to Projects</a>
         </section>
-      </section>
+
+
+        <!-- =====================================================
+             MAIN CONTENT CARD
+        ====================================================== -->
+
+        <section class="experience-timeline">
+
+          <div class="experience-card project-card">
+
+            <!-- =================================================
+                 01 · INTRODUCTION
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                01 · INTRODUCTION
+              </p>
+
+              <h2>
+                Project Info
+              </h2>
+
+              <div class="hardware-grid">
+
+                <div class="hardware-item">
+                  <span class="hardware-label">Project date</span>
+                  <span class="hardware-value">TBD</span>
+                </div>
+
+                <div class="hardware-item">
+                  <span class="hardware-label">Project type</span>
+                  <span class="hardware-value">Personal project</span>
+                </div>
+
+                <div class="hardware-item">
+                  <span class="hardware-label">My role</span>
+                  <span class="hardware-value">Concept Development, Mechanical Design &amp; Manufacturing</span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 02 · THE CHALLENGE
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                02 · THE CHALLENGE
+              </p>
+
+              <h2>
+                The Idea
+              </h2>
+
+              <p>
+                This project started with a personal motivation: I
+                noticed that one of my cats was gaining weight, and I
+                wanted to find a way to encourage him to be more
+                physically active.
+              </p>
+
+              <p>
+                Rather than simply buying a conventional cat tree, I
+                decided to design a structure that could work as a
+                <strong>small gym</strong> for him. The idea was to
+                create a multi-level environment where he could
+                climb, jump, scratch and rest, combining exercise
+                with play and exploration.
+              </p>
+
+              <p>
+                I wanted the structure to offer different challenges
+                while remaining comfortable and safe for everyday
+                use. This led to the concept of a
+                <strong>three-level cat tree</strong> with additional
+                climbing elements, designed to encourage movement and
+                make better use of vertical space.
+              </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 03 · MY CONTRIBUTION
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                03 · MY CONTRIBUTION
+              </p>
+
+              <h2>
+                Mechanical Design
+              </h2>
+
+              <p>
+                I was responsible for the concept development and
+                complete mechanical design of the cat tree. Using
+                <em>Solid Edge</em>, I modeled the structure at full
+                scale, defining the dimensions, platform arrangement,
+                support positions and connections between the
+                different components.
+              </p>
+
+              <p>
+                I focused on creating a stable structure that could
+                withstand the dynamic movements of a cat, considering
+                how its weight would be distributed across the
+                different levels. I also designed the modular side
+                elements to add height and create additional
+                opportunities for climbing and jumping.
+              </p>
+
+              <p>
+                Another important part of my work was preparing the
+                design for manufacturing. I developed the components
+                for <strong>CNC machining</strong>, paying attention
+                to dimensions, joints and assembly details to achieve
+                accurate parts and a clean final result. Beyond the
+                design stage, I operated the CNC machine myself under
+                the supervision of Julián, one of the university's
+                laboratory technicians — hands-on experience
+                translating my CAD models into physical components.
+              </p>
+
+              <div class="tags">
+                <span>Solid Edge</span>
+                <span>Concept Development</span>
+                <span>CNC Machining</span>
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 04 · FROM DESIGN TO REALITY
+            ================================================== -->
+
+            <div class="experience-section">
+
+              <p class="section-kicker">
+                04 · FROM DESIGN TO REALITY
+              </p>
+
+              <h2>
+                Bringing It to Life
+              </h2>
+
+              <p>
+                Once the design was completed, I moved on to
+                manufacturing and assembly. The platforms and base
+                structure were made from <strong>triplex wood</strong>,
+                while <strong>PVC tubes</strong> were used as
+                structural supports and scratching posts. I wrapped
+                the tubes with <strong>natural rope</strong> to create
+                surfaces suitable for scratching and climbing.
+              </p>
+
+              <p>
+                I carried out the CNC machining of the wooden
+                components under Julián's supervision. During the
+                construction and assembly process, I also received
+                support from Sebastián, another university laboratory
+                technician. Together, we worked on fitting the
+                different components and assembling the structure.
+              </p>
+
+              <p>
+                To improve the durability of the wood, I applied a
+                natural protective coating made from beeswax and
+                mineral oil. I also sanded the surfaces and softened
+                the edges to make the structure more comfortable and
+                suitable for everyday use. The final assembly brought
+                together the different platforms, supports and
+                climbing elements into a multi-level structure
+                designed specifically around my cat's needs.
+              </p>
+
+              <div class="tags">
+                <span>Triplex Wood</span>
+                <span>PVC</span>
+                <span>Natural Rope</span>
+                <span>Beeswax Finish</span>
+              </div>
+
+            </div>
+
+
+            <!-- GALLERY -->
+
+            <div class="experience-gallery-section">
+
+              <h3>
+                Project Gallery
+              </h3>
+
+              <div class="gallery-container">
+
+                <div class="gallery-slider">
+
+                  {
+                    gallery.map((item, i) => (
+                      item.type === "video" ? (
+                        <video
+                          src={item.src}
+                          class:list={{ active: i === 0 }}
+                          muted
+                          loop
+                          playsinline
+                          preload="metadata"
+                        />
+                      ) : (
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          class:list={{ active: i === 0 }}
+                          loading={i === 0 ? "eager" : "lazy"}
+                        />
+                      )
+                    ))
+                  }
+
+                </div>
+
+
+                <button
+                  class="gallery-btn prev"
+                  type="button"
+                  aria-label="Previous item"
+                >
+                  ❮
+                </button>
+
+
+                <button
+                  class="gallery-btn next"
+                  type="button"
+                  aria-label="Next item"
+                >
+                  ❯
+                </button>
+
+
+                <div class="gallery-counter">
+
+                  <span id="gallery-current">
+                    1
+                  </span>
+
+                  /
+
+                  <span>
+                    {gallery.length}
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 05 · RESULTS
+            ================================================== -->
+
+            <div class="experience-section learning-section">
+
+              <p class="section-kicker">
+                05 · RESULTS
+              </p>
+
+              <h2>
+                The Outcome
+              </h2>
+
+              <p>
+                The result was a custom-built cat tree that became
+                more than just a resting place. My cat quickly
+                adapted to the structure, using it to climb, scratch,
+                jump, play and relax throughout the day.
+              </p>
+
+              <p>
+                The project transformed a personal concern into a
+                practical design solution, combining mechanical
+                design, manufacturing and material selection with a
+                clear everyday purpose.
+              </p>
+
+              <p>
+                For me, it was a rewarding opportunity to apply
+                engineering outside an academic setting and create
+                something directly useful. It also reminded me that
+                good design starts with understanding the needs of
+                the user, even when that user happens to have four
+                paws.
+              </p>
+
+              <blockquote>
+                Good design starts with understanding the needs of
+                the user — even when that user happens to have four
+                paws.
+              </blockquote>
+
+            </div>
+
+
+            <!-- BACK LINK -->
+
+            <div class="back-link-wrap">
+              <a href="/projects" class="back-link-pill">
+                <span>←</span>
+                Back to Projects
+              </a>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
     </main>
 
+
+    <!-- =======================================================
+         LIGHTBOX
+    ======================================================== -->
+
+    <div
+      id="lightbox"
+      class="lightbox"
+      aria-hidden="true"
+    >
+
+      <button
+        class="close"
+        type="button"
+        aria-label="Close viewer"
+      >
+        &times;
+      </button>
+
+
+      <button
+        class="lightbox-nav prev"
+        type="button"
+        aria-label="Previous item"
+      >
+        ❮
+      </button>
+
+
+      <img
+        id="lightbox-img"
+        class="lightbox-content"
+        src=""
+        alt=""
+      />
+
+      <video
+        id="lightbox-video"
+        class="lightbox-content"
+        controls
+        playsinline
+      />
+
+
+      <button
+        class="lightbox-nav next"
+        type="button"
+        aria-label="Next item"
+      >
+        ❯
+      </button>
+
+
+      <div class="lightbox-counter">
+
+        <span id="lightbox-current">
+          1
+        </span>
+
+        /
+
+        <span>
+          {gallery.length}
+        </span>
+
+      </div>
+
+    </div>
+
+
     <Footer />
+
+
+    <!-- =======================================================
+         GALLERY SCRIPT
+    ======================================================== -->
+
+    <script>
+      const items =
+        Array.from(
+          document.querySelectorAll<HTMLImageElement | HTMLVideoElement>(
+            ".gallery-slider img, .gallery-slider video"
+          )
+        );
+
+      const nextBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".gallery-btn.next"
+        );
+
+      const prevBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".gallery-btn.prev"
+        );
+
+      const lightbox =
+        document.getElementById("lightbox");
+
+      const lightboxImg =
+        document.getElementById(
+          "lightbox-img"
+        ) as HTMLImageElement | null;
+
+      const lightboxVideo =
+        document.getElementById(
+          "lightbox-video"
+        ) as HTMLVideoElement | null;
+
+      const closeBtn =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox .close"
+        );
+
+      const nextLightbox =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox-nav.next"
+        );
+
+      const prevLightbox =
+        document.querySelector<HTMLButtonElement>(
+          ".lightbox-nav.prev"
+        );
+
+      const galleryCurrent =
+        document.getElementById(
+          "gallery-current"
+        );
+
+      const lightboxCurrent =
+        document.getElementById(
+          "lightbox-current"
+        );
+
+      let index = 0;
+
+      /* =====================================================
+         SHOW ITEM
+      ====================================================== */
+
+      function showItem(newIndex: number) {
+        if (!items.length) {
+          return;
+        }
+
+        index =
+          (newIndex + items.length) %
+          items.length;
+
+        items.forEach(
+          (item, i) => {
+            const isActive = i === index;
+
+            item.classList.toggle(
+              "active",
+              isActive
+            );
+
+            if (item.tagName === "VIDEO") {
+              const video = item as HTMLVideoElement;
+
+              if (isActive) {
+                video.play().catch(() => {});
+              } else {
+                video.pause();
+                video.currentTime = 0;
+              }
+            }
+          }
+        );
+
+        if (galleryCurrent) {
+          galleryCurrent.textContent =
+            String(index + 1);
+        }
+      }
+
+      /* =====================================================
+         NEXT / PREVIOUS
+      ====================================================== */
+
+      function nextItem() {
+        showItem(index + 1);
+      }
+
+      function previousItem() {
+        showItem(index - 1);
+      }
+
+      nextBtn?.addEventListener(
+        "click",
+        nextItem
+      );
+
+      prevBtn?.addEventListener(
+        "click",
+        previousItem
+      );
+
+      /* =====================================================
+         LIGHTBOX
+      ====================================================== */
+
+      function renderLightbox() {
+        if (
+          !lightboxImg ||
+          !lightboxVideo ||
+          !items[index]
+        ) {
+          return;
+        }
+
+        const current = items[index];
+
+        if (current.tagName === "VIDEO") {
+          lightboxVideo.src = current.getAttribute("src") ?? "";
+          lightboxVideo.style.display = "block";
+          lightboxVideo.play().catch(() => {});
+
+          lightboxImg.style.display = "none";
+        } else {
+          lightboxImg.src = (current as HTMLImageElement).src;
+          lightboxImg.alt = (current as HTMLImageElement).alt;
+          lightboxImg.style.display = "block";
+
+          lightboxVideo.pause();
+          lightboxVideo.style.display = "none";
+        }
+
+        if (lightboxCurrent) {
+          lightboxCurrent.textContent =
+            String(index + 1);
+        }
+      }
+
+      function openLightbox(itemIndex: number) {
+        if (
+          !lightbox ||
+          !items[itemIndex]
+        ) {
+          return;
+        }
+
+        index = itemIndex;
+
+        renderLightbox();
+
+        lightbox.classList.add("open");
+
+        lightbox.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+        document.body.style.overflow =
+          "hidden";
+      }
+
+      function closeLightbox() {
+        if (!lightbox) {
+          return;
+        }
+
+        lightboxVideo?.pause();
+
+        lightbox.classList.remove("open");
+
+        lightbox.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+        document.body.style.overflow =
+          "";
+      }
+
+      function updateLightbox(direction: number) {
+        lightboxVideo?.pause();
+
+        showItem(
+          index + direction
+        );
+
+        renderLightbox();
+      }
+
+      items.forEach(
+        (item, i) => {
+          item.addEventListener(
+            "click",
+            () => {
+              openLightbox(i);
+            }
+          );
+        }
+      );
+
+      nextLightbox?.addEventListener(
+        "click",
+        () => {
+          updateLightbox(1);
+        }
+      );
+
+      prevLightbox?.addEventListener(
+        "click",
+        () => {
+          updateLightbox(-1);
+        }
+      );
+
+      closeBtn?.addEventListener(
+        "click",
+        closeLightbox
+      );
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          if (
+            lightbox?.classList.contains(
+              "open"
+            )
+          ) {
+            if (
+              event.key ===
+              "ArrowRight"
+            ) {
+              event.preventDefault();
+              updateLightbox(1);
+            }
+
+            if (
+              event.key ===
+              "ArrowLeft"
+            ) {
+              event.preventDefault();
+              updateLightbox(-1);
+            }
+
+            if (
+              event.key ===
+              "Escape"
+            ) {
+              event.preventDefault();
+              closeLightbox();
+            }
+
+            return;
+          }
+
+          if (
+            event.key ===
+            "ArrowRight"
+          ) {
+            nextItem();
+          }
+
+          if (
+            event.key ===
+            "ArrowLeft"
+          ) {
+            previousItem();
+          }
+        }
+      );
+
+      lightbox?.addEventListener(
+        "click",
+        (event) => {
+          if (
+            event.target ===
+            lightbox
+          ) {
+            closeLightbox();
+          }
+        }
+      );
+
+      showItem(0);
+    </script>
+
   </body>
 </html>
 
-<script>
-  const images = document.querySelectorAll(".gallery-slider img");
-  const nextBtn = document.querySelector(".gallery-btn.next");
-  const prevBtn = document.querySelector(".gallery-btn.prev");
-  let index = 0;
-
-  const showImage = (i) => {
-    images.forEach((img, idx) => img.classList.remove("active"));
-    images[i].classList.add("active");
-  };
-
-  nextBtn.addEventListener("click", () => {
-    index = (index + 1) % images.length;
-    showImage(index);
-  });
-
-  prevBtn.addEventListener("click", () => {
-    index = (index - 1 + images.length) % images.length;
-    showImage(index);
-  });
-
-  // Navegación con flechas del teclado
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") {
-      index = (index + 1) % images.length;
-      showImage(index);
-    } else if (e.key === "ArrowLeft") {
-      index = (index - 1 + images.length) % images.length;
-      showImage(index);
-    }
-  });
-
-  // Lightbox
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const closeBtn = document.querySelector(".close");
-  const nextLightbox = document.querySelector(".lightbox-nav.next");
-  const prevLightbox = document.querySelector(".lightbox-nav.prev");
-
-  const openLightbox = (i) => {
-    index = i;
-    lightbox.style.display = "flex";
-    lightboxImg.src = images[i].src;
-  };
-
-  images.forEach((img, i) => {
-    img.addEventListener("click", () => openLightbox(i));
-  });
-
-  const updateLightbox = (dir) => {
-    index = (index + dir + images.length) % images.length;
-    lightboxImg.src = images[index].src;
-  };
-
-  nextLightbox.addEventListener("click", () => updateLightbox(1));
-  prevLightbox.addEventListener("click", () => updateLightbox(-1));
-
-  closeBtn.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (lightbox.style.display === "flex") {
-      if (e.key === "ArrowRight") updateLightbox(1);
-      if (e.key === "ArrowLeft") updateLightbox(-1);
-      if (e.key === "Escape") lightbox.style.display = "none";
-    }
-  });
-</script>
 
 <style>
-.project-page {
-  color: var(--color-text);
-  line-height: 1.7;
+/* =========================================================
+   Mismas clases base que scara.astro / robot.astro / iot.astro.
+   ========================================================= */
+
+.experience-bg {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 3rem 0 5rem;
+  background-image: url("/textures/paper-texture.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: transparent;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-/* Hero */
-.project-hero {
-  position: relative;
-  height: 60vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.experience-shell {
+  width: 100%;
+  max-width: 1200px;
+  margin: 1rem auto 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  box-sizing: border-box;
+}
+
+.experience-shell .experience-header {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto 2rem;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
   overflow: hidden;
 }
 
-.hero-img {
+.experience-header h1 {
+  margin: 0;
+  color: var(--color-deep);
+  font-size: clamp(2.3rem, 6.5vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+}
+
+.experience-intro {
+  width: min(700px, 100%);
+  margin: 1.5rem auto 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.experience-shell .experience-timeline {
+  width: 100%;
+  margin: 0 auto 2rem;
+  padding: 3rem 2rem 4rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.experience-shell .experience-timeline:last-child {
+  margin-bottom: 0;
+}
+
+.experience-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(4px);
+}
+
+/* HERO IMAGE */
+
+.hero-section {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.hero-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(55%);
+  display: block;
+  filter: saturate(1.05);
 }
 
-.overlay {
-  position: absolute;
-  text-align: center;
-  color: white;
-  z-index: 2;
+/* SECTIONS */
+
+.experience-section {
+  width: 100%;
+  min-width: 0;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.overlay h1 {
-  font-size: 2.5rem;
-  font-family: var(--font-title);
-  margin-bottom: 0.5rem;
+.experience-section:last-of-type {
+  border-bottom: none;
 }
 
-/* Content */
-.project-content {
-  max-width: 900px;
-  margin: 4rem auto;
-  padding: 0 2rem;
-}
-
-.project-content h2 {
+.section-kicker {
+  margin: 0 0 0.6rem;
   color: var(--color-accent);
-  margin-top: 2rem;
-  margin-bottom: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-/* Gallery */
+.experience-section h2 {
+  margin: 0 0 1.2rem;
+  color: var(--color-deep);
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.experience-section p {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  text-align: justify;
+  overflow-wrap: anywhere;
+}
+
+.experience-section p:last-of-type {
+  margin-bottom: 0;
+}
+
+.learning-section blockquote {
+  margin: 1.5rem 0 0;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--color-deep);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* TAGS */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.tags span {
+  max-width: 100%;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-deep);
+  font-size: 0.75rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* HARDWARE / SYSTEM GRID */
+
+.hardware-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.hardware-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.hardware-label {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hardware-value {
+  color: var(--color-deep);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* BACK LINK */
+
+.back-link-wrap {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.back-link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.3rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.back-link-pill:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  transform: translateX(-3px);
+}
+
+/* GALLERY */
+
+.experience-gallery-section {
+  width: 100%;
+  min-width: 0;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.experience-gallery-section h3 {
+  margin: 0 0 1.2rem;
+  color: var(--color-deep);
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
 .gallery-container {
   position: relative;
-  max-width: 850px;
-  margin: 3rem auto;
+  width: 100%;
+  max-width: 900px;
+  margin: 1.5rem auto 0;
   overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .gallery-slider {
   position: relative;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.gallery-slider img {
+.gallery-slider img,
+.gallery-slider video {
   position: absolute;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 14px;
-  cursor: pointer;
+  display: block;
+  object-fit: contain;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.04);
+  cursor: zoom-in;
+  transition: opacity 0.4s ease;
 }
 
-.gallery-slider img.active {
+.gallery-slider img.active,
+.gallery-slider video.active {
   opacity: 1;
   z-index: 1;
 }
@@ -271,94 +1129,240 @@ import Footer from "../../components/Footer.astro";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.45);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 50%;
   z-index: 5;
-  transition: background 0.3s;
+  width: clamp(2.2rem, 5vw, 3rem);
+  height: clamp(2.2rem, 5vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(30, 30, 30, 0.65);
+  color: var(--color-bg);
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .gallery-btn:hover {
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(30, 30, 30, 0.9);
+  transform: translateY(-50%) scale(1.08);
 }
 
-.gallery-btn.prev { left: 10px; }
-.gallery-btn.next { right: 10px; }
+.gallery-btn.prev {
+  left: clamp(0.5rem, 2vw, 1.2rem);
+}
 
-/* Lightbox */
+.gallery-btn.next {
+  right: clamp(0.5rem, 2vw, 1.2rem);
+}
+
+.gallery-counter {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(0.6rem, 2vw, 1rem);
+  transform: translateX(-50%);
+  z-index: 5;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(30, 30, 30, 0.7);
+  color: white;
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  letter-spacing: 0.05em;
+}
+
+/* LIGHTBOX */
+
 .lightbox {
-  display: none;
   position: fixed;
-  z-index: 100;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
-  justify-content: center;
+  z-index: 9999;
+  display: none;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(15, 15, 15, 0.94);
+}
+
+.lightbox.open {
+  display: flex;
 }
 
 .lightbox-content {
-  max-width: 90%;
-  max-height: 85%;
-  border-radius: 12px;
-  animation: fadeIn 0.4s ease;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
 }
 
-.close {
+video.lightbox-content {
+  display: none;
+  background: #000;
+}
+
+.lightbox .close {
   position: absolute;
-  top: 25px;
-  right: 35px;
-  background: none;
-  color: white;
-  font-size: 2.5rem;
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  z-index: 10;
+  width: clamp(2.2rem, 5vw, 3rem);
+  height: clamp(2.2rem, 5vw, 3rem);
   border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   cursor: pointer;
-  z-index: 110;
+}
+
+.lightbox .close:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .lightbox-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
-  color: white;
-  font-size: 3rem;
+  z-index: 10;
+  width: clamp(2.5rem, 6vw, 3.5rem);
+  height: clamp(2.5rem, 6vw, 3.5rem);
   border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   cursor: pointer;
-  padding: 0 1rem;
-  z-index: 110;
 }
 
-.lightbox-nav.prev { left: 25px; }
-.lightbox-nav.next { right: 25px; }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.97); }
-  to { opacity: 1; transform: scale(1); }
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
-/* Back link */
-.back-link {
-  text-align: center;
-  margin-top: 3rem;
+.lightbox-nav.prev {
+  left: clamp(0.5rem, 3vw, 2rem);
 }
 
-.back-link a {
-  color: var(--color-accent);
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  transition: color 0.3s ease, transform 0.3s ease;
-  text-decoration: none;
+.lightbox-nav.next {
+  right: clamp(0.5rem, 3vw, 2rem);
 }
 
-.back-link a:hover {
-  color: var(--color-deep);
-  transform: translateX(-4px);
+.lightbox-counter {
+  position: absolute;
+  bottom: clamp(1rem, 3vw, 2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  letter-spacing: 0.08em;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .experience-bg {
+    background-attachment: scroll;
+    padding: 2rem 0 4rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1.5rem);
+    padding: 1.5rem;
+  }
+
+  .experience-shell .experience-timeline {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .experience-card {
+    padding: 1.8rem;
+  }
+
+  .hero-image-wrap {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 700px) {
+  .experience-bg {
+    padding: 1rem 0 3rem;
+  }
+
+  .experience-shell {
+    width: calc(100% - 1rem);
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .experience-shell .experience-header {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .experience-header h1 {
+    font-size: clamp(2rem, 11vw, 3.2rem);
+  }
+
+  .experience-shell .experience-timeline {
+    width: 100%;
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .experience-card {
+    width: 100%;
+    padding: 1.4rem;
+  }
+
+  .experience-section {
+    padding: 1.75rem 0;
+  }
+
+  .hero-image-wrap {
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+  }
+
+  .gallery-slider {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 500px) {
+  .experience-shell {
+    width: calc(100% - 0.75rem);
+    padding: 0.75rem;
+  }
+
+  .experience-shell .experience-header {
+    width: 100%;
+    padding: 2.25rem 1rem;
+  }
+
+  .experience-shell .experience-timeline {
+    width: 100%;
+    padding: 1.25rem 0.85rem 2rem;
+  }
+
+  .experience-card {
+    padding: 1.15rem;
+  }
+
+  .experience-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .experience-section p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .lightbox-content {
+    max-width: 94vw;
+    max-height: 78vh;
+  }
 }
 </style>
